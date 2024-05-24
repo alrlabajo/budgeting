@@ -75,7 +75,6 @@ Route::get('/amendment', Amendment::class);
 
 Route::get('/BUR-form', BurForm::class);
 
-
 Route::get('/amendment-form', AmendmentForm::class);
 
 Route::get('/capital-outlay-form', CapitalOutlayForm::class); 
