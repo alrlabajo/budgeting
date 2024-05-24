@@ -9,7 +9,7 @@
                     <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Capital Outlay Form No.</label>
                 </div>
                 <div class="flex ml-[835px] mt-[-50px] items-start">
-                    @include('components\layouts.capital-buttons')
+                    @include('components.capital-buttons')
                 </div>
             </div>
         </div>

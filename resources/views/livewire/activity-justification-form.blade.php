@@ -1,6 +1,6 @@
 <div class="px-6 py-32">
 
-<!-- Header -->
+    <!-- Header -->
     <div class="w-96 h-9 justify-between items-center inline-flex py-10">
         <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Activity Justification Document</label>
     </div>
@@ -9,15 +9,15 @@
 
         <div class="flex justify-between py-6">
             <!-- Select College/Office -->
-            <div class="w-[280px] rounded-lg">
-                <select id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+            <div class="w-80 rounded-lg">
+                <select id="college_office" name="college_office" class="block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                     <option disabled selected>Select College/Office</option>
                     <option value="College 1">College 1</option>
                     <option value="College 2">College 2</option>
                     <option value="">...</option>
                 </select>
             </div>
-            @include('components.import-export-add-buttons')
+            @include('components.import-button')
         </div>
         
 
@@ -80,10 +80,10 @@
                 <input type="number" step="0.01" id="activity-cost" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0"></input>
             </form>
         </div>
-    </div>
 
-    <div class="flex justify-between py-6">
-        @include('components.back-button')
-        @include('components.submit-button')
+        <div class="flex justify-between py-6">
+            @include('components.back-button')
+            @include('components.submit-button')
+        </div>
     </div>
 </div>

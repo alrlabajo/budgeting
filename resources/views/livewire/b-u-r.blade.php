@@ -9,7 +9,7 @@
                     <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Budget Utilization Request Form No.</label>
                 </div>
                 <div class="flex ml-[835px] mt-[-50px] items-start">
-                    @include('components\layouts.bur-import-export-add')
+                    @include('components.bur-import-export-add')
                 </div>
             </div>
         </div>
@@ -55,8 +55,8 @@
                     <td class="py-4 text-center text-sm font-medium">
                         <!-- Edit/Delete -->
                         <div class="flex flex-col items-start gap-y-2 px-2">
-                            @include('components\layouts.edit-modal')
-                            @include('components\layouts.delete-modal')
+                            @include('components.edit-modal')
+                            @include('components.delete-modal')
                         </div>
                     </td>
                 </tr>
@@ -77,8 +77,8 @@
                     <td class="px-2 py-4 text-right text-sm font-medium">
                         <!-- Edit/Delete -->
                         <div class="flex flex-col items-start gap-y-2 px-2">
-                            @include('components\layouts.edit-modal')
-                            @include('components\layouts.delete-modal')
+                            @include('components.edit-modal')
+                            @include('components.delete-modal')
                         </div>
                     </td>
                 </tr>

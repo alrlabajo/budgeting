@@ -1,4 +1,4 @@
-<div class="flex flex-row grow justify-end gap-x-2 my-[1px]">
+<div class="flex flex-row grow justify-end gap-2">
 
     <!-- Progress -->
     <select id="school-year" name="schoolYear" class="text-black text-sm font-normal font-inter leading-tight w-24 h-10 pl-2 py-1 bg-white rounded-lg border border-zinc-300 justify-start items-center gap-3 inline-flex">
