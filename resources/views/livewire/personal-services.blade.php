@@ -2,7 +2,7 @@
     <!-- Header -->
     <div class="flex w-full">
         <div class="w-full rounded-lg p-4 relative">
-            <div class="absolute shadow inset-x-0 bottom-0 h-[1px] bg-gray-200"></div>
+            <div class="absolute shadow inset-x-0 bottom-0"></div>
             <div class="flex flex-col gap-y-1.5 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Personal Services
                 <div class="flex flex-row items-center">
                     <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call Forms ></label>
