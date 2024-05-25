@@ -21,8 +21,6 @@
                     <div class="bg-white w-24 text-black py-1 px-2 rounded-md" id="entry-count">Entry 1</div>
                         <button class="text-gray-700 whitespace-nowrap" onclick="addEntry()">+ New Entry</button>
                 </div>
-
-
             </div>
             @include('components.import-button')
         </div>

@@ -4,8 +4,13 @@
         <!-- Header -->
         <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div>
 
+        <div class="flex items-center text-center space-x-2 w-56 bg-gray-200 text-gray-700 p-1 rounded-md shadow-md font-['Inter']">
+                    <div class="bg-white w-24 text-black py-1 px-2 rounded-md" id="entry-count">Entry 1</div>
+                        <button class="text-gray-700 whitespace-nowrap" onclick="addEntry()">+ New Entry</button>
+                </div>
+
         <!-- No. -->
-        <div class="w-[150px] h-[60px] px-5 py-3.5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-start items-start gap-2.5 inline-flex">
+        <div class="w-40 h-16 px-5 py-3.5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-start items-start gap-2.5 inline-flex">
             <form class="space-y-2" action="#">
                 <div class="flex justify-center items-center flex-row">
                     <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal mr-2">No.</label>

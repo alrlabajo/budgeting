@@ -1,6 +1,37 @@
 <div class="px-6 py-32">
     <!-- Header -->
-    <div class="text-black text-2xl font-medium font-['Inter'] leading-9">Amendment</div>
+    <div class="text-black text-2xl font-medium font-['Inter'] leading-9 pb-5">Amendment</div>
+
+    <div class="flex flex-col space-y-6">
+        <div class="flex items-center text-center space-x-2 w-56 bg-gray-200 text-gray-700 p-1 rounded-md shadow-md font-['Inter']">
+            <div class="bg-white w-24 text-black py-1 px-2 rounded-md" id="entry-count">Entry 1</div>
+            <button class="text-gray-700 whitespace-nowrap" onclick="addEntry()">+ New Entry</button>
+        </div>
+
+        <div class="w-80 rounded-lg">
+            <select id="college_office" name="college_office" class="block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+                <option disabled selected>Select College/Office</option>
+                <option value="College 1">College 1</option>
+                <option value="College 2">College 2</option>
+                <option value="">...</option>
+            </select>
+        </div>
+
+        <div class="w-40 h-16 px-5 py-3.5 relative bg-white rounded-xl shadow border border-zinc-200 content-center justify-start">
+            <form class="space-y-2" action="#">
+                <div class="flex justify-center items-center flex-row">
+                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal mr-2">No.</label>
+                    <div class="flex">
+                        <input type="number" id="bur-no." class="w-20 h-8 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="0" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        
+    </div>
+
+    
 
     <!-- 1st COntainer -->
     <div class="flex flex-col sm:flex-row sm:gap-x-6 sm:my-10">
