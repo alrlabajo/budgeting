@@ -19,7 +19,7 @@
                 </div>
                 <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
             </div>
-            @include('components.import-export-add-buttons')
+            @include('components.import-button')
         </div>
 
         <table class="min-w-full divide-y divide-gray-200 items-center">
@@ -36,13 +36,20 @@
                     <td class="text-sm text-black border border-slate-300"></td>
                     <td class="text-sm text-black border border-slate-300"></td>
                     <td class="text-sm text-black border border-slate-300">
-                        <input type="text" class="form-input block w-full border border-transparent" placeholder="Enter text">
+                        <input type="number" step="0.01" class="form-input block w-full border border-transparent text-center" placeholder="₱ 00.00">
                     </td>
                     <td class="text-sm text-black border border-slate-300">
-                    <input type="text" class="form-input block w-full border border-transparent" placeholder="Enter text">
+                    <input type="text" class="form-input block w-full border border-transparent text-center" placeholder="Enter text">
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold text-black">Total Personal Services</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-t border-gray-200 text-center">Total Value 1</td>
+                    <td></td>
+                </tr>
+            </tfoot>
         </table>
 
         <div class="flex justify-between py-4">
