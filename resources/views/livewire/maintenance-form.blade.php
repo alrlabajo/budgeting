@@ -36,10 +36,10 @@
                     <td class="text-sm text-black border border-slate-300"></td>
                     <td class="text-sm text-black border border-slate-300"></td>
                     <td class="text-sm text-black border border-slate-300">
-                        <input type="number" step="0.01" class="form-input block w-full border border-transparent text-center" placeholder="₱ 00.00">
+                        <input type="number" step="0.01" id="mooe-budget" class="form-input block w-full border border-transparent text-center" placeholder="₱ 00.00">
                     </td>
                     <td class="text-sm text-black border border-slate-300">
-                    <input type="text" class="form-input block w-full border border-transparent" placeholder="Enter text">
+                    <input type="text" id="mooe-justification" class="form-input block w-full border border-transparent" placeholder="Enter text">
                     </td>
                 </tr>
             </tbody>

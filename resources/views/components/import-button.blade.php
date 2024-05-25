@@ -1,6 +1,6 @@
 <div class="flex flex-row grow justify-end gap-x-2 my-[1px]">
     <!-- Import Modal toggle -->
-    <button data-modal-target="import-modal" data-modal-toggle="import-modal" class="w-20 h-10 px-4 bg-indigo-50 rounded-lg shadow border border-indigo-50 justify-center items-center gap-2 inline-flex text-indigo-800 text-sm font-semibold font-['Inter'] leading-tight" type="button">Import</button>
+    <button data-modal-target="import-modal" data-modal-toggle="import-modal" class="font-['Inter']w-20 h-10 px-4 bg-indigo-50 rounded-lg shadow border border-indigo-50 justify-center items-center gap-2 inline-flex text-indigo-800 text-sm font-semibold font-['Inter'] leading-tight" type="button">Import</button>
 
     <!-- Import modal -->
     <div id="import-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

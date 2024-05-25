@@ -12,7 +12,7 @@
 
     <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
-        <select id="college_office" name="college_office" class="block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+        <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
             <option disabled selected>Select College/Office</option>
             <option value="College 1">College 1</option>
             <option value="College 2">College 2</option>

@@ -36,10 +36,10 @@
                     <td class="text-sm text-black border border-slate-300"></td>
                     <td class="text-sm text-black border border-slate-300"></td>
                     <td class="text-sm text-black border border-slate-300">
-                        <input type="number" step="0.01" class="form-input block w-full border border-transparent" placeholder="₱ 00.00">
+                        <input type="number" step="0.01" id="capital-budget" class="form-input block w-full border border-transparent" placeholder="₱ 00.00">
                     </td>
                     <td class="text-sm text-black border border-slate-300">
-                    <input type="text" class="form-input block w-full border border-transparent" placeholder="Description">
+                    <input type="text" id="capital-justification" class="form-input block w-full border border-transparent" placeholder="Description">
                     </td>
                 </tr>
             </tbody>
