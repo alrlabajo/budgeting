@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mooe', function (Blueprint $table) {
-            $table->integerincrements('mooe_no');
             $table->string('college_office');
             $table->string('account_code');
             $table->string('items_expenditure');

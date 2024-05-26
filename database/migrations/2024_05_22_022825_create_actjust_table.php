@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actjust', function (Blueprint $table) {
-            $table->integerincrements('actjust_id');
             $table->string('college_office');
             $table->string('statement_major');
             $table->string('statement_specific');
