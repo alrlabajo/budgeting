@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('amendment', function (Blueprint $table) {
             $table->integer('plan_no_revised');
             $table->date('date_revision');
-            $table->decimal('planned_ammount', 10, 2);
+            $table->decimal('planned_amount', 10, 2);
             $table->date('date_submission');
             $table->integer('item_No');
             $table->string('description');

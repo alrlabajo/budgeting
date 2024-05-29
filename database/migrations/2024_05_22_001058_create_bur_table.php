@@ -19,7 +19,7 @@ class CreateBurTable extends Migration
             $table->string('responsibility_center');
             $table->string('account_code');
             $table->string('particulars');
-            $table->decimal('ammount', 10, 2);
+            $table->decimal('amount', 10, 2);
             $table->timestamps();
         });
     }
