@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
         @vite(['resources/css/app.css','resources/js/app.js'])
-        
+
         @livewireStyles
 
         <title>{{ $title ?? 'Page Title' }}</title>
@@ -22,6 +22,7 @@
         </style>
     </head>
     <body>
+        @include('components.nav-bar')
         {{$slot}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>

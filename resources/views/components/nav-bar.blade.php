@@ -16,7 +16,7 @@
                         <span class="flex items-center w-80 text-indigo-800 text-2xl font-extrabold font-['Inter'] ml-3 leading-10">PLM Budget System</span>
                     </a>
                 </div>
-                    
+
                 <!--Search Bar--> <!-- NEED FUNCTIONALITY -->
                 <div class="hidden sm:flex items-left ml-[-20px]">
                     <div class="relative">
@@ -206,7 +206,6 @@
 
     <div class="sm:ml-64">
         <div class="rounded-lg dark:border-gray-700">
-            {{ $slot }}
         </div>
     </div>
 </div>
