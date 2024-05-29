@@ -39,7 +39,7 @@
                         <input type="number" step="0.01" id="capital-budget" class="form-input block w-full border border-transparent text-center" placeholder="₱ 00.00">
                     </td>
                     <td class="text-sm text-black border border-slate-300">
-                    <input type="text" id="capital-justification" class="form-input block w-full border border-transparent text-center" placeholder="Description">
+                        <input type="text" id="capital-justification" class="form-input block w-full border border-transparent text-center" placeholder="Description">
                     </td>
                 </tr>
             </tbody>
