@@ -4,17 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateMooesTable extends Migration
 {
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('mooe', function (Blueprint $table) {
+        Schema::create('mooes', function (Blueprint $table) {
+            $table->integerincrements('mooe_id');
             $table->string('college_office');
             $table->string('account_code');
-            $table->string('items_expenditure');
+            $table->string('item');
             $table->decimal('budget', 10, 2);
             $table->string('justification');
             $table->timestamps();
@@ -24,7 +25,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('mooe');
     }

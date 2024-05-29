@@ -45,7 +45,7 @@
                         <th scope="col" class="px-6 py-3">Account Code</th>
                         <th scope="col" class="pr-10 py-3">Item of Expenditures</th>
                         <th scope="col" class="px-6 py-3">Proposed Budget</th>
-                        <th scope="col" class="px-6 py-3 text-center">Justification</th>
+                        <th scope="col" class="px-6 py-3">Justification</th>
                     </tr>
                 </thead>
                 <!-- Body -->
