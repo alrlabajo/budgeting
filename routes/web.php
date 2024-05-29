@@ -22,6 +22,7 @@ use App\Livewire\AmendmentForm;
 use App\Livewire\Appropriations;
 use Illuminate\Support\Facades\DB;
 
+use App\Livewire\LoadCapitalOutlay;
 
 
 /*
@@ -59,7 +60,7 @@ Route::get('/MOOE', Mooe::class);
 
 Route::get('/MOOE-form', MaintenanceForm::class);
 
-Route::get('/capital-outlay', CapitalOutlay::class);
+Route::get('/capital-outlay', LoadCapitalOutlay::class);
 
 Route::get('/capital-outlay-form', CapitalOutlayForm::class);
 
@@ -77,7 +78,7 @@ Route::get('/BUR-form', BurForm::class);
 
 Route::get('/amendment-form', AmendmentForm::class);
 
-Route::get('/capital-outlay-form', CapitalOutlayForm::class); 
+Route::get('/capital-outlay-form', CapitalOutlayForm::class);
 
 
 Route::get('/test-db', function () {

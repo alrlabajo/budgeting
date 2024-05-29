@@ -30,12 +30,14 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
+                @foreach ($load_capital_outlay as $capital_outlay)
                 <tr class="items-center">
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->created_at}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->account_code}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->item}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->budget}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->justification}}</td>
+                @endforeach
                 </tr>
             </tbody>
             <tfoot>
@@ -45,6 +47,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-y border-r border-slate-300 text-center"></td>
                 </tr>
             </tfoot>
+
         </table>
     </div>
 </div>

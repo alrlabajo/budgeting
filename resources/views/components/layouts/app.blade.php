@@ -25,6 +25,6 @@
         @include('components.nav-bar')
         {{$slot}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
+        @livewireScripts
     </body>
 </html>

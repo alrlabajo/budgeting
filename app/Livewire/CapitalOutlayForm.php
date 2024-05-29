@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class CapitalOutlayForm extends Component
 {
-    public $collegeOffice;
+    public $college_office = '';
     public $items = [
         ['account_code' => '1-07-04-020', 'item' => 'School Buildings', 'budget' => '', 'justification' => ''],
         ['account_code' => '1-07-05-020', 'item' => 'Office Equipment', 'budget' => '', 'justification' => ''],
@@ -25,7 +25,7 @@ class CapitalOutlayForm extends Component
     ];
 
     protected $rules = [
-        'collegeOffice' => 'required',
+        'college_office' => 'required',
         'items.*.budget' => 'required|numeric|min:0',
         'items.*.justification' => 'required|string|max:255',
     ];
@@ -41,13 +41,15 @@ class CapitalOutlayForm extends Component
         $this->validate();
 
         // Log data for debugging
-        Log::info('Submitting data', ['college_office' => $this->collegeOffice, 'items' => $this->items]);
+        Log::info('Submitting data', ['college_office' => $this->college_office, 'items' => $this->items]);
 
         // Insert data into database
+
         try {
             foreach ($this->items as $item) {
+                // dd("Inserting data into database");
                 CapitalOutlay::create([
-                    'college_office' => $this->collegeOffice,
+                    'college_office' => $this->college_office,
                     'account_code' => $item['account_code'],
                     'item' => $item['item'],
                     'budget' => $item['budget'],
@@ -57,11 +59,19 @@ class CapitalOutlayForm extends Component
 
             // Flash success message
             session()->flash('message', 'Form submitted successfully.');
+            $this->reset();
         } catch (\Exception $e) {
             // Log error
             Log::error('Error submitting data', ['error' => $e->getMessage()]);
-            session()->flash('message', 'There was an error submitting the form.');
+            // Throw the exception
+            throw $e;
         }
+
+        // catch (\Exception $e) {
+        //     // Log error
+        //     Log::error('Error submitting data', ['error' => $e->getMessage()]);
+        //     session()->flash('message', 'There was an error submitting the form.');
+        // }
     }
 
     public function render()
