@@ -14,9 +14,9 @@
 
         <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
             <option disabled selected>Select College/Office</option>
-            <option value="College 1">College 1</option>
-            <option value="College 2">College 2</option>
-            <option value="">...</option>
+            @foreach ($college_office as $college)
+                <option value="{{$college}}">{{$college}}</option>
+            @endforeach
         </select>
 
         <table class="min-w-full divide-y divide-gray-200 items-center">
