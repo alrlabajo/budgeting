@@ -31,11 +31,11 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="items-center">
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
+                    <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                    <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                    <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                    <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                    <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                 </tr>
             </tbody>
         </table>

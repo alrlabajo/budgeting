@@ -33,13 +33,13 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="items-center">
-                    <td class="text-sm text-black border border-slate-300"></td>
-                    <td class="text-sm text-black border border-slate-300"></td>
-                    <td class="text-sm text-black border border-slate-300">
-                        <input type="number" step="0.01" id="services-budget" class="form-input block w-full border border-transparent text-center" placeholder="₱ 00.00">
+                    <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
+                    <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
+                    <td class="text-sm text-black border border-slate-300 ">
+                        <input type="number" step="0.01" id="services-budget" class="px-2 py-3 form-input block w-full border border-transparent text-center" placeholder="₱ 00.00">
                     </td>
                     <td class="text-sm text-black border border-slate-300">
-                    <input type="text" id="services-justification" class="form-input block w-full border border-transparent text-center" placeholder="Enter text">
+                    <input type="text" id="services-justification" class="px-2 py-3 form-input block w-full border border-transparent text-center" placeholder="Enter text">
                     </td>
                 </tr>
             </tbody>

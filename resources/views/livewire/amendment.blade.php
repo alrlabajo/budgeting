@@ -9,7 +9,7 @@
                     <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Amendment Form No.</label>
                 </div>
                 <div class="flex ml-[835px] mt-[-50px] items-start">
-                    @include('components\layouts.amendment-import-export-add')
+                    @include('components.amendment-import-export-add')
                 </div>
             </div>
         </div>
@@ -53,13 +53,13 @@
                                 <ul class="py-2 text-sm text-gray-900 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
                                     <li class="hover:bg-gray-200 dark:hover:bg-gray-200 dark:hover:text-black">
                                         <div class="w-24 px-1.5 py-1 rounded justify-start items-center gap-1.5 inline-flex z-50">
-                                            @include('components\layouts.edit-modal')
+                                            @include('components.edit-modal')
                                         </div>
                                     </li>
                                     <li class="hover:bg-gray-200 dark:hover:bg-gray-200 dark:hover:text-black">
                                         <div class="w-24 px-1.5 py-1 rounded justify-start items-center gap-1.5 inline-flex">
                                             <div class="grow shrink basis-0 h-4 justify-start items-center gap-1.5 flex">
-                                                @include('components\layouts.delete-modal')
+                                                @include('components.delete-modal')
                                             </div>
                                         </div>
                                     </li>
