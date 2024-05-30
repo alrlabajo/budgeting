@@ -12,10 +12,10 @@
 
     <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
-        <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+        <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             <option disabled selected>Select College/Office</option>
             @foreach ($college_office as $college)
-                <option value="{{$college}}">{{$college}}</option>
+                <option value="{{ $college }}">{{ $college }}</option>
             @endforeach
         </select>
 
@@ -30,15 +30,15 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-                @foreach ($load_mooe as $capital_mooe)
-                <tr class="items-center">
-                    <td class="py-4 text-sm text-black border border-slate-300">{{$mooe->created_at}}</td>
-                    <td class="py-4 text-sm text-black border border-slate-300">{{$mooe->account_code}}</td>
-                    <td class="py-4 text-sm text-black border border-slate-300">{{$mooe->item}}</td>
-                    <td class="py-4 text-sm text-black border border-slate-300">{{$mooe->budget}}</td>
-                    <td class="py-4 text-sm text-black border border-slate-300">{{$mooe->justification}}</td>
+                @foreach ($load_mooe as $mooe)
+                    <tr class="items-center">
+                        <td class="py-4 text-sm text-black border border-slate-300">{{ $mooe->created_at}}</td>
+                        <td class="py-4 text-sm text-black border border-slate-300">{{ $mooe->account_code}}</td>
+                        <td class="py-4 text-sm text-black border border-slate-300">{{ $mooe->item}}</td>
+                        <td class="py-4 text-sm text-black border border-slate-300">{{ $mooe->budget}}</td>
+                        <td class="py-4 text-sm text-black border border-slate-300">{{ $mooe->justification}}</td>
+                    </tr>
                 @endforeach
-                </tr>
             </tbody>
             <tfoot>
                 <tr>
