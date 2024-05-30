@@ -1,5 +1,5 @@
 <div class="px-6 py-32">
-    
+
     <!-- Header -->
     <div class="w-96 h-9 justify-between items-center inline-flex py-10">
         <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Capital Outlay Document</label>
@@ -10,7 +10,7 @@
 
         <!-- Container -->
         <div class="w-full h-full px-10 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
-            
+
             <!-- Top Part of Container -->
             <div class="flex justify-between py-6">
 
@@ -18,12 +18,14 @@
 
                     <!-- Select College/Office -->
                     <div class="w-80 rounded-lg">
-                        <select wire:model="college_office" id="college_office" name="college_office"
+                        <select  wire:model="college_office" id="college_office" name="college_office"
                             class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             style="text-indent: 10px;">
-                            <option>Select College/Office</option>
-                            <option value="CISTM">CISTM</option>
-                            <option value="College 2">College 2</option>
+                            <option value="">Select College/Office</option>
+                            @foreach ($CollegeOffices as $college)
+                                <option value="{{$college}}"  >{{$college}}</option>
+                            @endforeach
+
                             <!-- Other options -->
                         </select>
                         @error('college_office')
@@ -33,7 +35,6 @@
 
                     <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
                 </div>
-                @include('components.import-button')
             </div>
 
             @csrf
@@ -90,25 +91,15 @@
                 </tbody>
             </table>
 
-
             <!-- Bottom Buttons -->
             <div class="flex justify-between py-4">
-                @include('components.back-button')
+                @livewire('back-button')
                 <button wire:click.prevent="submit" id="submit-btn"
                     class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
                 </button>
             </div>
-
         </div>
-
     </form>
-
-    @foreach ($items as $index => $item)
-        <?php
-            echo $item['budget'];
-            echo $item['justification'];
-        ?>
-    @endforeach
 
 
 
