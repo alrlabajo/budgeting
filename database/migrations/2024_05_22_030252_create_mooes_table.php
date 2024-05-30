@@ -27,6 +27,6 @@ class CreateMooesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mooe');
+        Schema::dropIfExists('mooes');
     }
 };
