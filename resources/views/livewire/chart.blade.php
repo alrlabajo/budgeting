@@ -26,7 +26,7 @@
                 <div class="grid grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-x-2 gap-y-2 md:gap-x-2 sm:gap-x-2">
                     <!-- Activity Justification Document -->
                     <div class="flex items-center justify-center w-30 h-16 bg-blue-800 text-[13px] text-white rounded-md ">
-                        <a href="/activity-justification-form" class="text-xs text-white btn text-center">Activity Justification Document</a>
+                        <a href="/activity-justification-form" class="text-xs text-white btn text-center">Activity Justification</a>
                     </div>
                     <!-- Personnel Schedule -->
                     <div class="flex items-center justify-center w-30 h-16 bg-blue-800 text-[13px] text-white rounded-md ">

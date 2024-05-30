@@ -80,6 +80,9 @@ class MaintenanceForm extends Component
         // }
     }
 
+    public function goBack() {
+        return redirect ()->to('/chart');
+    }
     public function render()
     {
         return view('livewire.maintenance-form');
