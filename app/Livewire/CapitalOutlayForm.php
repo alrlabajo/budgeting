@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class CapitalOutlayForm extends Component
 {
+    public $CollegeOffices = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA'];
     public $college_office = '';
     public $items = [
         ['account_code' => '1-07-04-020', 'item' => 'School Buildings', 'budget' => '', 'justification' => ''],
@@ -72,10 +73,6 @@ class CapitalOutlayForm extends Component
         //     Log::error('Error submitting data', ['error' => $e->getMessage()]);
         //     session()->flash('message', 'There was an error submitting the form.');
         // }
-    }
-
-    public function goBack() {
-        return redirect ()->to('/chart');
     }
 
     public function render()
