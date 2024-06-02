@@ -22,26 +22,28 @@
         <table class="min-w-full divide-y divide-gray-200 items-center">
             <thead>
                 <tr>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Class Year</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight" colspan="2">Statement of Objectives</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Activity/Justification</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight" colspan="3">Cost Per Student</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Method of Accomplishing Objectives</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight" colspan="3">Proposed Budget</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Class Year</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">College/Office</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" colspan="2">Statement of Objectives</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Activity/Justification</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" colspan="3">Cost Per Student</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Method of Accomplishing Objectives</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" colspan="3">Proposed Budget</th>
                 </tr>
                 <tr>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Major</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Specific</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Estimated No. of Students</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Total Cost</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Cost Per Student</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Personal Services</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">MOOE</th>
-                    <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Capital Outlay</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Major</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Specific</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Estimated No. <br> of Students</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Total Cost</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Cost Per Student</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Personal <br> Services</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">MOOE</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Capital <br> Outlay</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="items-center">
+                    <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                     <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                     <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                     <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
