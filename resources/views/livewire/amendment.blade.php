@@ -1,4 +1,4 @@
-<div class="flex flex-col grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 px-7 py-32">
+<div class="flex flex-col grid-cols-1 md:grid-cols-1 sm:grid-cols-1 px-7 py-32">
     <!-- Top Bar -->
     <div class="flex w-[1420px]">
         <div class="w-[1420px] rounded-lg p-4 relative">
@@ -25,7 +25,7 @@
                     <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amendatory No.</th>
                     <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Plan No. Being Revised</th>
                     <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date of Revision</th>
-                    <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Planned Ammount</th>
+                    <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Planned Amount</th>
                     <th scope="col" class="relative px-2 py-3">
                         <span class="sr-only">Edit</span>
                     </th>

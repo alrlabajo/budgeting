@@ -60,7 +60,7 @@
         <div class="w-full sm:w-52 h-24 relative bg-white rounded-xl shadow border border-zinc-200 content-center justify-start">
             <form class="space-y-2" action="#">
                 <div class="flex flex-col m-4 gap-y-3">
-                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal">Planned Ammount</label>
+                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal">Planned Amount</label>
                     <input type="number" step="0.01" id="amendment-planned-amount" class="w-full h-8 px-2 py-1.5 bg-white rounded-md shadow border border-zinc-200 focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight gap-1.5" placeholder="₱ 0.00"/>
                 </div>
             </form>
@@ -128,8 +128,8 @@
             <!-- Amount: -->
             <form class="space-y-2" action="#">
                 <div class="flex flex-col gap-y-3">
-                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal">Ammount:</label>
-                    <input type="number" step="0.01" id="amendment-ammount" class="w-20 h-8 px-2 py-1.5 bg-white rounded-md shadow border border-zinc-200 focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight gap-1.5" placeholder="₱ 0.00" />
+                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal">Amount:</label>
+                    <input type="number" step="0.01" id="amendment-amount" class="w-20 h-8 px-2 py-1.5 bg-white rounded-md shadow border border-zinc-200 focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight gap-1.5" placeholder="₱ 0.00" />
                 </div>
             </form>
         </div>
@@ -150,8 +150,8 @@
             <!-- Amount: -->
             <form class="space-y-2" action="#">
                 <div class="flex flex-col gap-y-3">
-                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal">Ammount:</label>
-                    <input type="number" step="0.01" id="amendment-ammount-effected" class="w-20 h-8 px-2 py-1.5 bg-white rounded-md shadow border border-zinc-200 focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight gap-1.5" placeholder="₱ 0.00" />
+                    <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal">Amount:</label>
+                    <input type="number" step="0.01" id="amendment-amount-effected" class="w-20 h-8 px-2 py-1.5 bg-white rounded-md shadow border border-zinc-200 focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight gap-1.5" placeholder="₱ 0.00" />
                 </div>
             </form>
 
