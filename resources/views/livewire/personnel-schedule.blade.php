@@ -1,4 +1,5 @@
 <div class="px-6 py-32">
+    
     <!-- Header -->
     <div class="flex w-full pb-5 justify-between">
         <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Personnel Schedule
@@ -12,11 +13,11 @@
 
     <div class="w-full h-full overflow-x-auto px-3 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
-        <select id="college_office" name="college_office" class="block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+        <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             <option disabled selected>Select College/Office</option>
-            <option value="College 1">College 1</option>
-            <option value="College 2">College 2</option>
-            <option value="">...</option>
+            @foreach ($college_office as $college)
+            <option value="{{ $college }}">{{ $college }}</option>
+            @endforeach
         </select>
 
         <table class="min-w-full divide-y divide-gray-200 items-center">
@@ -41,18 +42,19 @@
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
+                @foreach ($load_personnelschedule as $personnelschedule)
                 <tr class="items-center">
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
-                    <td class="py-4 text-sm text-black border border-slate-300"></td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->created_at}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->collge_office}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->item_no}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->grade_step}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->position}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->name_incumbent}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->annual_salary}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->proposed_salary}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->increase}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->total}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personnelschedule->sub_total}}</td>
                     <td class="py-4 text-sm text-black border border-slate-300"></td>
                     <td class="py-4 text-sm text-black border border-slate-300"></td>
                     <td class="py-4 text-sm text-black border border-slate-300">
@@ -62,6 +64,7 @@
                         </div>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
