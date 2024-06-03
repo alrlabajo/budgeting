@@ -36,9 +36,9 @@ use App\Livewire\LoadCapitalOutlay;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+})*/
 
 
 //Record Routes
@@ -53,6 +53,7 @@ Route::get('/amendment', Amendment::class);
 
 
 
+
 //Form Routes
 Route::get('/activity-justification-form', ActivityJustificationForm::class);
 Route::get('/personal-services-form', PersonalServicesForm::class);
@@ -60,6 +61,9 @@ Route::get('/personnel-schedule-form', PersonnelScheduleForm::class);
 Route::get('/MOOE-form', MaintenanceForm::class);
 Route::get('/capital-outlay-form', CapitalOutlayForm::class);
 Route::get('/PPMP-form', PpmpForm::class);
+Route::get('/appropriations', Appropriations::class);
+Route::get('/BUR-form', BurForm::class);
+Route::get('/amendment-form', AmendmentForm::class);
 
 
 
@@ -67,6 +71,7 @@ Route::get('/PPMP-form', PpmpForm::class);
 Route::get('/home', Chart::class);
 Route::get('/settings', Settings::class);
 Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
+
 
 
 Route::get('/test-db', function () {
