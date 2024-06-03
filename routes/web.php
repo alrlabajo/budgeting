@@ -38,6 +38,14 @@ use App\Livewire\LoadCapitalOutlay;
 |
 */
 
+
+// roles and permissions route
+
+
+
+// end of roles and permissions route
+
+
 Route::get('/chart', Chart::class);
 
 Route::get('/settings', Settings::class);
