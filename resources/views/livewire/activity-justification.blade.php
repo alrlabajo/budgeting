@@ -1,4 +1,5 @@
 <div class="px-6 py-32">
+
     <!-- Header -->
     <div class="flex w-full pb-5 justify-between">
         <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Activity Justification
@@ -7,17 +8,16 @@
                 <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Activity Justification Form No. 1</label>
             </div>
         </div>
-        
         @include('components.export-button')
     </div>
 
     <div class="w-full h-full overflow-x-auto px-3 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
-        <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+        <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             <option disabled selected>Select College/Office</option>
-            <option value="College 1">College 1</option>
-            <option value="College 2">College 2</option>
-            <option value="">...</option>
+            @foreach ($college_office as $college)
+            <option value="{{ $college }}">{{ $college }}</option>
+            @endforeach
         </select>
 
         <table class="min-w-full divide-y divide-gray-200 items-center">
@@ -30,6 +30,7 @@
                     <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" colspan="3">Cost Per Student</th>
                     <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Method of Accomplishing Objectives</th>
                     <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" colspan="3">Proposed Budget</th>
+                    <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Total</th>
                     <th scope="col" class="relative p-7 border border-slate-300" rowspan="2">
                         <span class="sr-only">Edit</span>
                     </th>
@@ -45,20 +46,22 @@
                     <th scope="col" class="py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Capital <br> Outlay</th>
                 </tr>
             </thead>
+
             <tbody class="bg-white divide-y divide-gray-200">
+                @foreach ($load_activityjustification as $activityjustification)
                 <tr class="items-center">
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
-                    <td class="py-3 text-sm text-black border border-slate-300"></td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->created_at}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->college_office}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->statement_major}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->statement_specific}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->activity_justification}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->estimated_no_students}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->total_cost}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->cost_per_student}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->method_accomplishing}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->services_budget}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->mooe_budget}}</td>
+                    <td class="py-3 text-sm text-black border border-slate-300">{{ $activityjustification->capital_outlay_budget}}</td>
                     <td class="py-4 text-sm font-medium border border-slate-300">
                         <!-- Edit/Delete -->
                         <div class="flex flex-col items-center gap-y-2 px-2">
@@ -66,6 +69,7 @@
                         </div>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
