@@ -15,7 +15,7 @@
         <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             <option disabled selected>Select College/Office</option>
             @foreach ($college_office as $college)
-                <option value="{{ $college }}">{{ $college }}</option>
+            <option value="{{ $college }}">{{ $college }}</option>
             @endforeach
         </select>
 
@@ -27,17 +27,24 @@
                     <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Item of Expenditures</th>
                     <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Approved Budget</th>
                     <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Justification</th>
+                    <th scope="col" class="relative p-7 border border-slate-300">
+                        <span class="sr-only">Edit</span>
+                    </th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($load_personalservices as $personalservices)
-                    <tr class="items-center">
-                        <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->created_at}}</td>
-                        <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->account_code}}</td>
-                        <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->item}}</td>
-                        <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->budget}}</td>
-                        <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->justification}}</td>
-                    </tr>
+                <tr class="items-center">
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->created_at}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->account_code}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->item}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->budget}}</td>
+                    <td class="py-4 text-sm text-black border border-slate-300">{{ $personalservices->justification}}</td>
+                    <!-- Edit/Delete -->
+                    <div class="flex flex-col items-center gap-y-2 px-2">
+                        @include('components.edit-delete')
+                    </div>
+                </tr>
                 @endforeach
             </tbody>
             <tfoot>
