@@ -9,10 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('amendment', function (Blueprint $table) {
             $table->integerincrements('amendment_id');
+            $table->string('college_office');
             $table->integer('No');
             $table->integer('plan_no_revised');
             $table->date('date_revision');
@@ -34,7 +35,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('amendment');
     }
