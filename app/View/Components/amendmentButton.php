@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class amendment_buttons extends Component
+class amendmentButton extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class amendment_buttons extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.amendment-buttons');
+        return view('components.amendment-button');
     }
 }
