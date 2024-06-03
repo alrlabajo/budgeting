@@ -40,7 +40,7 @@
 
             <!-- Input Fields -->
             @csrf
-            @foreach ($items as $index => $item)
+                @foreach ($items as $index => $item)
                 <div class="flex flex-row space-x-36">
                     
                     <!-- Item No. -->

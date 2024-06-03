@@ -9,10 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('actjust', function (Blueprint $table) {
-            $table->integerincrements('actjust_id');
+        Schema::create('activityjustification', function (Blueprint $table) {
+            $table->integerIncrements('activityjustification_id');
             $table->string('college_office');
             $table->string('statement_major');
             $table->string('statement_specific');
@@ -21,9 +21,9 @@ return new class extends Migration
             $table->decimal('total_cost', 10, 2);
             $table->decimal('cost_per_student', 10, 2);
             $table->string('method_accomplishing');
-            $table->decimal('services_budget', 10, 2);
-            $table->decimal('mooe_budget', 10, 2);
-            $table->decimal('capital_outlay_budget', 10, 2);
+            $table->decimal('services_budget', 10, 2)->default(0);
+            $table->decimal('mooe_budget', 10, 2)->default(0);
+            $table->decimal('capital_outlay_budget', 10, 2)->default(0);
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });
@@ -32,8 +32,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('actjust');
+        Schema::dropIfExists('activityjustification');
     }
 };
