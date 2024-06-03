@@ -17,9 +17,13 @@
                     <option value="">...</option>
                 </select>
             </div>
+            @if($isAdmin)
+            @include('components.status-dropdown')
+            @else
             @include('components.import-button')
+            @endif
         </div>
-        
+
 
         <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal py-3">Statement of Objectives</label>
 
@@ -39,7 +43,7 @@
         </form>
 
         <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal">Cost per Student</label>
-        
+
         <div class="flex flex-row space-x-36">
             <form class="justify-start items-start space-y-3 flex flex-col">
                 <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Estimated Number of Students</label>

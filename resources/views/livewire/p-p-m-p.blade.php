@@ -1,4 +1,4 @@
-<div class="flex flex-col grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 px-7 py-32">
+<div class="flex flex-col px-7 py-32">
     <!-- Header -->
     <div class="flex w-full pb-5 justify-between">
         <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Project Procurement Management Plan
@@ -20,5 +20,6 @@
         </select>
     </div>
 
+    
 
 </div>
