@@ -44,7 +44,7 @@
 
             @csrf
             <table id="capital-outlay-table"
-                class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <!-- Header -->
                 <thead class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                     <tr>
