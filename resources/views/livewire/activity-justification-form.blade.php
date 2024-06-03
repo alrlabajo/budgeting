@@ -14,18 +14,26 @@
         <div class="flex justify-between py-6">
             <!-- Select College/Office -->
             <div class="w-80 rounded-lg">
-                <select id="college_office" name="college_office" class="block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                    <option disabled selected>Select College/Office</option>
-                    <option value="College 1">College 1</option>
+                <select wire:model="college_office" id="college_office" name="college_office"
+                    class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    style="text-indent: 10px;">
+                    <option>Select College/Office</option>
+                    <option value="CISTM">CISTM</option>
                     <option value="College 2">College 2</option>
-                    <option value="">...</option>
+                    <!-- Other options -->
                 </select>
+                @error('college_office')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
             </div>
             @include('components.import-button')
         </div>
         
 
-        <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal py-3">Statement of Objectives</label>
+        <!-- Input Fields -->
+        @csrf
+            @foreach ($items as $index => $item)
+                <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal py-3">Statement of Objectives</label>
 
                     <!-- Statement Major -->
                     <div class="justify-start items-start space-y-3">
@@ -63,22 +71,47 @@
                         @enderror
                     </div>
 
-        <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal">Cost per Student</label>
-        
-        <div class="flex flex-row space-x-36">
-            <form class="justify-start items-start space-y-3 flex flex-col">
-                <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Estimated Number of Students</label>
-                <input type="number" id="activity-estimated" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0"></input>
-            </form>
-            <form class="justify-start items-start space-y-3 flex flex-col">
-                <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Total Cost (excluding Capital Outlay)</label>
-                <input type="number" step="0.01" id="activity-total-cost" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0"></input>
-            </form>
-            <form class="justify-start items-start space-y-3 flex flex-col">
-                <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Cost per Student</label>
-                <input type="number" step="0.01" id="activity-cost" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0"></input>
-            </form>
-        </div>
+                    <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal">Cost per Student</label>
+                    
+                    <div class="flex flex-row space-x-36">
+
+                        <!-- Estimated Number of Students -->
+                        <form class="justify-start items-start space-y-3 flex flex-col">
+                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Estimated Number of Students</label>
+                            <input type="number" name="estimated_no_students" 
+                                wire:model="items.{{ $index }}.estimated_no_students"
+                                class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" 
+                                placeholder="0">
+                            @error('items.' . $index . '.estimated_no_students')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                        </form>
+
+                        <!-- Total Cost (excluding Capital Outlay) -->
+                        <form class="justify-start items-start space-y-3 flex flex-col">
+                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Total Cost (excluding Capital Outlay)</label>
+                            <input type="number" step="0.01" name="total_cost" 
+                                wire:model="items.{{ $index }}.total_cost"
+                                class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" 
+                                placeholder="0">
+                            @error('items.' . $index . '.total_cost')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                        </form>
+
+                        <!-- Cost per Student -->
+                        <form class="justify-start items-start space-y-3 flex flex-col">
+                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Cost per Student</label>
+                            <input type="number" step="0.01" name="cost_per_student" 
+                                wire:model="items.{{ $index }}.cost_per_student"
+                                class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" 
+                                placeholder="0">
+                            @error('items.' . $index . '.cost_per_student')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                        </form>
+
+                    </div>
 
                     <!-- Method of Accomplishing Objectives -->
                     <div class="justify-start items-start space-y-3">
