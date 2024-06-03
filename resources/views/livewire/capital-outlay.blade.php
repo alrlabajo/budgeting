@@ -18,7 +18,7 @@
             <option value="CEng">CEng</option> --}}
 
             @foreach ($college_office as $college)
-                <option value={{$college}}>{{$college}}</option>
+            <option value={{$college}}>{{$college}}</option>
             @endforeach
         </select>
 
@@ -31,6 +31,9 @@
                     <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Item of Expenditures</th>
                     <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Approved Budget</th>
                     <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight">Justification</th>
+                    <th scope="col" class="relative p-7 border border-slate-300">
+                        <span class="sr-only">Edit</span>
+                    </th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -41,7 +44,11 @@
                     <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->item}}</td>
                     <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->budget}}</td>
                     <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->justification}}</td>
-                @endforeach
+                    <!-- Edit/Delete -->
+                    <div class="flex flex-col items-center gap-y-2 px-2">
+                        @include('components.edit-delete')
+                    </div>
+                    @endforeach
                 </tr>
             </tbody>
             <tfoot>

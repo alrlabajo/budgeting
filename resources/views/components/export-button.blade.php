@@ -1,13 +1,13 @@
 <div class="flex flex-row grow justify-end gap-2">
 
-<select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+    <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
             <option disabled selected>Select College/Office</option>
             <option value="College 1">College 1</option>
             <option value="College 2">College 2</option>
             <option value="">...</option>
         </select>
 
-    <select id="school_year" name="school_year" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+    <select id="school_year" name="school_year" class="font-['Inter'] block w-28 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
             <option disabled selected>Year</option>
             <option value="College 1">2023</option>
             <option value="College 2">2022</option>

@@ -35,6 +35,11 @@
 
                     <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
                 </div>
+                @if($isAdmin)
+                @include('components.status-dropdown')
+                @else
+                @include('components.import-button')
+                @endif
             </div>
 
             @csrf
