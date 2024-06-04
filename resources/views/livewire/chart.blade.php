@@ -58,10 +58,10 @@
                 <h1 class="text-xl font-extrabold text-blue-800">Payment Request Forms</h1>
             </div>
             <div class="grid grid-cols-2 px-2 md:gap-x-1 md:grid-cols-2 sm:grid-cols-1 justify-items-center sm:py-2 md:gap-y-2 sm:gap-y-2 sm:gap-x-2">
-                <div class="flex items-center justify-center w-60 h-16 bg-blue-800  text-white rounded-md">
+                <div class="flex items-center justify-center w-56 h-16 bg-blue-800  text-white rounded-md">
                     <a href="/BUR-form" class="text-sm text-white btn text-center">Budget Utilization Request</a>
                 </div>
-                <div class="flex items-center justify-center w-60 h-16 bg-blue-800 text-white rounded-md">
+                <div class="flex items-center justify-center w-56 h-16 bg-blue-800 text-white rounded-md">
                     <a href="/amendment-form" class="text-sm text-white btn text-center">Amendment Form</a>
                 </div>
             </div>

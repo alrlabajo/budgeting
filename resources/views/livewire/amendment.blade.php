@@ -7,7 +7,7 @@
                 <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Amendment Form No. 2</label>
             </div>
         </div>
-        @include('components.bur-buttons')
+        @include('components.amendment-button')
     </div>
 
     <div class="w-full h-full overflow-x-auto py-2 space-y-4">
@@ -40,7 +40,7 @@
                     <td class="py-3 text-sm font-medium border border-slate-300">
                         <!-- Edit/Delete -->
                         <div class="flex flex-col items-center gap-y-2 px-2">
-                            @include('components.edit-delete')
+                            @include('components.editdelete-button')
                         </div>
                     </td>
                 </tr>

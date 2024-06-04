@@ -33,16 +33,11 @@
 
                     <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
                 </div>
-                @if($isAdmin)
-                @include('components.status-dropdown')
-                @else
-                @include('components.import-button')
-                @endif
             </div>
 
             @csrf
             <table id="mooe-table"
-                class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"">
+                class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <!-- Header -->
                 <thead class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                     <tr>
