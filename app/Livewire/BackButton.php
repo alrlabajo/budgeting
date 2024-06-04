@@ -14,9 +14,6 @@ class BackButton extends Component
 
     public function goBack()
     {
-        return redirect()->to('/home');
+        return redirect()->to('/chart');
     }
-
-
-
 }

@@ -68,7 +68,7 @@ Route::get('/amendment-form', AmendmentForm::class);
 
 
 //Others
-Route::get('/home', Chart::class);
+Route::get('/chart', Chart::class);
 Route::get('/settings', Settings::class);
 Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
 
