@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\DB;
 
 use App\Livewire\LoadCapitalOutlay;
 
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +43,13 @@ use App\Livewire\LoadCapitalOutlay;
 
 
 // roles and permissions route
+Route::resource('permissions', App\Http\Controllers\RoleController::class);
+Route::put('permissions/{permissionId}/edit', [App\Http\Controllers\RoleController::class,'edit']);
+Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
 
+Route::resource('roles',App\Http\Controllers\RoleController::class);
+Route::put('roles/{roleId}/edit', [App\Http\Controllers\RoleController::class,'edit']);
+Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
 
 
 // end of roles and permissions route
