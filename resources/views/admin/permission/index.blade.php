@@ -28,7 +28,7 @@
             </div>
 
             <div class="flex justify-end">
-                <a href="{{ url('permissions/create') }}" class="text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 rounded-lg text-sm px-5 py-2.5 dark:bg-indigo-800 dark:hover:bg-indigo-900 focus:outline-none dark:focus:ring-indigo-800">Add Permission</a>
+                <a href="{{ url('permissions/create') }}" class="text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none">Add Permission</a>
             </div>
         </div>
 
@@ -51,8 +51,8 @@
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$permission->name}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$permission->created_at}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-                            <a href="{{ url('permissions/'.$permission->id.'/edit') }}" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-indigo-800 dark:hover:bg-indigo-900 focus:outline-none dark:focus:ring-indigo-800">Edit</a>
-                            <a href="{{ url('permissions/'.$permission->id.'/delete') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Delete</a>
+                            <a href="{{ url('permissions/'.$permission->id.'/edit') }}" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Edit</a>
+                            <a href="{{ url('permissions/'.$permission->id.'/delete') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Delete</a>
                         </td>
                     </tr>
                     @endforeach

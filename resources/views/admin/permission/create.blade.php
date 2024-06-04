@@ -7,7 +7,7 @@
             </div>
 
             <div class="flex justify-end">
-                <a href="{{ url('permissions') }}" class="text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 rounded-lg text-sm px-5 py-2.5 dark:bg-indigo-800 dark:hover:bg-indigo-900 focus:outline-none dark:focus:ring-indigo-800">Back</a>
+                <a href="{{ url('permissions') }}" class="text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none">Back</a>
             </div>
         </div>
         <div class="w-full h-full px-10 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
