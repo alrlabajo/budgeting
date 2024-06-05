@@ -33,16 +33,18 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach ($load_appropriations as $appropriations)
                         <tr>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
-                            <td class="text-sm text-black border border-slate-300 px-2 py-3"></td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->created_at}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->account_code}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->items_expenditure}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->budget}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->approved_board}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->total}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->obligations}}</td>
+                            <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->unobligated}}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

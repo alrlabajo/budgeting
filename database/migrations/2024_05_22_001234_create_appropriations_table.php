@@ -9,10 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('appropriations', function (Blueprint $table) {
+            $table->integerincrements('appropriations_id');
             $table->string('college_office');
+            $table->date('date');
             $table->string('account_code');
             $table->string('items_expenditure');
             $table->decimal('budget', 10, 2);
@@ -27,7 +29,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('appropriations');
     }
