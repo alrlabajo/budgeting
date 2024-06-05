@@ -64,7 +64,7 @@
                             <td class="py-4 text-sm font-medium border border-slate-300">
                                 <!-- Edit/Delete -->
                                 <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
+                                    @include('components.editdelete-button', ['id' => $activityjustification->id]) 
                                 </div>
                             </td>
                         </tr>

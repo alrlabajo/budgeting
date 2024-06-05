@@ -16,9 +16,7 @@ use App\Livewire\Appropriations;
 use App\Livewire\Appropriationsform;
 use App\Livewire\BUR;
 use App\Livewire\BurForm;
-use App\Livewire\CapitalOutlay;
 use App\Livewire\CapitalOutlayForm;
-use App\Livewire\Chart;
 use App\Livewire\LoadCapitalOutlay;
 use App\Livewire\MaintenanceForm;
 use App\Livewire\Mooe;
@@ -103,7 +101,6 @@ Route::get('/appropriations-form', Appropriationsform::class);
 
 
 //Others
-Route::get('/chart', Chart::class);
 Route::get('/settings', Settings::class);
 Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
 
