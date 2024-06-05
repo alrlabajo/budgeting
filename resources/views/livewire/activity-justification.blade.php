@@ -1,4 +1,3 @@
-<x-app-layout>
     <x-slot name="title">Activity Justification</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
@@ -75,4 +74,3 @@
             </div>
         </div>
     </div>
-</x-app-layout>

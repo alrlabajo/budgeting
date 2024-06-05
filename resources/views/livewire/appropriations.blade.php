@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -59,4 +59,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+

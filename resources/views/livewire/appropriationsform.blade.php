@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -61,49 +61,49 @@
                                     <input type="text" name="account_code" wire:model="items.{{ $index }}.account_code" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
                                     @error('items.' . $index . '.account_code')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                                 <td class="px-6 py-2">
                                     <input type="text" name="items_expenditure" wire:model="items.{{ $index }}.items_expenditure" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
                                     @error('items.' . $index . '.items_expenditure')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                                 <td class="px-6 py-2">
                                     <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.budget')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                                 <td class="px-6 py-2">
                                     <input type="text" name="approved_board" wire:model="items.{{ $index }}.approved_board" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
                                     @error('items.' . $index . '.approved_board')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                                 <td class="px-6 py-2">
                                     <input type="number" step="0.01" name="total" wire:model="items.{{ $index }}.total" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.total')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                                 <td class="px-6 py-2">
                                     <input type="number" step="0.01" name="obligations" wire:model="items.{{ $index }}.obligations" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.obligations')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                                 <td class="px-6 py-2">
                                     <input type="number" step="0.01" name="unobligated" wire:model="items.{{ $index }}.unobligated" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.unobligated')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror                                
+                                    @enderror
                                 </td>
 
                             </tr>
@@ -122,4 +122,4 @@
 
         </div>
     </div>
-</x-app-layout>
+

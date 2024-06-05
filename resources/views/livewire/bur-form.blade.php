@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <x-slot name="title">Budget Utilization Request Form</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
@@ -220,4 +220,4 @@
             </form>
         </div>
     </div>
-</x-app-layout>
+

@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2 space-y-4">
             <!-- Header -->
@@ -153,4 +153,4 @@
             </form>
         </div>
     </div>
-</x-app-layout>
+

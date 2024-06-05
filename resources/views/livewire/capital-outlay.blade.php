@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <x-slot name="title">Capital Outlay</x-slot>
 
     <div class="p-2 sm:ml-64">
@@ -62,4 +62,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+

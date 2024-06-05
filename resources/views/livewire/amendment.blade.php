@@ -1,5 +1,4 @@
-<x-app-layout>
-    <div class="p-2 sm:ml-64">
+<div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
             <div class="flex w-full pb-5 justify-between">
@@ -69,4 +68,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+
