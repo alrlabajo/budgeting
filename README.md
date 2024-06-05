@@ -37,9 +37,10 @@ DB_PASSWORD=
 5. Migrate your tables using `php artisan migrate`
 
 ## FAQs
-1. Where to access folder in Hostinger?<br>
+#### 1. Where to access the folder in Hostinger?
+- Login here: https://185.199.52.28:8443/login (details on gc)
 ![image](https://github.com/alrlabajo/budgeting/assets/103131412/5ac4211a-b6b0-4d1f-819c-7e5893c06ca5)
 
 <br>
-2. How to edit then paste in hostinger?<br>
-- kindly commit all the files before editing again to track of all the changes then paste it manually on our website.
+#### 2. How do I edit and then paste it into Hostinger?
+- kindly commit all the files before editing to track all the changes then paste them manually on our website.
