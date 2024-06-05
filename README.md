@@ -14,17 +14,17 @@ Good day team! This repository is established as a part of the ERP System for Pa
 
 
 # Pre-requisites
-- Fully functinong XAMPP (Apache & MySQL)
+- Fully functioning XAMPP (Apache & MySQL)
 - Composer & Laravel Installed
   
 # Instructions
 1. Clone this repository
-2. Save `routes/web.php` on a separate folder.
+2. Copy and paste `routes/web.php` on a separate folder.
 3. Enter `composer require laravel/breeze --dev`
 4. Add the missing routes from the new `web.php` from the saved `web.php`
 5. Open your terminal, and enter `npm install` then `composer install`.
 6. Run your system using `php artisan serve` and `npm run dev` in separate terminals.
-7. Open via VS Code, create .env file and setup using the following DB format:
+7. Open via VS Code, create .env file, and setup using the following DB format:
 
 ```
 DB_CONNECTION=mysql
