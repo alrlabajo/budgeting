@@ -1,6 +1,6 @@
 # Enterprise Resource Planning (ERP) Budgeting Module by BSCS 3-1 - Group 3
 
-Good day team! This repository is established as a part of the ERP System for Pamantasan ng Lungsod ng Maynila as part of their project in Software Engineering 2, still valid as of May 2024.
+Good day team! This repository is established as a part of the ERP System for Pamantasan ng Lungsod ng Maynila as part of their project in Software Engineering 2, still valid as of June 2024.
 
 
 ![Front-Face](https://github.com/alrlabajo/budgeting/assets/103131412/d649b7c4-f940-4011-a44f-353e9a53df52)
