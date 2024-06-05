@@ -2,21 +2,25 @@
 
 namespace App\Livewire;
 
+use App\Models\PPMP as PPMPModel;
 use Livewire\Component;
 
 class PPMP extends Component
 {
-    public $collegeOffice;
-    public $items = [];
+
+    public $load_ppmp = [];
+    public $college_office = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA'];
 
     public function mount()
     {
-        // Initialize items with default values if necessary
-        $this->items = [
-            // Sample data
-            ['type' => '', 'account_title' => '', 'account_code' => '', 'item_name' => '', 'description' => '', 'qty' => '', 'unit' => '', 'unit_price' => '', 'estimated_budget' => '', 'schedule' => [], 'procurement_method' => ''],
-        ];
+        // Fetch data from the database and create model instances
+        $ppmpData = PPMPModel::all()->toArray();
+
+        $this->load_ppmp = collect($ppmpData)->map(function ($ppmpData) {
+            return new PPMPModel($ppmpData);
+        });
     }
+
     
     public function render()
     {

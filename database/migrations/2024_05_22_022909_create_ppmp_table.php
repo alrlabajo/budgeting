@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ppmp', function (Blueprint $table) {
+            $table->integerincrements('ppmp_id');
             $table->string('college_office');
             $table->string('program_title');
+            $table->string('project_title');
             $table->string('type_contract');
             $table->string('account_title');
             $table->string('item_name');
@@ -22,7 +24,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('account_code');
             $table->string('description');
-            $table->decimal('procurement_method', 10, 2);
+            $table->string('procurement_method');
             $table->decimal('estimated_budget', 10, 2);
             $table->timestamps();
         });
