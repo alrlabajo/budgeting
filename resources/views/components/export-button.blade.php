@@ -1,17 +1,17 @@
 <div class="flex flex-row grow justify-end gap-2">
 
     <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-            <option disabled selected>Select College/Office</option>
-            <option value="College 1">College 1</option>
-            <option value="College 2">College 2</option>
-            <option value="">...</option>
-        </select>
+        <option disabled selected>Select College/Office</option>
+        <option value="College 1">College 1</option>
+        <option value="College 2">College 2</option>
+        <option value="">...</option>
+    </select>
 
     <select id="school_year" name="school_year" class="font-['Inter'] block w-28 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-            <option disabled selected>Year</option>
-            <option value="College 1">2023</option>
-            <option value="College 2">2022</option>
-            <option value="">...</option>
+        <option disabled selected>Year</option>
+        <option value="College 1">2023</option>
+        <option value="College 2">2022</option>
+        <option value="">...</option>
     </select>
 
     <!-- Export Modal toggle -->
@@ -23,6 +23,7 @@
 
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow">
+
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                     <h3 class="text-zinc-950 text-xl font-semibold font-inter leading-7">
@@ -52,7 +53,9 @@
                         <div class="text-white text-base font-bold font-inter leading-normal">Export</div>
                     </button>
                 </div>
+                
             </div>
+
         </div>
     </div>
 
