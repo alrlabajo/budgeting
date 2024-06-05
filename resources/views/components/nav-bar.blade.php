@@ -17,16 +17,6 @@
                     </a>
                 </div>
 
-                <!--Search Bar--> <!-- NEED FUNCTIONALITY -->
-                <div class="hidden sm:flex items-left ml-[-20px]">
-                    <div class="relative">
-                        <svg class="absolute left-5 top-1/2 transform -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" fill="none" aria-hidden="true">
-                            <path d="M20.3778 22.6405L14.6174 16.8801M16.5376 12.0798C16.5376 12.9624 16.3637 13.8362 16.026 14.6516C15.6883 15.467 15.1932 16.2078 14.5692 16.8319C13.9451 17.4559 13.2043 17.951 12.3889 18.2887C11.5736 18.6264 10.6997 18.8002 9.81712 18.8002C8.93458 18.8002 8.06068 18.6264 7.24532 18.2887C6.42996 17.951 5.6891 17.4559 5.06505 16.8319C4.441 16.2078 3.94598 15.467 3.60824 14.6516C3.27051 13.8362 3.09668 12.9624 3.09668 12.0798C3.09668 10.2974 3.80472 8.58807 5.06505 7.32774C6.32538 6.06742 8.03475 5.35938 9.81712 5.35938C11.5995 5.35937 13.3089 6.06742 14.5692 7.32774C15.8295 8.58807 16.5376 10.2974 16.5376 12.0798Z" stroke="#434343" stroke-width="1.92012" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <input type="search" id="search-bar" class="w-[950px] h-12 pl-10 py-1 bg-zinc-100 rounded-lg flex items-center grow shrink basis-0 text-neutral-700 text-base font-normal font-nunito leading-normal ml-2 border-transparent" placeholder="Search here"/>
-                    </div>
-                </div>
-
                 <!-- User Info -->
                 <div x-data="{ open: false }" class="sm:relative sm:ml-[70px] sm:items-center justify-end sm:focus:ring-4 sm:focus:outline-none sm:focus:ring-gray-500">
                     <div class="flex items-center">
