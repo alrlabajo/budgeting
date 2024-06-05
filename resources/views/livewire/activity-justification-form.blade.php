@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-2 sm:ml-64">
-        <div class="p-2">
+        <div class="p-2 space-y-4">
             <!-- Header -->
             <div class="w-96 h-9 justify-between items-center inline-flex py-10">
                 <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Activity Justification Document</label>
@@ -10,7 +10,7 @@
             <form wire:submit="submit">
 
                 <!-- Container -->
-                <div class="w-full h-full px-4 py-2 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+                <div class="w-full h-full px-10 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                     <div class="flex justify-between py-6">
                         <!-- Select College/Office -->
@@ -63,11 +63,11 @@
 
                     <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal">Cost per Student</label>
 
-                    <div class="flex flex-row space-x-16">
+                    <div class="flex flex-row space-x-36">
 
                         <!-- Estimated Number of Students -->
-                        <form class="justify-start items-start space-y-3 flex flex-col">
-                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal whitespace-nowrap required">Estimated Number of Students</label>
+                        <form class="justify-start items-start space-y-3 flex flex-col whitespace-nowrap">
+                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Estimated Number of Students</label>
                             <input type="number" name="estimated_no_students" wire:model="items.{{ $index }}.estimated_no_students" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
                             @error('items.' . $index . '.estimated_no_students')
                             <span class="text-red-500">{{ $message }}</span>
@@ -105,12 +105,12 @@
 
                     <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal">Item of Expenditures - Proposed Budget</label>
 
-                    <div class="flex flex-row space-x-16">
+                    <div class="flex flex-row space-x-24">
 
                         <!-- Personal Services (Total of div No. 2) -->
                         <div class="justify-start items-start space-y-3 flex flex-col">
                             <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Personal Services (Total of div No. 2)</label>
-                            <input type="number" step="0.01" name="services_budget" wire:model="items.{{ $index }}.services_budget" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
+                            <input type="number" name="services_budget" wire:model="items.{{ $index }}.services_budget" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
                             @error('items.' . $index . '.services_budget')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror

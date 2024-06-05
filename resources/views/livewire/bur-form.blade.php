@@ -21,12 +21,12 @@
                         @csrf
                         @foreach ($items as $index => $item)
                         <!-- No. -->
-                        <div class="w-40 h-16 px-5 py-5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-start items-start gap-2.5 inline-flex">
+                        <div class="w-56 h-16 px-5 py-5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-center items-start gap-2.5 inline-flex">
                             <div class="space-y-2" action="#">
                                 <div class="flex justify-center items-center flex-row">
                                     <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal mr-2">No.</label>
                                     <div class="flex">
-                                        <input type="number" name="no" wire:model="items.{{ $index }}.no" class="w-[80px] h-8 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="0" />
+                                        <input type="text" name="no" wire:model="items.{{ $index }}.no" class="w-40 h-8 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="0" />
                                         @error('items.' . $index . '.no')
                                         <span class="text-red-500">{{ $message }}</span>
                                         @enderror
