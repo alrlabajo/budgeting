@@ -21,15 +21,15 @@
                             <th class="px-1 py-3 whitespace-nowrap text-center">
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
                             </th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">BUR No.</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Payee</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Office</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Address</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Responsibility Center</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Account Code</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Particulars</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Status</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">BUR No.</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Payee</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Office</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Address</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Responsibility Center</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Account Code</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Particulars</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Status</th>
                             <th scope="col" class="relative p-7 border border-slate-300">
                                 <span class="sr-only">Edit</span>
                             </th>
@@ -42,16 +42,16 @@
                             <td class="px-2 py-3 whitespace-nowrap text-center">
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
                             </td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->no}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->payee}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->office}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->address}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->responsibility_center}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->account_code}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->particulars}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{ $bur->amount}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300"></td>
-                            <td class="py-4 text-sm font-medium border border-slate-300">
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->no}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->payee}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->office}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->address}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->responsibility_center}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->account_code}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->particulars}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->amount}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm font-medium border border-slate-300">
                                 <!-- Edit/Delete -->
                                 <div class="flex flex-col items-center gap-y-2 px-2">
                                     @include('components.editdelete-button')
