@@ -19,7 +19,7 @@
                 <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                     <option value="">Select College/Office</option>
                     {{-- <option value="CISTM">CISTM</option>
-            <option value="CEng">CEng</option> --}}
+                    <option value="CEng">CEng</option> --}}
 
                     @foreach ($college_office as $college)
                     <option value={{$college}}>{{$college}}</option>
@@ -48,10 +48,12 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->item}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->budget}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->justification}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">
                             <!-- Edit/Delete -->
-                            <div class="flex flex-col items-center gap-y-2 px-2">
-                                @include('components.edit-delete')
-                            </div>
+                                <div class="flex flex-col items-center gap-y-2 px-2">
+                                    @include('components.editdelete-button')
+                                </div>
+                            </td>
                             @endforeach
                         </tr>
                     </tbody>

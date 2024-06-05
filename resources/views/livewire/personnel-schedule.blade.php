@@ -61,7 +61,7 @@
                             <td class="py-4 text-sm text-black border border-slate-300">
                                 <!-- Edit/Delete -->
                                 <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.edit-delete')
+                                    @include('components.editdelete-button')
                                 </div>
                             </td>
                         </tr>

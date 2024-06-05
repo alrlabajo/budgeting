@@ -42,10 +42,12 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->item}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->budget}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->justification}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">
                             <!-- Edit/Delete -->
-                            <div class="flex flex-col items-center gap-y-2 px-2">
-                                @include('components.edit-delete')
-                            </div>
+                                <div class="flex flex-col items-center gap-y-2 px-2">
+                                    @include('components.editdelete-button')
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
