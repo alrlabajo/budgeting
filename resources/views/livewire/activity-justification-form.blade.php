@@ -63,12 +63,11 @@
 
                     <label class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal">Cost per Student</label>
 
-                    <div class="flex flex-row space-x-36">
-
+                    <div class="flex flex-row space-x-10">
                         <!-- Estimated Number of Students -->
-                        <form class="justify-start items-start space-y-3 flex flex-col whitespace-nowrap">
+                        <form class="justify-start items-start space-y-3 flex flex-col">
                             <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Estimated Number of Students</label>
-                            <input type="number" name="estimated_no_students" wire:model="items.{{ $index }}.estimated_no_students" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
+                            <input type="number" name="estimated_no_students" wire:model="items.{{ $index }}.estimated_no_students" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
                             @error('items.' . $index . '.estimated_no_students')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror
@@ -77,22 +76,21 @@
                         <!-- Total Cost (excluding Capital Outlay) -->
                         <form class="justify-start items-start space-y-3 flex flex-col">
                             <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Total Cost (excluding Capital Outlay)</label>
-                            <input type="number" step="0.01" name="total_cost" wire:model="items.{{ $index }}.total_cost" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
+                            <input type="number" step="0.01" name="total_cost" wire:model="items.{{ $index }}.total_cost" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
                             @error('items.' . $index . '.total_cost')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </form>
-
-                        <!-- Cost per Student -->
-                        <form class="justify-start items-start space-y-3 flex flex-col">
-                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Cost per Student</label>
-                            <input type="number" step="0.01" name="cost_per_student" wire:model="items.{{ $index }}.cost_per_student" class="w-96 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
-                            @error('items.' . $index . '.cost_per_student')
-                            <span class="text-red-500">{{ $message }}</span>
-                            @enderror
-                        </form>
-
                     </div>
+
+                    <!-- Cost per Student -->
+                    <form class="justify-start items-start space-y-3 flex flex-col">
+                        <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Cost per Student</label>
+                        <input type="number" step="0.01" name="cost_per_student" wire:model="items.{{ $index }}.cost_per_student" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
+                        @error('items.' . $index . '.cost_per_student')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                    </form>
 
                     <!-- Method of Accomplishing Objectives -->
                     <div class="justify-start items-start space-y-3">
@@ -133,16 +131,14 @@
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        <!-- Total -->
-                        <div class="justify-start items-start space-y-3 flex flex-col">
-                            <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Total</label>
-                            <input type="number" step="0.01" name="total" wire:model="items.{{ $index }}.total" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
-                            @error('items.' . $index . '.total')
-                            <span class="text-red-500">{{ $message }}</span>
-                            @enderror
-                        </div>
-
+                    </div>
+                    <!-- Total -->
+                    <div class="justify-start items-start space-y-3 flex flex-col">
+                        <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Total</label>
+                        <input type="number" step="0.01" name="total" wire:model="items.{{ $index }}.total" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
+                        @error('items.' . $index . '.total')
+                        <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     @endforeach
 
