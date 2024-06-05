@@ -41,7 +41,7 @@
                     <tr>
                         <th scope="col" class="px-6 py-3">Id</th>
                         <th scope="col" class="pr-10 py-3">Name</th>
-                        <th scope="col" class="px-6 py-3">Created At</th>
+                        <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,6 @@
                     <tr class="gap-6 pb-4">
                         <td  class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$permission->id}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$permission->name}}</td>
-                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$permission->created_at}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                             <a href="{{ url('permissions/'.$permission->id.'/edit') }}" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Edit</a>
                             <a href="{{ url('permissions/'.$permission->id.'/delete') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Delete</a>

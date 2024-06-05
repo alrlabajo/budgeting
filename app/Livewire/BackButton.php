@@ -16,7 +16,4 @@ class BackButton extends Component
     {
         return redirect()->to('/chart');
     }
-
-
-
 }

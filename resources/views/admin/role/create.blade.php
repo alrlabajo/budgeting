@@ -14,8 +14,8 @@
             <form  wire:submit="submit" action="{{ url('roles') }}" method="POST">
                 @csrf
                 <div class="px-6 py-2">
-                    <label class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">Role Name: </label>
-                    <input name="name" type="text" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Role Name: </label>
+                    <input name="name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5"
                                     placeholder="role name">
                 </div>
                 <div class="px-6 py-2">

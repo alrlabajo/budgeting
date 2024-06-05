@@ -14,7 +14,7 @@
             <form  wire:submit="submit" action="{{ url('permissions') }}" method="POST">
                 @csrf
                 <div class="px-6 py-2">
-                    <label class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">Permission Name: </label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Permission Name: </label>
                     <input name="name" type="text" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
                                     placeholder="permission name">
                 </div>
