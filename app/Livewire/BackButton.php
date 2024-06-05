@@ -12,8 +12,4 @@ class BackButton extends Component
         // return view('livewire.capital-outlay-form');
     }
 
-    public function goBack()
-    {
-        return redirect()->to('/dashboard');
-    }
 }
