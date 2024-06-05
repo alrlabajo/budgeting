@@ -110,7 +110,7 @@
                         <!-- Personal Services (Total of div No. 2) -->
                         <div class="justify-start items-start space-y-3 flex flex-col">
                             <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Personal Services (Total of div No. 2)</label>
-                            <input type="number" name="services_budget" wire:model="items.{{ $index }}.services_budget" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
+                            <input type="number" step="0.01" name="services_budget" wire:model="items.{{ $index }}.services_budget" class="w-72 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="0">
                             @error('items.' . $index . '.services_budget')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror

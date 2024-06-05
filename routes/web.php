@@ -22,13 +22,13 @@ use App\Livewire\Amendment;
 use App\Livewire\BurForm;
 use App\Livewire\AmendmentForm;
 use App\Livewire\Appropriations;
+use App\Livewire\Appropriationsform;
 use Illuminate\Support\Facades\DB;
 
 use App\Livewire\LoadCapitalOutlay;
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +90,7 @@ Route::get('/PPMP-form', PpmpForm::class);
 Route::get('/appropriations', Appropriations::class);
 Route::get('/BUR-form', BurForm::class);
 Route::get('/amendment-form', AmendmentForm::class);
+Route::get('/appropriations-form', Appropriationsform::class);
 
 
 
