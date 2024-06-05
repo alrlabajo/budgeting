@@ -53,56 +53,56 @@ Route::get('/verify', [VerifyController::class, 'verify'])
     ->name('verify');
 
 // roles and permissions route
+Route::group(['middleware' => ['isAdmin']], function() {
+    // Permissions Routes
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+    Route::put('permissions/{permissionId}/edit', [App\Http\Controllers\PermissionController::class,'edit']);
+    Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class,'destroy']);
 
-// Permissions Routes
-Route::resource('permissions', App\Http\Controllers\PermissionController::class);
-Route::put('permissions/{permissionId}/edit', [App\Http\Controllers\PermissionController::class,'edit']);
-Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class,'destroy']);
+    // Roles Routes
+    Route::resource('roles',App\Http\Controllers\RoleController::class);
+    Route::put('roles/{roleId}/edit', [App\Http\Controllers\RoleController::class,'edit']);
+    Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
 
-// Roles Routes
-Route::resource('roles',App\Http\Controllers\RoleController::class);
-Route::put('roles/{roleId}/edit', [App\Http\Controllers\RoleController::class,'edit']);
-Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
-
-// Users Routes
-Route::resource('users',App\Http\Controllers\UserController::class);
-Route::put('users/{userId}/edit',[App\Http\Controllers\UserController::class,'edit']);
-Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
-
+    // Users Routes
+    Route::resource('users',App\Http\Controllers\UserController::class);
+    Route::put('users/{userId}/edit',[App\Http\Controllers\UserController::class,'edit']);
+    Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
+});
 
 // end of roles and permissions route
 
-
-//Record Routes
-Route::get('/activity-justification', ActivityJustification::class);
-Route::get('/personal-services', PersonalServices::class);
-Route::get('/personnel-schedule', PersonnelSchedule::class);
-Route::get('/MOOE', Mooe::class);
-Route::get('/capital-outlay', LoadCapitalOutlay::class);
-Route::get('/PPMP', PPMP::class);
-Route::get('/BUR', BUR::class);
-Route::get('/amendment', Amendment::class);
-
-
-
-
-//Form Routes
-Route::get('/activity-justification-form', ActivityJustificationForm::class);
-Route::get('/personal-services-form', PersonalServicesForm::class);
-Route::get('/personnel-schedule-form', PersonnelScheduleForm::class);
-Route::get('/MOOE-form', MaintenanceForm::class);
-Route::get('/capital-outlay-form', CapitalOutlayForm::class);
-Route::get('/PPMP-form', PpmpForm::class);
-Route::get('/appropriations', Appropriations::class);
-Route::get('/BUR-form', BurForm::class);
-Route::get('/amendment-form', AmendmentForm::class);
-Route::get('/appropriations-form', Appropriationsform::class);
+Route::group(['middleware' => 'auth'], function () {
+    //Record Routes
+    Route::get('/activity-justification', ActivityJustification::class);
+    Route::get('/personal-services', PersonalServices::class);
+    Route::get('/personnel-schedule', PersonnelSchedule::class);
+    Route::get('/MOOE', Mooe::class);
+    Route::get('/capital-outlay', LoadCapitalOutlay::class);
+    Route::get('/PPMP', PPMP::class);
+    Route::get('/BUR', BUR::class);
+    Route::get('/amendment', Amendment::class);
 
 
 
-//Others
-Route::get('/settings', Settings::class);
-Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
+
+    //Form Routes
+    Route::get('/activity-justification-form', ActivityJustificationForm::class);
+    Route::get('/personal-services-form', PersonalServicesForm::class);
+    Route::get('/personnel-schedule-form', PersonnelScheduleForm::class);
+    Route::get('/MOOE-form', MaintenanceForm::class);
+    Route::get('/capital-outlay-form', CapitalOutlayForm::class);
+    Route::get('/PPMP-form', PpmpForm::class);
+    Route::get('/appropriations', Appropriations::class);
+    Route::get('/BUR-form', BurForm::class);
+    Route::get('/amendment-form', AmendmentForm::class);
+    Route::get('/appropriations-form', Appropriationsform::class);
+
+
+
+    //Others
+    Route::get('/settings', Settings::class);
+    Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
 
 
 
@@ -127,6 +127,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 });
 
 require __DIR__.'/auth.php';

@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="px-6 py-32">
+    <div class="p-2 sm:ml-64">
         @include('admin.nav-links')
         @if(session('status'))
         <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 " role="alert">
@@ -52,6 +52,7 @@
                     <tr class="gap-6 pb-4">
                         <td  class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$user->id}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$user->name}}</td>
+                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$user->email}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                             @if(!empty($user->getRoleNames()))
                                 @foreach($user->getRoleNames() as $rolename)

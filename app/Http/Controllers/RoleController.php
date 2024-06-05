@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
      // for crud operations
+     public function __construct()
+     {
+        $this->middleware('permission:view role', ['only' => ['index']]);
+        $this->middleware('permission:create role', ['only' => ['create','store','addPermissionToRole','givePermissionToRole']]);
+        $this->middleware('permission:update role', ['only' => ['update','edit']]);
+        $this->middleware('permission:delete role', ['only' => ['destroy']]);
+     }
 
     //load page
     public function index()

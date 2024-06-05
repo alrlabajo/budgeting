@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="px-6 py-32">
+    <div class="p-2 sm:ml-64">
         <!-- Header -->
         <div class="flex justify-between items-center pb-4">
             <div class="w-96 h-9 inline-flex">
