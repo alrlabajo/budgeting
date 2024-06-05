@@ -1,34 +1,39 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PermissionController;
 
-use App\Livewire\Chart;
-use App\Livewire\Settings;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerifyController;
+
 use App\Livewire\ActivityJustification;
 use App\Livewire\ActivityJustificationForm;
-use App\Livewire\PersonalServices;
-use App\Livewire\PersonalServicesForm;
-use App\Livewire\PersonnelSchedule;
-use App\Livewire\PersonnelScheduleForm;
-use App\Livewire\Mooe;
-use App\Livewire\MaintenanceForm;
-use App\Livewire\CapitalOutlay;
-use App\Livewire\CapitalOutlayForm;
-use App\Livewire\PPMP;
-use App\Livewire\PpmpForm;
-use App\Livewire\BUR;
 use App\Livewire\Amendment;
-use App\Livewire\BurForm;
 use App\Livewire\AmendmentForm;
 use App\Livewire\Appropriations;
 use App\Livewire\Appropriationsform;
-use Illuminate\Support\Facades\DB;
-
+use App\Livewire\BUR;
+use App\Livewire\BurForm;
+use App\Livewire\CapitalOutlay;
+use App\Livewire\CapitalOutlayForm;
+use App\Livewire\Chart;
 use App\Livewire\LoadCapitalOutlay;
+use App\Livewire\MaintenanceForm;
+use App\Livewire\Mooe;
+use App\Livewire\PersonalServices;
+use App\Livewire\PersonalServicesForm;
+use App\Livewire\PersonnelSchedule;
 
-use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\RoleController;
+use App\Livewire\PersonnelScheduleForm;
+use App\Livewire\Settings;
+use App\Livewire\PPMP;
+use App\Livewire\PpmpForm;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +49,10 @@ use App\Http\Controllers\RoleController;
 /*Route::get('/', function () {
     return view('welcome');
 })*/
+
+// ERP Route
+Route::get('/verify', [VerifyController::class, 'verify'])
+    ->name('verify');
 
 // roles and permissions route
 
@@ -64,7 +73,6 @@ Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class,
 
 
 // end of roles and permissions route
-
 
 
 //Record Routes
