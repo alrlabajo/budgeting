@@ -49,14 +49,19 @@ class LoadCapitalOutlay extends Component
 
 
 
+        if ($this->college == '') {
+            $total_expenses = CapitalOutlay::sum('budget');
+        }
+        else {
+            $total_expenses = CapitalOutlay::where('college_office', $this->college)->sum('budget');
+        }
 
 
-        $total_expenses = CapitalOutlay::sum('budget');
         $english_format_number = number_format($total_expenses);
 
         return view('livewire.capital-outlay', [
             'capitalOutlay' => CapitalOutlay::when($this->college !== '', function ($query) {
-                $query->where('college_office', $this->college);
+                $query->where('college_office', $this->college, 'budget');
             })->paginate(180),
             'totalExpenses' => $english_format_number,
 
