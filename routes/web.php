@@ -46,13 +46,21 @@ use App\Http\Controllers\RoleController;
 })*/
 
 // roles and permissions route
+
+// Permissions Routes
 Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 Route::put('permissions/{permissionId}/edit', [App\Http\Controllers\PermissionController::class,'edit']);
 Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class,'destroy']);
 
+// Roles Routes
 Route::resource('roles',App\Http\Controllers\RoleController::class);
 Route::put('roles/{roleId}/edit', [App\Http\Controllers\RoleController::class,'edit']);
 Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
+
+// Users Routes
+Route::resource('users',App\Http\Controllers\UserController::class);
+Route::put('users/{userId}/edit',[App\Http\Controllers\UserController::class,'edit']);
+Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
 
 
 // end of roles and permissions route
