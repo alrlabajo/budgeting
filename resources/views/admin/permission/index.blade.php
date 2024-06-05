@@ -41,7 +41,7 @@
                     <tr>
                         <th scope="col" class="px-6 py-3">Id</th>
                         <th scope="col" class="pr-10 py-3">Name</th>
-                        <th scope="col" class="px-6 py-3">Created At</th>
+                        <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>

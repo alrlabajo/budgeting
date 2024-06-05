@@ -25,11 +25,11 @@
 
 
             <div class="w-96 h-9 inline-flex">
-            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Roles</label>
+            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Users</label>
             </div>
 
             <div class="flex justify-end">
-                <a href="{{ url('roles/create') }}" class="text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none">Add Role</a>
+                <a href="{{ url('users/create') }}" class="text-white font-extrabold bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 rounded-lg text-sm px-5 py-2.5 focus:outline-none">Add User</a>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                     <tr>
                         <th scope="col" class="px-6 py-3">Id</th>
                         <th scope="col" class="pr-10 py-3">Name</th>
-                        <th scope="col" class="px-6 py-3">Action</th>
+                        <th scope="col" class="px-6 py-3">Created At</th>
                     </tr>
                 </thead>
                 <tbody>
