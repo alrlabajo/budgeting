@@ -38,7 +38,7 @@ DB_PASSWORD=
 
 ## FAQs
 #### 1. Where to access the folder in Hostinger?
-- Login here: https://185.199.52.28:8443/login (details on gc)
+- Login here: https://185.199.52.28:8443/login (details on gc)<br>
 ![image](https://github.com/alrlabajo/budgeting/assets/103131412/5ac4211a-b6b0-4d1f-819c-7e5893c06ca5)
 
 <br>
