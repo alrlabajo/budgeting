@@ -1,4 +1,6 @@
 <x-app-layout>
+    <x-slot name="title">Dashboard</x-slot>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2 space-y-4">
             <div class="flex flex-col sm:flex-row space-x-0 sm:space-x-2 space-y-2 sm:space-y-0">

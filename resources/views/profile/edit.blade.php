@@ -1,4 +1,5 @@
 <x-app-layout>
+<x-slot name="title">Profile</x-slot>
     <div class="py-8 sm:ml-64">
         <div class="space-y-4">
             <div>

@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">Activity Justification</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -64,7 +65,7 @@
                             <td class="py-4 text-sm font-medium border border-slate-300">
                                 <!-- Edit/Delete -->
                                 <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button', ['id' => $activityjustification->id]) 
+                                    @include('components.editdelete-button', ['id' => $activityjustification->id])
                                 </div>
                             </td>
                         </tr>

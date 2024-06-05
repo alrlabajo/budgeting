@@ -1,4 +1,6 @@
 <x-app-layout>
+    <x-slot name="title">Capital Outlay</x-slot>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -63,7 +65,6 @@
                     </tfoot>
 
                 </table>
-                <button wire:click="goBack" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Back</button>
             </div>
         </div>
     </div>

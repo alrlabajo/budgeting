@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Budgeting Office') }}</title>
+    <title>{{ $title ?? 'Page Title' }}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net" rel="preconnect">
@@ -19,8 +19,6 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
 
     @livewireStyles
-
-    <title>{{ $title ?? 'Page Title' }}</title>
 
 
 

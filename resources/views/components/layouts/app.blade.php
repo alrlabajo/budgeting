@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>{{ $title ?? config('app.name') }}</title>
+    <title>{{ $title ?? 'Page Title' }}</title>
+
+
     <link href="https://fonts.bunny.net" rel="preconnect">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -16,7 +20,6 @@
 
     @livewireStyles
 
-    <title>{{ $title ?? 'Page Title' }}</title>
     <!-- Styles -->
     <style>
         /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
@@ -836,7 +839,6 @@
 <body>
     {{$slot}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    @yield('content')
     @livewireScripts
 </body>
 

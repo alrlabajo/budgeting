@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">Project Procurement Management Plan</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -15,6 +16,6 @@
             <div class="w-full h-full px-10 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
 
+            </div>
         </div>
-    </div>
 </x-app-layout>
