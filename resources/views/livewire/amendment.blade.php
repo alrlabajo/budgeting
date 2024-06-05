@@ -19,11 +19,11 @@
                             <th class="py-3 whitespace-nowrap">
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
                             </th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amendatory No.</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Plan No. Being Revised</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date of Revision</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Planned Amount</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date Submitted</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amendatory No.</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Plan No. Being Revised</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date of Revision</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Planned Amount</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date Submitted</th>
                             <th scope="col" class="relative py-3 border border-slate-300">
                                 <span class="sr-only">Edit</span>
                             </th>
@@ -34,11 +34,11 @@
                             <td class="px-2 py-3 whitespace-nowrap text-center">
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
                             </td>
-                            <td class="py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                             <td class="py-3 text-sm font-medium border border-slate-300">
                                 <!-- Edit/Delete -->
                                 <div class="flex flex-col items-center gap-y-2 px-2">

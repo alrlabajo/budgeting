@@ -28,11 +28,11 @@
                 <table class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
                         <tr>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class Year</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Account Code</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Item of Expenditures</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Approved Budget</th>
-                            <th scope="col" class="py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Justification</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class Year</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Account Code</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Item of Expenditures</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Approved Budget</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Justification</th>
                             <th scope="col" class="relative p-7 border border-slate-300">
                                 <span class="sr-only">Edit</span>
                             </th>
@@ -41,11 +41,11 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($capitalOutlay as $capital_outlay)
                         <tr class="items-center">
-                            <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->created_at}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->account_code}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->item}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->budget}}</td>
-                            <td class="py-4 text-sm text-black border border-slate-300">{{$capital_outlay->justification}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->created_at}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->account_code}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->item}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->budget}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{$capital_outlay->justification}}</td>
                             <!-- Edit/Delete -->
                             <div class="flex flex-col items-center gap-y-2 px-2">
                                 @include('components.edit-delete')
