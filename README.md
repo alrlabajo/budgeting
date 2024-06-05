@@ -35,3 +35,6 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 5. Migrate your tables using `php artisan migrate`
+
+## Where to access in Hostinger
+![image](https://github.com/alrlabajo/budgeting/assets/103131412/5ac4211a-b6b0-4d1f-819c-7e5893c06ca5)
