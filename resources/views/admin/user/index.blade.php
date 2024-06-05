@@ -42,18 +42,26 @@
                     <tr>
                         <th scope="col" class="px-6 py-3">Id</th>
                         <th scope="col" class="pr-10 py-3">Name</th>
-                        <th scope="col" class="px-6 py-3">Created At</th>
+                        <th scope="col" class="pr-10 py-3">Email</th>
+                        <th scope="col" class="pr-10 py-3">Roles</th>
+                        <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($roles as $role)
+                    @foreach ($users as $user)
                     <tr class="gap-6 pb-4">
-                        <td  class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$role->id}}</td>
-                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$role->name}}</td>
-                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$role->created_at}}</td>
+                        <td  class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$user->id}}</td>
+                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$user->name}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-                            <a href="{{ url('roles/'.$role->id.'/edit') }}" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Edit</a>
-                            <a href="{{ url('roles/'.$role->id.'/delete') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Delete</a>
+                            @if(!empty($user->getRoleNames()))
+                                @foreach($user->getRoleNames() as $rolename)
+                                    <label class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{{ $rolename }}</label>
+                                @endforeach
+                            @endif
+                        </td>
+                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                            <a href="{{ url('users/'.$user->id.'/edit') }}" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Edit</a>
+                            <a href="{{ url('users/'.$user->id.'/delete') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Delete</a>
                         </td>
                     </tr>
                     @endforeach

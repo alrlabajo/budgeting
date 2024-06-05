@@ -50,7 +50,6 @@
                     <tr class="gap-6 pb-4">
                         <td  class="px-6 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$role->id}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$role->name}}</td>
-                        <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">{{$role->created_at}}</td>
                         <td class="pr-10 py-3 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                             <a href="{{ url('roles/'.$role->id.'/edit') }}" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Edit</a>
                             <a href="{{ url('roles/'.$role->id.'/delete') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Delete</a>
