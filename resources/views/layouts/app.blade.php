@@ -16,6 +16,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+
     @vite(['resources/css/app.css','resources/js/app.js'])
 
     @livewireStyles
@@ -34,7 +35,7 @@
         <main class="py-6 mt-16">
             {{ $slot }}
         </main>
-        
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
