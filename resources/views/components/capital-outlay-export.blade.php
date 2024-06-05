@@ -65,7 +65,7 @@
         function exportToCsv() {
             var filename = document.getElementById("filename-input").value + ".csv";
             var csv = [];
-            
+
             // Get table headers
             var headers = [];
             var headerCells = document.querySelectorAll("#capital-outlay-table th");

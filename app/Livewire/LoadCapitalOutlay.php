@@ -47,17 +47,25 @@ class LoadCapitalOutlay extends Component
     public function render()
     {
 
-        return view('livewire.capital-outlay',[
-            'capitalOutlay'=> CapitalOutlay::
 
-            // when($college_office, function ($query, $college_office) {
-            //         return $query->where('college_office', $college_office);
-            // })->paginate(24)
 
-            when($this->college !=='',function($query){
-                $query->where('college_office',$this->college);
+        if ($this->college == '') {
+            $total_expenses = CapitalOutlay::sum('budget');
+        }
+        else {
+            $total_expenses = CapitalOutlay::where('college_office', $this->college)->sum('budget');
+        }
+
+
+        $english_format_number = number_format($total_expenses);
+
+        return view('livewire.capital-outlay', [
+            'capitalOutlay' => CapitalOutlay::when($this->college !== '', function ($query) {
+                $query->where('college_office', $this->college, 'budget');
             })->paginate(180),
+            'totalExpenses' => $english_format_number,
 
         ]);
     }
+
 }
