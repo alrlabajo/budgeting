@@ -117,17 +117,14 @@
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow border border-zinc-300 flex flex-col p-3 space-y-2 w-full">
-                    @livewire('month-selector')
+                        @livewire('month-selector')
                     </div>
-
+                    <div class="flex justify-between py-4">
+                        @include('components.back-button')
+                        @include('components.submit-button')
+                    </div>
                 </div>
             </form>
-            <div class="flex justify-between py-4">
-                @include('components.back-button')
-                @include('components.submit-button')
-            </div>
         </div>
-
-    </div>
     </div>
 </x-app-layout>
