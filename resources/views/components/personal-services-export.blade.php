@@ -65,17 +65,8 @@
         function exportToCsv() {
             var filename = document.getElementById("filename-input").value + ".csv";
             var csv = [];
-            
-            // Get table headers
-            var headers = [];
-            var headerCells = document.querySelectorAll("#capital-outlay-table th");
-            for (var i = 0; i < headerCells.length; i++) {
-                headers.push(headerCells[i].innerText.trim());
-            }
-            csv.push(headers.join(","));
+            var rows = document.querySelectorAll("#personal-services-table tr");
 
-            // Get table rows
-            var rows = document.querySelectorAll("#capital-outlay-table tbody tr");
             for (var i = 0; i < rows.length; i++) {
                 var row = [], cols = rows[i].querySelectorAll("td");
 
