@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('procurement_method');
             $table->decimal('estimated_budget', 10, 2);
+            $table->json('selected_months')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +36,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ppmp');
+        Schema::dropIfExists('ppmp', function (Blueprint $table){
+            $table->dropColumn('selected_months');
+        });
     }
 };
