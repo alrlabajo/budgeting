@@ -12,7 +12,7 @@
                 @include('components.amendment-button')
             </div>
 
-            <div class="w-full h-full overflow-x-auto py-2 space-y-4">
+            <div class="w-full h-full overflow-scroll py-2 space-y-4">
                 <table class="min-w-full divide-y divide-gray-200 border border-slate-300 items-center">
                     <thead>
                         <tr class="items-center">
@@ -24,6 +24,15 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date of Revision</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Planned Amount</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date Submitted</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Item No.</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Description</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Unit</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Quantity (Replace/Substitute)</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Unit Price</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Quantity (Affected)</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount (Affected)</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Justification</th>
                             <th scope="col" class="relative py-3 border border-slate-300">
                                 <span class="sr-only">Edit</span>
                             </th>
@@ -34,6 +43,15 @@
                             <td class="px-2 py-3 whitespace-nowrap text-center">
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
                             </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>

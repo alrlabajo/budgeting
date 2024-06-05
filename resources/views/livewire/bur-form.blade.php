@@ -2,15 +2,27 @@
     <x-slot name="title">Budget Utilization Request Form</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
+            <!-- Header -->
+            <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div>
             <!-- POST FORM START -->
             <form wire:submit="submit">
-                <div class="flex flex-row space-x-6">
+                <div class="flex flex-row space-x-6 bg-white rounded-lg shadow border border-zinc-300 px-10 py-9">
                     <div class="flex flex-col space-y-4">
                         <!-- Left Column -->
                         <div class="flex flex-col w-2/3 pr-4 space-y-4">
 
-                            <!-- Header -->
-                            <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div>
+                            <!-- Select College/Office -->
+                            <div class="w-80 rounded-lg">
+                                <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+                                    <option>Select College/Office</option>
+                                    @foreach(['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA'] as $office)
+                                    <option value="{{ $office }}">{{ $office }}</option>
+                                    @endforeach
+                                </select>
+                                @error('college_office')
+                                <span class="text-red-500">{{ $message }}</span>
+                                @enderror
+                            </div>
 
                             <!-- Entry -->
                             <div class="flex items-center text-center space-x-2 w-56 bg-gray-200 text-gray-700 p-1 rounded-md shadow-md font-['Inter']">
@@ -142,6 +154,9 @@
 
                         </div>
                         @endforeach
+                        <div class="py-12">
+                        @include('components.back-button')
+                        </div>
                     </div>
 
                     <!-- Right Column -->
