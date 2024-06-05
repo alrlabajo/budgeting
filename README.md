@@ -19,6 +19,16 @@ Good day team! This repository is established as a part of the ERP System for Pa
   
 # Instructions
 1. Clone this repository
-2. Open via VS Code, create .env file and setup your preferred database name.
-3. Open your terminal, enter `npm install` then `composer install`
-4. Migrate the database using `php artisan migrate`
+2. Enter `composer require laravel/breeze --dev`
+3. Open your terminal, and enter `npm install` then `composer install`.
+4. Open via VS Code, create .env file and setup using the following DB format:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laraveltutorial
+DB_USERNAME=root
+DB_PASSWORD=
+```
+5. Migrate your tables using `php artisan migrate`
