@@ -11,7 +11,7 @@
                         <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Capital Outlay Form No. 4</label>
                     </div>
                 </div>
-                @include('components.export-button')
+                @include('components.capital-outlay-export')
             </div>
 
             <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
