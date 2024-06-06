@@ -79,8 +79,19 @@ class BurForm extends Component
         // }
     }
 
+    public function store (Request $request) : RedirectResponse
+    {
+        $request->validate([
+            'file' =>'required|mimes:pdf,csv|max:2048',
+        ]);
+
+        $filename = time().'.'.$request->file->extension();
+
+        $request->file->move(public_path('uploads'), $filename);
+    }
+
     public function goBack() {
-        return redirect ()->to('/chart');
+        return redirect ()->to('/dashboard');
     }
     
     public function render()

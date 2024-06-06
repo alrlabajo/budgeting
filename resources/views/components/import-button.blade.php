@@ -24,6 +24,7 @@
                 <!-- Modal body -->
                 <div class="p-4 md:p-5 space-y-4">
                     <div class="flex items-center justify-center w-full">
+                        
                         <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                 <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
@@ -31,7 +32,7 @@
                                 </svg>
                                 <span class="text-black text-base font-normal font-['Inter'] leading-tight">Click to Add file</span>
                             </div>
-                            <input id="dropzone-file" type="file" class="hidden" />
+                            <input id="dropzone-file" type="file" class="hidden" accept=".csv" />
                         </label>
                     </div>
                 </div>
