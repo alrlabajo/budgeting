@@ -13,7 +13,9 @@
                 </div>
                 @include('components.capital-outlay-export')
             </div>
+            <div>
 
+            </div>
             <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
                 <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                     <option value="">Select College/Office</option>
@@ -34,6 +36,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                        <form wire::></form>
                         @foreach ($capitalOutlay as $capital_outlay)
                             <tr class="items-center">
                                 <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->created_at }}</td>
@@ -44,7 +47,22 @@
                                 <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">
                                     <!-- Edit/Delete -->
                                     <div class="flex flex-col items-center gap-y-2 px-2">
-                                        @include('components.editdelete-button')
+                                        <div class="flex flex-col items-center gap-y-2 px-2">
+                                            <x-dropdown>
+                                                <x-slot name="trigger">
+                                                    <button class="flex items-center justify-center w-8 h-8 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200">
+                                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+                                                            <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                                                        </svg>
+                                                    </button>
+                                                </x-slot>
+                                                <x-slot name="content">
+                                                    <x-dropdown-link wire:navigate href="/capital-outlay/{{$capital_outlay->capital_outlay_id}}/edit">Edit</x-dropdown-link>
+                                                    <x-dropdown-link wire:click="deleteCapitalOutlay({{ $capital_outlay}})">Delete</x-dropdown-link>
+                                                </x-slot>
+                                            </x-dropdown>
+                                        </div>
+
                                     </div>
                                 </td>
                             </tr>

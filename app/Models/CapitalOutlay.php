@@ -9,7 +9,7 @@ class CapitalOutlay extends Model
 {
     use HasFactory;
 
-    // protected $primaryKey = 'college_office';
+    protected $primaryKey = 'capital_outlay_id';
 
     protected $fillable = [
         'college_office',
