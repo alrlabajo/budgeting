@@ -43,8 +43,8 @@
                         <thead class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                             <tr>
                                 <th scope="col" class="px-3 py-3 whitespace-nowrap">Account Code</th>
-                                <th scope="col" class="pr-3 py-3 whitespace-nowrap">Item of Expenditures</th>
-                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Proposed Budget CY (Year)</th>
+                                <th scope="col" class="pr-1 py-3 whitespace-nowrap">Item of Expenditures</th>
+                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Proposed Budget<br>CY (Year)</th>
                                 <th scope="col" class="px-3 py-3 whitespace-nowrap">Approved Board Res.</th>
                                 <th scope="col" class="px-3 py-3">Total</th>
                                 <th scope="col" class="px-3 py-3">Obligations</th>
@@ -57,22 +57,16 @@
                             @foreach ($items as $index => $item)
                             <tr>
 
-                                <td class="px-3 py-2">
-                                    <input type="text" name="account_code" wire:model="items.{{ $index }}.account_code" class="w-28 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
-                                    @error('items.' . $index . '.account_code')
-                                    <span class="text-red-500">{{ $message }}</span>
-                                    @enderror
+                                <td class="px-3 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                    {{ $item['account_code'] }}
                                 </td>
 
-                                <td class="py-2">
-                                    <input type="text" name="items_expenditure" wire:model="items.{{ $index }}.items_expenditure" class="w-40 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
-                                    @error('items.' . $index . '.items_expenditure')
-                                    <span class="text-red-500">{{ $message }}</span>
-                                    @enderror
+                                <td class="py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                    {{ $item['item'] }}
                                 </td>
 
                                 <td class="px-3 py-2">
-                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-56 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
+                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-32 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.budget')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror

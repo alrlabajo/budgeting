@@ -84,7 +84,7 @@ class PersonalServicesForm extends Component
     }
 
     public function goBack() {
-        return redirect ()->to('/chart');
+        return redirect ()->to('/dashboard');
     }
     public function render()
     {

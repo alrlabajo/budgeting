@@ -41,7 +41,7 @@ class servicesImport extends Component
         $this->reset('csvFile');
     }
 
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.services-import');
     }
