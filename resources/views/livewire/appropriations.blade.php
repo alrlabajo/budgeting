@@ -1,4 +1,4 @@
-
+<x-slot name="title">Status of Appropriations, Allotments, and Obligations</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -12,7 +12,7 @@
                 @include('components.appropriations-buttons')
             </div>
 
-            <div class="w-full h-full px-10 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+            <div class="w-full h-full px-4 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                 <div class="flex justify-between py-6">
                     <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
@@ -30,9 +30,6 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Total</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Obligations</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Unobligated Balance</th>
-                            <th scope="col" class="relative p-7 border border-slate-300">
-                                <span class="sr-only">Edit</span>
-                            </th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">

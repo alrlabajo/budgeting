@@ -1,4 +1,4 @@
-
+<x-slot name="title">Maintenance and Other Operating Expenses Form</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->

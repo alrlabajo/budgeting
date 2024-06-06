@@ -1,4 +1,4 @@
-
+<x-slot name="title">Status of Appropriations, Allotments, and Obligations Forms</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -10,12 +10,12 @@
             <form wire:submit.prevent="submit"> <!-- Changed here -->
 
                 <!-- Container -->
-                <div class="w-full h-full px-6 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+                <div class="w-full h-full px-2 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                     <!-- Top Part of Container -->
                     <div class="flex justify-between py-6">
 
-                        <div class="flex flex-col space-y-3">
+                        <div class="flex flex-col px-6 space-y-3">
 
                             <!-- Select College/Office -->
                             <div class="w-80 rounded-lg">
@@ -42,65 +42,65 @@
                         <!-- Header -->
                         <thead class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                             <tr>
-                                <th scope="col" class="px-6 py-3">Account Code</th>
-                                <th scope="col" class="pr-6 py-3">Item of Expenditures</th>
-                                <th scope="col" class="px-6 py-3">Proposed Budget CY (Year)</th>
-                                <th scope="col" class="px-6 py-3">Approved Board Res.</th>
-                                <th scope="col" class="px-6 py-3">Total</th>
-                                <th scope="col" class="px-6 py-3">Obligations</th>
-                                <th scope="col" class="px-6 py-3">Unobligated Balance</th>
+                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Account Code</th>
+                                <th scope="col" class="pr-3 py-3 whitespace-nowrap">Item of Expenditures</th>
+                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Proposed Budget CY (Year)</th>
+                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Approved Board Res.</th>
+                                <th scope="col" class="px-3 py-3">Total</th>
+                                <th scope="col" class="px-3 py-3">Obligations</th>
+                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Unobligated Balance</th>
                             </tr>
                         </thead>
 
                         <!-- Body -->
                         <tbody id="appropriations-tbody">
                             @foreach ($items as $index => $item)
-                            <tr class="gap-2">
+                            <tr>
 
-                                <td class="px-6 py-2">
-                                    <input type="text" name="account_code" wire:model="items.{{ $index }}.account_code" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
+                                <td class="px-3 py-2">
+                                    <input type="text" name="account_code" wire:model="items.{{ $index }}.account_code" class="w-28 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
                                     @error('items.' . $index . '.account_code')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
 
-                                <td class="px-6 py-2">
-                                    <input type="text" name="items_expenditure" wire:model="items.{{ $index }}.items_expenditure" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
+                                <td class="py-2">
+                                    <input type="text" name="items_expenditure" wire:model="items.{{ $index }}.items_expenditure" class="w-40 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
                                     @error('items.' . $index . '.items_expenditure')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
 
-                                <td class="px-6 py-2">
-                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
+                                <td class="px-3 py-2">
+                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-56 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.budget')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
 
-                                <td class="px-6 py-2">
-                                    <input type="text" name="approved_board" wire:model="items.{{ $index }}.approved_board" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
+                                <td class="px-3 py-2">
+                                    <input type="text" name="approved_board" wire:model="items.{{ $index }}.approved_board" class="w-40 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
                                     @error('items.' . $index . '.approved_board')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
 
-                                <td class="px-6 py-2">
+                                <td class="px-3 py-2">
                                     <input type="number" step="0.01" name="total" wire:model="items.{{ $index }}.total" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.total')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
 
-                                <td class="px-6 py-2">
-                                    <input type="number" step="0.01" name="obligations" wire:model="items.{{ $index }}.obligations" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
+                                <td class="px-3 py-2">
+                                    <input type="number" step="0.01" name="obligations" wire:model="items.{{ $index }}.obligations" class="w-24 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.obligations')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
 
-                                <td class="px-6 py-2">
-                                    <input type="number" step="0.01" name="unobligated" wire:model="items.{{ $index }}.unobligated" class="w-20 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
+                                <td class="px-3 py-2">
+                                    <input type="number" step="0.01" name="unobligated" wire:model="items.{{ $index }}.unobligated" class="w-40 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
                                     @error('items.' . $index . '.unobligated')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror

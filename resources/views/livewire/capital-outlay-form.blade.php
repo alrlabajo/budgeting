@@ -1,4 +1,4 @@
-
+<x-slot name="title">Capital Outlay Form</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->

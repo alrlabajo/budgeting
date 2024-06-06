@@ -1,3 +1,4 @@
+<x-slot name="title">Project Procurement Management Plan Form</x-slot>
 <div class="p-2 sm:ml-64">
     <div class="p-2">
 

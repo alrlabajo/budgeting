@@ -10,14 +10,14 @@ class BurForm extends Component
 {
     public $items = [
         [
-         'no' => '',
-         'payee' => '',
-         'office' => '',
-         'address' => '',
-         'responsibility_center' => '',
-         'account_code' => '',
-         'particulars' => '',
-         'amount' => ''
+            'no' => '',
+            'payee' => '',
+            'office' => '',
+            'address' => '',
+            'responsibility_center' => '',
+            'account_code' => '',
+            'particulars' => '',
+            'amount' => ''
         ]
     ];
 
@@ -79,21 +79,12 @@ class BurForm extends Component
         // }
     }
 
-    public function store (Request $request) : RedirectResponse
+
+    public function goBack()
     {
-        $request->validate([
-            'file' =>'required|mimes:pdf,csv|max:2048',
-        ]);
-
-        $filename = time().'.'.$request->file->extension();
-
-        $request->file->move(public_path('uploads'), $filename);
+        return redirect()->to('/dashboard');
     }
 
-    public function goBack() {
-        return redirect ()->to('/dashboard');
-    }
-    
     public function render()
     {
         return view('livewire.bur-form');
