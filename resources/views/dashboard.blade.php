@@ -1,4 +1,6 @@
 <x-app-layout>
+    <x-slot name="title">Dashboard</x-slot>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2 space-y-4">
             <div class="flex flex-col sm:flex-row space-x-0 sm:space-x-2 space-y-2 sm:space-y-0">
@@ -13,7 +15,7 @@
                         </div>
                         <h1 class="text-2xl font-extrabold ml-2 mt-3 mb-3 text-blue-800 z-10 relative">PLM Budget System</h1>
                         <h3 class="text-[55px] font-extrabold ml-2 mb-1 text-blue-800 z-10 relative">Welcome,</h3>
-                        <h2 class="text-2xl font-bold ml-2 text-cyan-800 z-10 relative">{{ Auth::user()->name }}.</h2>
+                        <h2 class="text-2xl font-bold ml-2 text-cyan-800 z-10 relative">{{ Auth::user()?->name }}.</h2>
                     </div>
                 </div>
                 <div class="flex flex-col space-y-4 w-full">

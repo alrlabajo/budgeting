@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 class PermissionController extends Controller
 {
     // for crud operations
+    public function __construct()
+    {
+       $this->middleware('permission:view permission', ['only' => ['index']]);
+       $this->middleware('permission:create permission', ['only' => ['create','store']]);
+       $this->middleware('permission:update permission', ['only' => ['update','edit']]);
+       $this->middleware('permission:delete permission', ['only' => ['destroy']]);
+    }
 
     //load page
     public function index() {

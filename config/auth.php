@@ -63,6 +63,7 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            'username' => 'user_id', // specify the new credential field
         ],
 
         // 'users' => [

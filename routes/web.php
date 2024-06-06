@@ -17,19 +17,24 @@ use App\Livewire\Appropriationsform;
 use App\Livewire\BUR;
 use App\Livewire\BurForm;
 use App\Livewire\CapitalOutlayForm;
+use App\Livewire\EditCapitalOutlay;
 use App\Livewire\LoadCapitalOutlay;
 use App\Livewire\MaintenanceForm;
 use App\Livewire\Mooe;
 use App\Livewire\PersonalServices;
 use App\Livewire\PersonalServicesForm;
-use App\Livewire\PersonnelSchedule;
 
+
+use App\Livewire\PersonnelSchedule;
 use App\Livewire\PersonnelScheduleForm;
-use App\Livewire\Settings;
 use App\Livewire\PPMP;
 use App\Livewire\PpmpForm;
+use App\Livewire\Settings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 
 
@@ -53,26 +58,26 @@ Route::get('/verify', [VerifyController::class, 'verify'])
     ->name('verify');
 
 // roles and permissions route
+Route::group(['middleware' => ['isAdmin']], function () {
+    // Permissions Routes
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+    Route::put('permissions/{permissionId}/edit', [App\Http\Controllers\PermissionController::class, 'edit']);
+    Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class, 'destroy']);
 
-// Permissions Routes
-Route::resource('permissions', App\Http\Controllers\PermissionController::class);
-Route::put('permissions/{permissionId}/edit', [App\Http\Controllers\PermissionController::class,'edit']);
-Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class,'destroy']);
+    // Roles Routes
+    Route::resource('roles', App\Http\Controllers\RoleController::class);
+    Route::put('roles/{roleId}/edit', [App\Http\Controllers\RoleController::class, 'edit']);
+    Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'destroy']);
 
-// Roles Routes
-Route::resource('roles',App\Http\Controllers\RoleController::class);
-Route::put('roles/{roleId}/edit', [App\Http\Controllers\RoleController::class,'edit']);
-Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
-
-// Users Routes
-Route::resource('users',App\Http\Controllers\UserController::class);
-Route::put('users/{userId}/edit',[App\Http\Controllers\UserController::class,'edit']);
-Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
-
+    // Users Routes
+    Route::resource('users', App\Http\Controllers\UserController::class);
+    Route::put('users/{userId}/edit', [App\Http\Controllers\UserController::class, 'edit']);
+    Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
+});
 
 // end of roles and permissions route
 
-
+// Route::group(['middleware' => 'auth'], function () {
 //Record Routes
 Route::get('/activity-justification', ActivityJustification::class);
 Route::get('/personal-services', PersonalServices::class);
@@ -82,6 +87,13 @@ Route::get('/capital-outlay', LoadCapitalOutlay::class);
 Route::get('/PPMP', PPMP::class);
 Route::get('/BUR', BUR::class);
 Route::get('/amendment', Amendment::class);
+
+
+Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
+
+// Route::resource('/capital-outlay', LoadCapitalOutlay::class);
+// Route::put('/capital-outlay/{capital_outlay_id}/edit', [LoadCapitalOutlay::class, 'edit']);
+
 
 
 
@@ -97,7 +109,6 @@ Route::get('/appropriations', Appropriations::class);
 Route::get('/BUR-form', BurForm::class);
 Route::get('/amendment-form', AmendmentForm::class);
 Route::get('/appropriations-form', Appropriationsform::class);
-
 
 
 //Others
@@ -116,12 +127,27 @@ Route::get('/test-db', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/sample-csv', function () {
+    $headers = [
+        'Content-Type' => 'text/csv',
+        'Content-Disposition' => 'attachment; filename="sample.csv"',
+    ];
+    $callback = function () {
+        $handle = fopen('php://output', 'w');
+        fputcsv($handle, ['Account Code', 'Items of Expenditure', 'Budget', 'Justification']);
+        fclose($handle);
+    };
+    return response()->stream($callback, 200, $headers);
+})->name('sample.csv.download');
+
+Route::post('import', 'servicesImport@import');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -129,4 +155,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// });
+
+require __DIR__ . '/auth.php';

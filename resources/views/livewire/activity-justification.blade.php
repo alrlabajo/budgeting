@@ -1,4 +1,4 @@
-<x-app-layout>
+    <x-slot name="title">Activity Justification</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -9,12 +9,12 @@
                         <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Activity Justification Form No. 1</label>
                     </div>
                 </div>
-                @include('components.export-button')
+                @include('components.activity-justification-export')
             </div>
 
-            <div class="w-full h-full overflow-y-auto px-3 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+            <div class="w-full h-full overflow-y-auto p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
-                <table class="min-w-full divide-y divide-gray-200 items-center">
+                <table id="activity-justification-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
                         <tr>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Class Year</th>
@@ -27,9 +27,7 @@
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Total</th>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Status</th>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Action</th>
-                            <th scope="col" class="relative p-7 border border-slate-300" rowspan="2">
-                                <span class="sr-only">Edit</span>
-                            </th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300" rowspan="2"></th>
                         </tr>
                         <tr>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Major</th>
@@ -61,12 +59,7 @@
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
-                            <td class="py-4 text-sm font-medium border border-slate-300">
-                                <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button', ['id' => $activityjustification->id]) 
-                                </div>
-                            </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>
@@ -74,4 +67,3 @@
             </div>
         </div>
     </div>
-</x-app-layout>

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-slot name="title">Maintenance and Other Operating Expenses Form</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -20,18 +20,20 @@
                             <!-- Select College/Office -->
                             <div class="w-80 rounded-lg">
                                 <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                    <option>Select College/Office</option>
-                                    <option value="CISTM">CISTM</option>
-                                    <option value="College 2">College 2</option>
+                                    <option value="">Select College/Office</option>
+                                    @foreach ($CollegeOffices as $college)
+                                    <option value="{{$college}}">{{$college}}</option>
+                                    @endforeach
+
                                     <!-- Other options -->
                                 </select>
                                 @error('college_office')
                                 <span class="text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
-
                             <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
                         </div>
+                        @include('components.import-button')
                     </div>
 
                     @csrf
@@ -113,4 +115,3 @@
 
         </div>
     </div>
-</x-app-layout>

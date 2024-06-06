@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -12,15 +12,12 @@
                 @include('components.bur-button')
             </div>
 
-            <div class="w-full h-full overflow-x-auto py-2 space-y-4">
+            <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
-                <table class="min-w-full divide-y divide-gray-200 border border-slate-300">
+                <table id="bur-table" class="min-w-full divide-y divide-gray-200 border border-slate-300">
 
                     <thead>
                         <tr>
-                            <th class="px-1 py-3 whitespace-nowrap text-center">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
-                            </th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">BUR No.</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Payee</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Office</th>
@@ -30,18 +27,14 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Particulars</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Status</th>
-                            <th scope="col" class="relative p-7 border border-slate-300">
-                                <span class="sr-only">Edit</span>
-                            </th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Action</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300"></th>
                         </tr>
                     </thead>
 
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($load_bur as $bur)
                         <tr>
-                            <td class="px-2 py-3 whitespace-nowrap text-center">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
-                            </td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->no}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->payee}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->office}}</td>
@@ -51,12 +44,7 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->particulars}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->amount}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm font-medium border border-slate-300">
-                                <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
-                                </div>
-                            </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>
@@ -64,4 +52,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+

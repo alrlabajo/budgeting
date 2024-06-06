@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-slot name="title">Personnel Schedule</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -9,37 +9,27 @@
                         <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Personnel Schedule Form No. 4</label>
                     </div>
                 </div>
-                @include('components.export-button')
+                @include('components.personnel-schedule-export')
             </div>
 
             <div class="w-full h-full overflow-x-auto px-3 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
-
-                <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option disabled selected>Select College/Office</option>
-                    @foreach ($college_office as $college)
-                    <option value="{{ $college }}">{{ $college }}</option>
-                    @endforeach
-                </select>
-
-                <table class="min-w-full divide-y divide-gray-200 items-center">
+                <table id="personnel-schedule-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
                         <tr>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class<br>Year</th>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">College/<br>Office</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class Year</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">College/ Office</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Item No.</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Grade-Step</th>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Position<br>(Chief by Designation)</th>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Name of<br>Incumbent</th>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">CY (Year)<br>Current Year Annual salary/Annum</th>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">CY (Year)<br>Budget Year Proposed salary/Annum</th>
-                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Personal<br>Increase</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Position (Chief by Designation)</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Name of Incumbent</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">CY (Year) Current Year Annual salary/Annum</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">CY (Year) Budget Year Proposed salary/Annum</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Personal Increase</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Total</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Sub-Total</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Status</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Action</th>
-                            <th scope="col" class="relative p-7 border border-slate-300">
-                                <span class="sr-only">Edit</span>
-                            </th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300"></th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -58,12 +48,7 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personnelschedule->sub_total}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="py-4 text-sm text-black border border-slate-300">
-                                <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.edit-delete')
-                                </div>
-                            </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>
@@ -71,4 +56,3 @@
             </div>
         </div>
     </div>
-</x-app-layout>

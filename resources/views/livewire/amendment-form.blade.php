@@ -1,35 +1,27 @@
-<x-app-layout>
-    <div class="p-2 sm:ml-64">
-        <div class="p-2">
-            <!-- Header -->
-            <div class="text-black text-2xl font-medium font-['Inter'] leading-9 pb-5">Amendment</div>
+<div class="p-2 sm:ml-64">
+    <div class="p-2">
+        <!-- Header -->
+        <div class="text-black text-2xl font-medium font-['Inter'] leading-9 pb-5">Amendment</div>
 
-            <!-- POST FORM START -->
-            <form wire:submit="submit">
+        <!-- POST FORM START -->
+        <form wire:submit="submit">
 
-                <!-- Top Section -->
-                <div class="flex flex-col space-y-6">
+            <!-- Top Section -->
+            <div class="flex flex-col space-y-6 bg-white rounded-lg shadow border border-zinc-300 px-4 py-9">
+                <!-- Select College/Office -->
+                <div class="w-80 rounded-lg">
+                    <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+                        <option value="">Select College/Office</option>
+                        @foreach ($CollegeOffices as $college)
+                        <option value="{{$college}}">{{$college}}</option>
+                        @endforeach
 
-                    <div class="flex items-center text-center space-x-2 w-56 bg-gray-200 text-gray-700 p-1 rounded-md shadow-md font-['Inter']">
-                        <div class="bg-white w-24 text-black py-1 px-2 rounded-md" name="entry-count">Entry 1</div>
-                        <button class="text-gray-700 whitespace-nowrap" onclick="addEntry()">+ New Entry</button>
-                    </div>
-
-                    <!-- Select College/Office -->
-                    <div class="w-80 rounded-lg">
-                        <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                            <option>Select College/Office</option>
-                            <option value="CISTM">CISTM</option>
-                            <option value="College 2">College 2</option>
-                            <!-- Other options -->
-                        </select>
-                        @error('college_office')
-                        <span class="text-red-500">{{ $message }}</span>
-                        @enderror
-                    </div>
-
+                        <!-- Other options -->
+                    </select>
+                    @error('college_office')
+                    <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
-
 
                 <!-- Input Fields -->
                 @csrf
@@ -112,7 +104,7 @@
                 <div class="text-black text-base font-medium font-['Inter'] leading-9">Items to be Substituted/Replaced</div>
 
                 <!-- 2nd Container -->
-                <div class="w-fit h-80 px-8 py-3 bg-white rounded-xl shadow border border-zinc-200 content-center justify-start space-y-5">
+                <div class="w-full h-80 px-8 py-3 bg-white rounded-xl shadow border border-zinc-200 content-center justify-start space-y-5">
                     <div class="flex flex-row gap-x-6">
 
                         <!-- Item No. -->
@@ -238,11 +230,12 @@
 
                 <!-- Submit button -->
                 <div class="flex justify-between py-6">
+                    @include('components.back-button')
                     <button wire:click.prevent="submit" name="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
                     </button>
                 </div>
 
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-</x-app-layout>
+</div>
