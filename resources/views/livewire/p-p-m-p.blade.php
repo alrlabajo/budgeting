@@ -9,6 +9,7 @@
                     <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Project Procurement Management Plan No. </label>
                 </div>
             </div>
+            @include('components.ppmp-export')
         </div>
 
         <div class="w-full h-full px-4 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
