@@ -1,4 +1,4 @@
-
+<x-slot name="title">Maintenance and Other Operating Expenses</x-slot>
     <div class="p-2 sm:ml-64">
         <div class="p-2">
             <!-- Header -->
@@ -29,9 +29,7 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Item of Expenditures</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Approved Budget</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Justification</th>
-                            <th scope="col" class="relative p-7 border border-slate-300">
-                                <span class="sr-only">Edit</span>
-                            </th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300"></th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -42,12 +40,7 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->item}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->budget}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->justification}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">
-                            <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
-                                </div>
-                            </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>

@@ -1,6 +1,5 @@
 <div class="flex flex-row grow justify-end gap-2">
 
-
     <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
         <option value="">Select College/Office</option>
         {{-- <option value="CISTM">CISTM</option>
@@ -72,14 +71,14 @@
 
             // Get table headers
             var headers = [];
-            var headerCells = document.querySelectorAll("#capital-outlay-table th");
+            var headerCells = document.querySelectorAll("#p-p-m-p-table th");
             for (var i = 0; i < headerCells.length; i++) {
                 headers.push(headerCells[i].innerText.trim());
             }
             csv.push(headers.join(","));
 
             // Get table rows
-            var rows = document.querySelectorAll("#capital-outlay-table tbody tr");
+            var rows = document.querySelectorAll("#p-p-p-m-table tbody tr");
             for (var i = 0; i < rows.length; i++) {
                 var row = [],
                     cols = rows[i].querySelectorAll("td");
