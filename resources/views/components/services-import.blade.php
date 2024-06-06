@@ -48,7 +48,7 @@
 
                     <!-- Modal footer -->
                     <div class="flex items-center justify-between p-4 md:p-5 border-t border-gray-200 rounded-b">
-                        <a href="#" class="text-indigo-800 text-base font-normal font-inter underline leading-normal">Download sample CSV</a>
+                        <a href="{{ route('sample.csv.download') }}" class="text-indigo-800 text-base font-normal font-inter underline leading-normal">Download sample CSV</a>
                         <div class="flex gap-x-2">
                             <button data-modal-hide="import-modal" type="button" class="w-24 h-11 px-5 py-2.5 bg-white rounded-lg shadow border border-zinc-200 justify-center items-center inline-flex">
                                 <div class="text-zinc-950 text-base font-medium font-inter leading-normal">Cancel</div>
