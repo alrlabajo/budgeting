@@ -27,6 +27,7 @@
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Total</th>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Status</th>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Action</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300" rowspan="2"></th>
                         </tr>
                         <tr>
                             <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">Major</th>
@@ -58,6 +59,7 @@
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>

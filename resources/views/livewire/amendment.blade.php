@@ -51,6 +51,7 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_quantity}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_amount}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_justification}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>

@@ -22,6 +22,7 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Item of Expenditures</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Approved Budget</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Justification</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300"></th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -32,6 +33,7 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->item}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->budget}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->justification}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>
@@ -40,6 +42,7 @@
                             <td colspan="3" class="px-6 py-4 whitespace-nowrap border border-slate-300 text-center text-sm font-semibold text-black">Total Personal Services</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-y border-slate-300 text-center">Total Value 1</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-y border-slate-300 text-center"></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-r border-y border-slate-300 text-center"></td>
                         </tr>
                     </tfoot>
 

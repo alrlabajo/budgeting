@@ -13,20 +13,16 @@
                         <!-- Select College/Office -->
                         <div class="w-80 rounded-lg">
                             <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                <option>Select College/Office</option>
-                                @foreach(['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA'] as $office)
-                                <option value="{{ $office }}">{{ $office }}</option>
+                                <option value="">Select College/Office</option>
+                                @foreach ($CollegeOffices as $college)
+                                <option value="{{$college}}">{{$college}}</option>
                                 @endforeach
+
+                                <!-- Other options -->
                             </select>
                             @error('college_office')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror
-                        </div>
-
-                        <!-- Entry -->
-                        <div class="flex items-center text-center space-x-2 w-56 bg-gray-200 text-gray-700 p-1 rounded-md shadow-md font-['Inter']">
-                            <div class="bg-white w-24 text-black py-1 px-2 rounded-md" name="entry-count">Entry 1</div>
-                            <button class="text-gray-700 whitespace-nowrap" onclick="addEntry()">+ New Entry</button>
                         </div>
                     </div>
 

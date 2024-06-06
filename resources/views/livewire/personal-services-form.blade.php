@@ -19,9 +19,11 @@
                         <!-- Select College/Office -->
                         <div class="w-80 rounded-lg">
                             <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                <option>Select College/Office</option>
-                                <option value="CISTM">CISTM</option>
-                                <option value="College 2">College 2</option>
+                                <option value="">Select College/Office</option>
+                                @foreach ($CollegeOffices as $college)
+                                <option value="{{$college}}">{{$college}}</option>
+                                @endforeach
+
                                 <!-- Other options -->
                             </select>
                             @error('college_office')

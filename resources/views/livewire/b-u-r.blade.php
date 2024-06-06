@@ -28,6 +28,7 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Status</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Action</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300"></th>
                         </tr>
                     </thead>
 
@@ -43,12 +44,7 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->particulars}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->amount}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm font-medium border border-slate-300">
-                                <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
-                                </div>
-                            </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>

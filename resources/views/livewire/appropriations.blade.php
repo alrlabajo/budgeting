@@ -30,6 +30,7 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Total</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Obligations</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Unobligated Balance</th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300"></th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -43,12 +44,7 @@
                             <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->total}}</td>
                             <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->obligations}}</td>
                             <td class="text-sm text-black border border-slate-300 px-2 py-3">{{ $appropriations->unobligated}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">
-                            <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
-                                </div>
-                            </td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
                     </tbody>
