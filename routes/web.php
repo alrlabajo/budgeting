@@ -147,18 +147,6 @@ Route::get('/sample-csv', function () {
     return response()->stream($callback, 200, $headers);
 })->name('sample.csv.download');
 
-Route::get('/sample-csv', function () {
-    $headers = [
-        'Content-Type' => 'text/csv',
-        'Content-Disposition' => 'attachment; filename="sample.csv"',
-    ];
-    $callback = function () {
-        $handle = fopen('php://output', 'w');
-        fputcsv($handle, ['Account Code', 'Items of Expenditure', 'Budget', 'Justification']);
-        fclose($handle);
-    };
-    return response()->stream($callback, 200, $headers);
-})->name('appropriations-sample.csv.download');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
