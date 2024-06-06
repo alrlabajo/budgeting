@@ -35,7 +35,3 @@ class EditCapitalOutlay extends Component
         return view('livewire.edit-capital-outlay');
     }
 }
-
-
-
-
