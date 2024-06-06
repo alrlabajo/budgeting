@@ -27,9 +27,6 @@
                         <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Estimated Budget</th>
                         <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight" rowspan="2">Procurement Method</th>
                         <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight whitespace-nowrap" colspan="12">Delivery/Implementation Schedule</th>
-                        <th scope="col" class="relative p-7 border border-slate-300" rowspan="2">
-                            <span class="sr-only">Edit</span>
-                        </th>
                     </tr>
                     <tr>
                         <th scope="col" class="px-2 py-3 text-black border border-slate-300 text-sm font-bold font-['Inter'] leading-tight">J</th>
@@ -72,12 +69,6 @@
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
                             <td class="px-2 py-4 text-sm font-medium border border-slate-300"></td>
-                            <td class="py-4 text-sm font-medium border border-slate-300">
-                                <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
-                                </div>
-                            </td>
                         </tr>
                     </tbody>
                 </table>

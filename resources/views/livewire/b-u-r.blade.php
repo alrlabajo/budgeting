@@ -12,15 +12,12 @@
                 @include('components.bur-button')
             </div>
 
-            <div class="w-full h-full overflow-x-auto py-2 space-y-4">
+            <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                 <table id="bur-table" class="min-w-full divide-y divide-gray-200 border border-slate-300">
 
                     <thead>
                         <tr>
-                            <th class="px-1 py-3 whitespace-nowrap text-center">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
-                            </th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">BUR No.</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Payee</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Office</th>
@@ -30,18 +27,13 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Particulars</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Status</th>
-                            <th scope="col" class="relative p-7 border border-slate-300">
-                                <span class="sr-only">Edit</span>
-                            </th>
+                            <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Action</th>
                         </tr>
                     </thead>
 
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($load_bur as $bur)
                         <tr>
-                            <td class="px-2 py-3 whitespace-nowrap text-center">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
-                            </td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->no}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->payee}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $bur->office}}</td>

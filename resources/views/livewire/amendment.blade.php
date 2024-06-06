@@ -11,13 +11,10 @@
                 @include('components.amendment-button')
             </div>
 
-            <div class="w-full h-full overflow-scroll py-2 space-y-4">
+            <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
                 <table id="amendment-table" class="min-w-full divide-y divide-gray-200 border border-slate-300 items-center">
                     <thead>
                         <tr class="items-center">
-                            <th class="py-3 whitespace-nowrap">
-                                <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                            </th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amendatory No.</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Plan No. Being Revised</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Date of Revision</th>
@@ -32,9 +29,6 @@
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Quantity (Affected)</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Amount (Affected)</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Justification</th>
-                            <th scope="col" class="relative py-3 border border-slate-300">
-                                <span class="sr-only">Edit</span>
-                            </th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -57,12 +51,6 @@
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_quantity}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_amount}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_justification}}</td>
-                            <td class="py-3 text-sm font-medium border border-slate-300">
-                                <!-- Edit/Delete -->
-                                <div class="flex flex-col items-center gap-y-2 px-2">
-                                    @include('components.editdelete-button')
-                                </div>
-                            </td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -99,7 +99,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/appropriations-form', Appropriationsform::class);
 
 
-
     //Others
     Route::get('/settings', Settings::class);
     Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
@@ -122,6 +121,32 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/sample-csv', function () {
+    $headers = [
+        'Content-Type' => 'text/csv',
+        'Content-Disposition' => 'attachment; filename="sample.csv"',
+    ];
+    $callback = function () {
+        $handle = fopen('php://output', 'w');
+        fputcsv($handle, ['Account Code', 'Items of Expenditure', 'Budget', 'Justification']);
+        fclose($handle);
+    };
+    return response()->stream($callback, 200, $headers);
+})->name('sample.csv.download');
+
+Route::get('/sample-csv', function () {
+    $headers = [
+        'Content-Type' => 'text/csv',
+        'Content-Disposition' => 'attachment; filename="sample.csv"',
+    ];
+    $callback = function () {
+        $handle = fopen('php://output', 'w');
+        fputcsv($handle, ['Account Code', 'Items of Expenditure', 'Budget', 'Justification']);
+        fclose($handle);
+    };
+    return response()->stream($callback, 200, $headers);
+})->name('appropriations-sample.csv.download');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
