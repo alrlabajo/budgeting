@@ -19,7 +19,7 @@
                     @include('components.status-dropdown')
                 </div>
 
-                <table class="min-w-full divide-y divide-gray-200 items-center">
+                <table id="appropriations-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
                         <tr>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class Year</th>

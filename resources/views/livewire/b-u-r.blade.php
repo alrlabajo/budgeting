@@ -14,7 +14,7 @@
 
             <div class="w-full h-full overflow-x-auto py-2 space-y-4">
 
-                <table class="min-w-full divide-y divide-gray-200 border border-slate-300">
+                <table id="bur-table" class="min-w-full divide-y divide-gray-200 border border-slate-300">
 
                     <thead>
                         <tr>

@@ -12,7 +12,7 @@
             </div>
 
             <div class="w-full h-full overflow-scroll py-2 space-y-4">
-                <table class="min-w-full divide-y divide-gray-200 border border-slate-300 items-center">
+                <table id="amendment-table" class="min-w-full divide-y divide-gray-200 border border-slate-300 items-center">
                     <thead>
                         <tr class="items-center">
                             <th class="py-3 whitespace-nowrap">
@@ -38,24 +38,25 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach ($load_amendment as $amendment)
                         <tr>
                             <td class="px-2 py-3 whitespace-nowrap text-center">
                                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out mx-auto">
                             </td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->No}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->plan_no_revised}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->date_revision}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->planned_amount}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->date_submission}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->item_No}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->description}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->quantity}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->unit}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->unit_cost}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->amount}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_quantity}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_amount}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $amendment->procurement_justification}}</td>
                             <td class="py-3 text-sm font-medium border border-slate-300">
                                 <!-- Edit/Delete -->
                                 <div class="flex flex-col items-center gap-y-2 px-2">
@@ -63,6 +64,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
