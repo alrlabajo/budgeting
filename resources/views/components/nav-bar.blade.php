@@ -13,12 +13,12 @@
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
                         </svg>
                     </button>
-                    <a href="/" class="flex ms-2 md:me-24">
+                    <a href="/" class="flex ms-2 md:me-96 w-full">
                         <img src="{{ asset('css/images/image 5.png') }}" class="w-20 h-20" alt="PLM Logo" />
                         <span class="flex items-center w-80 text-indigo-800 text-2xl font-extrabold font-['Inter'] ml-3 leading-10">PLM Budget System</span>
                     </a>
                 </div>
-
+{{--
                 <!--Search Bar--> <!-- NEED FUNCTIONALITY -->
                 <div class="hidden sm:flex items-left ml-[-20px]">
                     <div class="relative">
@@ -27,7 +27,7 @@
                         </svg>
                         <input type="search" id="search-bar" class="w-[950px] h-12 pl-10 py-1 bg-zinc-100 rounded-lg flex items-center grow shrink basis-0 text-neutral-700 text-base font-normal font-nunito leading-normal ml-2 border-transparent" placeholder="Search here"/>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- User Info -->
                 <div x-data="{ open: false }" class="sm:relative sm:ml-[70px] sm:items-center justify-end sm:focus:ring-4 sm:focus:outline-none sm:focus:ring-gray-500">
