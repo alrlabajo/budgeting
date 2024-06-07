@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -31,6 +31,9 @@
     <div class="min-h-screen bg-white">
         @include('layouts.navigation')
 
+
+
+
         <!-- Page Content -->
         <main class="py-6 mt-16">
             {{ $slot }}
@@ -41,4 +44,4 @@
     @livewireScripts
 </body>
 
-</html>
+</html> --}}

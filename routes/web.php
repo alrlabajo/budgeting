@@ -16,6 +16,7 @@ use App\Livewire\Appropriations;
 use App\Livewire\Appropriationsform;
 use App\Livewire\BUR;
 use App\Livewire\BurForm;
+use App\Livewire\Chart;
 use App\Livewire\CapitalOutlayForm;
 use App\Livewire\EditCapitalOutlay;
 use App\Livewire\LoadCapitalOutlay;
@@ -94,6 +95,11 @@ Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
 // Route::resource('/capital-outlay', LoadCapitalOutlay::class);
 // Route::put('/capital-outlay/{capital_outlay_id}/edit', [LoadCapitalOutlay::class, 'edit']);
 
+Route::get('/', Chart::class);
+
+// Route::get('/', function () {
+//     return view('dashboard');
+// })
 
 
 
@@ -126,9 +132,10 @@ Route::get('/test-db', function () {
     }
 });
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+// Route::get('/', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

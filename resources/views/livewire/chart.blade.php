@@ -1,4 +1,5 @@
-<div class="flex-col grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-4 px-6 py-32">
+<div class="p-1 sm:ml-64">
+<div class="flex-col grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-4 px-4 py-6">
     <!-- WELCOME! -->
     <div class="relative max-w-xl max-h-xl rounded-lg shadow border border-gray border-opacity-50 bg-cover bg-center">
         <div class="absolute inset-0 rounded-lg"></div>
@@ -57,11 +58,13 @@
                 <img class="w-[30px] h-[30px] mr-2" src="css/images/icon1.png">
                 <h1 class="text-xl font-extrabold text-blue-800">Payment Request Forms</h1>
             </div>
+
+            {{-- kindly adjust --}}
             <div class="grid grid-cols-2 px-2 md:gap-x-1 md:grid-cols-2 sm:grid-cols-1 justify-items-center sm:py-2 md:gap-y-2 sm:gap-y-2 sm:gap-x-2">
-                <div class="flex items-center justify-center w-56 h-16 bg-blue-800  text-white rounded-md">
+                <div class="flex items-center justify-center w-48 h-16 bg-blue-800  text-white rounded-md">
                     <a href="/BUR-form" class="text-sm text-white btn text-center">Budget Utilization Request</a>
                 </div>
-                <div class="flex items-center justify-center w-56 h-16 bg-blue-800 text-white rounded-md">
+                <div class="flex items-center justify-center w-48 h-16 bg-blue-800 text-white rounded-md">
                     <a href="/amendment-form" class="text-sm text-white btn text-center">Amendment Form</a>
                 </div>
             </div>
@@ -166,6 +169,7 @@
             </table>
         </div>
     </div>
+</div>
 
 <!-- Scripts -->
     <!-- Calendar -->
