@@ -52,7 +52,7 @@
             <!-- User Info --> <!-- NEED FUNCTIONALITY -->
             <div class="flex items-center w-[500px] h-[70px] ml-56 mt-[20px]">
                 <div>
-                    <h1 class="flex items-top justify-left text-[35px] font-extrabold ml-9">{{ Auth::user()->name }}</h1>
+                    {{-- <h1 class="flex items-top justify-left text-[35px] font-extrabold ml-9">{{ Auth::user()->name }}</h1> --}}
                     <h2 class="flex items-top justify-left text-[20px] ml-9">Budget Office Head</h2>
                 </div>
             </div>
