@@ -46,4 +46,4 @@ DB_PASSWORD=
 - kindly commit all the files before editing to track all the changes then paste them manually on our website.
 - For blade components, just delete all the blade files first from hostinger views/components or /livewire then add the recent files again.
 - For back end components ex. app/livewire, app/models, app/view/components, before adding new files, be careful and check the imports if affected.
-
+- Check for tables in alldb if it exist: https://185.199.52.28:8443/phpmyadmin/index.php?route=/sql&pos=0&db=alldb&table=capital_outlays
