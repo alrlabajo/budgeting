@@ -12,7 +12,7 @@
                 @include('components.personnel-schedule-export')
             </div>
 
-            <div class="w-full h-full overflow-x-auto px-3 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+            <div class="w-full h-full overflow-x-auto p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
                 <table id="personnel-schedule-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
                         <tr>

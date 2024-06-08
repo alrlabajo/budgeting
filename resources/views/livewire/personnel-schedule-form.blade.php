@@ -9,10 +9,10 @@
         <form wire:submit="submit">
 
             <!-- Container -->
-            <div class="w-full h-full px-6 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+            <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                 <!-- Top Part of Container -->
-                <div class="flex justify-between py-6">
+                <div class="flex justify-between py-1">
 
                     <div class="flex flex-col space-y-3">
 
@@ -127,7 +127,7 @@
                 @endforeach
 
                 <!-- Bottom Buttons -->
-                <div class="flex justify-between py-4">
+                <div class="flex justify-between px-3 py-1">
                     @include('components.back-button')
                     <button wire:click.prevent="submit" id="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
                     </button>

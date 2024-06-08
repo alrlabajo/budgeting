@@ -10,10 +10,10 @@
             <form wire::submit="submit">
 
                 <!-- Container -->
-                <div class="w-full h-full px-6 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+                <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                     <!-- Top Part of Container -->
-                    <div class="flex justify-between py-6">
+                    <div class="flex justify-between py-1">
 
                         <div class="flex flex-col space-y-3">
 
@@ -41,10 +41,10 @@
                         <!-- Header -->
                         <thead class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                             <tr>
-                                <th scope="col" class="px-6 py-3 whitespace-nowrap">Account Code</th>
-                                <th scope="col" class="pr-10 py-3">Item of Expenditures</th>
-                                <th scope="col" class="px-6 py-3">Proposed Budget</th>
-                                <th scope="col" class="px-6 py-3">Justification</th>
+                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Account Code</th>
+                                <th scope="col" class="pr-6 py-3 text-center">Item of Expenditures</th>
+                                <th scope="col" class="px-3 py-3">Proposed Budget</th>
+                                <th scope="col" class="px-3 py-3 text-center">Justification</th>
                             </tr>
                         </thead>
                         <!-- Body -->
@@ -55,11 +55,11 @@
                             {{-- input fields --}}
                             <tr class="gap-6">
 
-                                <th scope="row" class="px-6 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                <th scope="row" class="px-3 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     {{ $item['account_code'] }}
                                 </th>
 
-                                <td class="pr-6 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                <td class="pl-2 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     {{ $item['item'] }}
                                 </td>
                                 <td class="px-4 py-2">
@@ -71,7 +71,7 @@
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
-                                <td class="px-6 py-2">
+                                <td class="px-3 py-2">
 
                                     {{-- input 2 for justification budget  --}}
                                     <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
@@ -87,7 +87,7 @@
 
 
                     <!-- Bottom Buttons -->
-                    <div class="flex justify-between py-4">
+                    <div class="flex justify-between px-3 py-1">
                         @include('components.back-button')
                         <button wire:click.prevent="submit" id="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
                         </button>

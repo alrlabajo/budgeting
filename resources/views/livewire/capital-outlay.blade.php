@@ -16,7 +16,7 @@
             <div>
 
             </div>
-            <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+            <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
                 {{-- <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                     <option value="">Select College/Office</option>
                     @foreach ($college_office as $college)

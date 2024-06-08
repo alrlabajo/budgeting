@@ -10,12 +10,12 @@
             <form wire:submit.prevent="submit"> <!-- Changed here -->
 
                 <!-- Container -->
-                <div class="w-full h-full px-2 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+                <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
 
                     <!-- Top Part of Container -->
-                    <div class="flex justify-between py-6">
+                    <div class="flex justify-between py-1">
 
-                        <div class="flex flex-col px-6 space-y-3">
+                        <div class="flex flex-col px-1 space-y-3">
 
                             <!-- Select College/Office -->
                             <div class="w-80 rounded-lg">
@@ -42,8 +42,8 @@
                         <!-- Header -->
                         <thead class="text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                             <tr>
-                                <th scope="col" class="px-3 py-3 whitespace-nowrap">Account Code</th>
-                                <th scope="col" class="pr-1 py-3 whitespace-nowrap">Item of Expenditures</th>
+                                <th scope="col" class="px-2 py-3 whitespace-nowrap">Account Code</th>
+                                <th scope="col" class="pl-4 py-3 whitespace-nowrap">Item of Expenditures</th>
                                 <th scope="col" class="px-3 py-3 whitespace-nowrap">Proposed Budget<br>CY (Year)</th>
                                 <th scope="col" class="px-3 py-3 whitespace-nowrap">Approved Board Res.</th>
                                 <th scope="col" class="px-3 py-3">Total</th>
@@ -61,7 +61,7 @@
                                     {{ $item['account_code'] }}
                                 </td>
 
-                                <td class="py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                <td class="pl-4 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     {{ $item['item'] }}
                                 </td>
 
@@ -106,7 +106,7 @@
                     </table>
 
                     <!-- Bottom Buttons -->
-                    <div class="flex justify-between py-6">
+                    <div class="flex justify-between px-3 py-1">
                         @include('components.back-button')
                         <button type="submit" name="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
                         </button>
