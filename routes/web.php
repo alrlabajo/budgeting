@@ -87,12 +87,12 @@ Route::get('/activity-justification', ActivityJustification::class);
 Route::get('/personal-services', PersonalServices::class);
 Route::get('/personnel-schedule', PersonnelSchedule::class);
 Route::get('/MOOE', Mooe::class);
-Route::get('/capital-outlay', LoadCapitalOutlay::class);
+
 Route::get('/PPMP', PPMP::class);
 Route::get('/BUR', BUR::class);
 Route::get('/amendment', Amendment::class);
 
-
+Route::get('/capital-outlay', LoadCapitalOutlay::class);
 Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
 
 // Route::resource('/capital-outlay', LoadCapitalOutlay::class);

@@ -36,16 +36,16 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-
                         @foreach ($capitalOutlay as $capital_outlay)
-                            <form wire:submit="updateCapitalOutlay"></form>
+                        <form wire:submit="updateCapitalOutlay">
+                            @csrf
                             <tr class="items-center">
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->created_at->format('Y') }} - {{ $capital_outlay->created_at->addYear()->format('Y') }}</td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->account_code }}</td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->item }}</td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
                                     {{-- {{ number_format($capital_outlay->budget,2) }} --}}
-                                    <input type="text" wire:model="budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
+                                    <input type="text" wire:model="budget"class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
                                 </td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->justification }}</td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
@@ -70,6 +70,7 @@
                                     </div>
                                 </td>
                             </tr>
+                        </form>
                         @endforeach
                     </tbody>
                     <tfoot>

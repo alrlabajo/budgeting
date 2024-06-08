@@ -16,13 +16,17 @@ class LoadCapitalOutlay extends Component
 
 
 
-    public $item, $budget;
+    public $item;
+
+
+
+    public $justification = "";
 
     public $load_capital_outlay = [];
     public $created_at;
 
     public $college = '';
-    public $justification;
+
 
     #College office List#
 
@@ -37,15 +41,17 @@ class LoadCapitalOutlay extends Component
 
 
 
+    public $budget;
+
 
     public function mount(CapitalOutlay $capital_outlay)
     {
+
         $this->capital_outlay = $capital_outlay;
-        // $this->budget = $capital_outlay->budget;
-        // $this->justification = $capital_outlay->justification;
         $this->created_at = CapitalOutlay::selectRaw('YEAR(created_at) as year')->distinct()->pluck('year')->toArray();
 
     }
+
 
 
     public function updateCapitalOutlay(){
@@ -55,8 +61,8 @@ class LoadCapitalOutlay extends Component
         ]);
 
         $this->capital_outlay->update($validated);
-        session()->flash('success','CapitalOutlay Updated Successfully');
-        return redirect()->to('/capital-outlay');
+        // session()->flash('success','CapitalOutlay Updated Successfully');
+        // return redirect()->to('/capital-outlay');
     }
 
     public function goBack()
@@ -75,6 +81,8 @@ class LoadCapitalOutlay extends Component
     public function render()
     {
 
+
+
         if ($this->college == '') {
             $total_expenses = CapitalOutlay::sum('budget');
         }
@@ -84,6 +92,10 @@ class LoadCapitalOutlay extends Component
 
         $this->item = CapitalOutlay::latest()->get();
 
+        $this->budget = CapitalOutlay::latest()->where('capital_outlay_id', $this->capital_outlay->capital_outlay_id)->pluck('budget');
+
+
+
 
         $english_format_number = number_format($total_expenses);
 
@@ -92,6 +104,7 @@ class LoadCapitalOutlay extends Component
                 $query->where('college_office', $this->college, 'budget');
             })->paginate(180),
             'totalExpenses' => $english_format_number,
+            'budget' => $this->budget,
 
         ]);
 
