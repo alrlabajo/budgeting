@@ -1,5 +1,5 @@
 <x-slot name="title">Settings</x-slot>
-    <div class="p-2 sm:ml-64">
+    <div class="sm:ml-64">
         <div class="p-2">
             <!-- User Image -->
             <div x-data="{ userImage: null }" class="relative z-10 w-[170px] h-[170px] ml-12 mt-10 bg-gray-300 rounded-full overflow-hidden">
