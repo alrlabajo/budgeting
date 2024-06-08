@@ -2,7 +2,7 @@
     <x-slot name="title">Capital Outlay</x-slot>
 
     <div class="p-2 sm:ml-64">
-        <div class="p-2">
+        <div class="px-2 py-5">
             <!-- Header -->
             <div class="flex w-full pb-5 justify-between">
                 <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Capital Outlay
@@ -17,12 +17,12 @@
 
             </div>
             <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
-                <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+                {{-- <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                     <option value="">Select College/Office</option>
                     @foreach ($college_office as $college)
                         <option value="{{ $college }}">{{ $college }}</option>
                     @endforeach
-                </select>
+                </select> --}}
 
                 <table id="capital-outlay-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
@@ -36,15 +36,19 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        <form wire::></form>
+
                         @foreach ($capitalOutlay as $capital_outlay)
+                            <form wire:submit="updateCapitalOutlay"></form>
                             <tr class="items-center">
-                                <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->created_at }}</td>
-                                <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->account_code }}</td>
-                                <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->item }}</td>
-                                <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">₱ {{ number_format($capital_outlay->budget,2) }}</td>
-                                <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->justification }}</td>
-                                <td class="px-2 py-3 text-sm text-black border border-slate-300 whitespace-wrap">
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->created_at->format('Y') }} - {{ $capital_outlay->created_at->addYear()->format('Y') }}</td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->account_code }}</td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->item }}</td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
+                                    {{-- {{ number_format($capital_outlay->budget,2) }} --}}
+                                    <input type="text" wire:model="budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
+                                </td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $capital_outlay->justification }}</td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
                                     <!-- Edit/Delete -->
                                     <div class="flex flex-col items-center gap-y-2 px-2">
                                         <div class="flex flex-col items-center gap-y-2 px-2">

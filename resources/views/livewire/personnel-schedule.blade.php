@@ -1,6 +1,6 @@
 <x-slot name="title">Personnel Schedule</x-slot>
     <div class="p-2 sm:ml-64">
-        <div class="p-2">
+        <div class="px-2 py-5">
             <!-- Header -->
             <div class="flex w-full pb-5 justify-between">
                 <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Personnel Schedule

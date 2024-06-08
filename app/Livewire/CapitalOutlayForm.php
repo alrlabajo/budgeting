@@ -36,6 +36,7 @@ class CapitalOutlayForm extends Component
         $this->validateOnly($propertyName);
     }
 
+
     public function submit()
     {
         // Validate input
@@ -48,7 +49,21 @@ class CapitalOutlayForm extends Component
 
         try {
             foreach ($this->items as $item) {
-                // dd("Inserting data into database");
+                // Check if record already exists
+                $existingRecord = CapitalOutlay::where('college_office', $this->college_office)
+                    ->where('account_code', $item['account_code'])
+                    ->where('item', $item['item'])
+                    ->whereRaw('YEAR(created_at) = YEAR(CURDATE())')
+                    ->first();
+
+            if ($existingRecord) {
+                // Return error message if record already exists
+                session()->flash('message', 'Record already exists for ' . $this->college_office . ' for school year ' . date('Y') . ' - ' . (date('Y') + 1) . '.');
+                return redirect()->to('/capital-outlay-form');
+            }
+            else {
+
+                // Insert data into database
                 CapitalOutlay::create([
                     'college_office' => $this->college_office,
                     'account_code' => $item['account_code'],
@@ -57,16 +72,45 @@ class CapitalOutlayForm extends Component
                     'justification' => $item['justification'],
                 ]);
             }
+        }
+
+
+
 
             // Flash success message
             session()->flash('message', 'Form submitted successfully.');
             $this->reset();
+            return redirect()->to('/capital-outlay');
+
         } catch (\Exception $e) {
             // Log error
             Log::error('Error submitting data', ['error' => $e->getMessage()]);
             // Throw the exception
             throw $e;
         }
+
+        // try {
+        //     foreach ($this->items as $item) {
+        //         // dd("Inserting data into database");
+        //         CapitalOutlay::create([
+        //             'college_office' => $this->college_office,
+        //             'account_code' => $item['account_code'],
+        //             'item' => $item['item'],
+        //             'budget' => $item['budget'],
+        //             'justification' => $item['justification'],
+        //         ]);
+        //     }
+
+        //     // Flash success message
+        //     session()->flash('message', 'Form submitted successfully.');
+        //     $this->reset();
+        //     return redirect()->to('/capital-outlay');
+        // } catch (\Exception $e) {
+        //     // Log error
+        //     Log::error('Error submitting data', ['error' => $e->getMessage()]);
+        //     // Throw the exception
+        //     throw $e;
+        // }
 
         // catch (\Exception $e) {
         //     // Log error

@@ -36,7 +36,7 @@
 
 
         <!-- Page Content -->
-        <main class="py-6 mt-16">
+        <main class="py-4 mt-16">
             {{ $slot }}
         </main>
 

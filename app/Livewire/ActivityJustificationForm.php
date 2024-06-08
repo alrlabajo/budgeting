@@ -78,6 +78,7 @@ class ActivityJustificationForm extends Component
             // Flash success message
             session()->flash('message', 'Form submitted successfully.');
             $this->reset();
+            return redirect()->to('/activity-justification');
         } catch (\Exception $e) {
             // Log error
             Log::error('Error submitting data', ['error' => $e->getMessage()]);
