@@ -173,7 +173,7 @@
 
     <!-- Scripts -->
     <!-- Calendar -->
-    <script>
+    {{-- <script>
         function calendarData() {
             const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             let now = new Date();
@@ -252,5 +252,5 @@
             dropdown.classList.toggle("hidden");
             console.log("Dropdown toggled");
         }
-    </script>
+    </script> --}}
 </div>

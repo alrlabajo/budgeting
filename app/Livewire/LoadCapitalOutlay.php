@@ -14,64 +14,46 @@ class LoadCapitalOutlay extends Component
 
     use WithPagination;
 
+    public $editedBudgetIndex = null;
+    public $budgets = [];
 
+    // public $item;
 
-    public $item;
-
-
-
-    public $justification = "";
 
     public $load_capital_outlay = [];
-    public $created_at;
+    public $year = [];
 
     public $college = '';
-
 
     #College office List#
 
     public $college_office = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA', 'Board of Regents', 'PLM Office of the President', 'Office of the Registrar', 'Admission', 'Office of the Executive Preisdent', 'Office of the Vice President for Academic Support Units', 'Office of University Legal Council', 'Office of the Vice President for Information and Communications', 'Office of the Vice President for Administration', 'Office of the Vice President for Finance', 'Cash Office/Treasury', 'Budget Office', 'Internal Audit Office', 'ICTO', 'Office of Guidance and Testing Services', 'Office of Student and Development Services', 'University Library', 'University Research Center', 'Center for University Extension Service', 'University Health Service', 'National Service Training Program', 'Human Resource Development Office', 'Procurement Office', 'Property and Supplies Office', 'Physical Facilities Management Office', 'University Security Office'];
 
-
-    // public $created_at = [];
-    // public function getUniqueYears()
-    // {
-    //     $this->created_at = CapitalOutlay::selectRaw('YEAR(created_at) as year')->distinct()->pluck('year')->toArray();
-    // }
-
-
-
-    public $budget;
-
-
-    public function mount(CapitalOutlay $capital_outlay)
+    public function editBudget($index)
     {
 
-        $this->capital_outlay = $capital_outlay;
-        $this->created_at = CapitalOutlay::selectRaw('YEAR(created_at) as year')->distinct()->pluck('year')->toArray();
-
+        $this->editedBudgetIndex = $index;
     }
 
 
-
-    public function updateCapitalOutlay(){
-        $validated = $this->validate([
-            "budget" => 'required|numeric',
-            "justification" => 'required|max:255'
-        ]);
-
-        $this->capital_outlay->update($validated);
-        // session()->flash('success','CapitalOutlay Updated Successfully');
-        // return redirect()->to('/capital-outlay');
+    public function saveBudget($budgetIndex) {
+        $budget = $this->budgets[$budgetIndex] ?? NULL;
+        if(!is_null($budget)) {
+            $editedBudget = CapitalOutlay::find($budget['capital_outlay_id']);
+            if ($editedBudget) {
+                $editedBudget->update($budget);
+            }
+        }
+        $this->editedBudgetIndex = null;
     }
 
     public function goBack()
     {
-        return redirect()->to('/');
+        return redirect()->to('/dashboard');
     }
 
     public function deleteCapitalOutlay(CapitalOutlay $capital_outlay) {
-        // return $capital_outlay;
+        return $capital_outlay;
         $capital_outlay->budget = 0;
         $capital_outlay->justification = "";
         $capital_outlay->save();
@@ -80,8 +62,7 @@ class LoadCapitalOutlay extends Component
 
     public function render()
     {
-
-
+        $this->budgets = CapitalOutlay::all()->toArray();
 
         if ($this->college == '') {
             $total_expenses = CapitalOutlay::sum('budget');
@@ -90,21 +71,17 @@ class LoadCapitalOutlay extends Component
             $total_expenses = CapitalOutlay::where('college_office', $this->college)->sum('budget');
         }
 
-        $this->item = CapitalOutlay::latest()->get();
-
-        $this->budget = CapitalOutlay::latest()->where('capital_outlay_id', $this->capital_outlay->capital_outlay_id)->pluck('budget');
-
-
+        // $this->item = CapitalOutlay::latest()->get();
 
 
         $english_format_number = number_format($total_expenses);
 
         return view('livewire.capital-outlay', [
-            'capitalOutlay' => CapitalOutlay::when($this->college !== '', function ($query) {
-                $query->where('college_office', $this->college, 'budget');
-            })->paginate(180),
-            'totalExpenses' => $english_format_number,
-            'budget' => $this->budget,
+            // 'capitalOutlay' => CapitalOutlay::when($this->college !== '', function ($query) {
+            //     $query->where('college_office', $this->college, 'budget');
+            // })->paginate(180),
+            // 'totalExpenses' => $english_format_number,
+            'budgets' => $this->budgets,
 
         ]);
 

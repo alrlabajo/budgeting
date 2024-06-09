@@ -16,10 +16,10 @@
         {{-- <option value="College 1">2023</option>
         <option value="College 2">2022</option>
         <option value="">...</option> --}}
-
+{{--
         @foreach ($created_at as  $sy)
         <option value="{{$sy}}">{{$sy}} - {{$sy + 1}}</option>
-        @endforeach
+        @endforeach --}}
     </select>
 
     <!-- Export Modal toggle -->

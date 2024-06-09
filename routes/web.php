@@ -93,7 +93,8 @@ Route::get('/BUR', BUR::class);
 Route::get('/amendment', Amendment::class);
 
 Route::get('/capital-outlay', LoadCapitalOutlay::class);
-Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
+// Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
+// Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
 
 // Route::resource('/capital-outlay', LoadCapitalOutlay::class);
 // Route::put('/capital-outlay/{capital_outlay_id}/edit', [LoadCapitalOutlay::class, 'edit']);
