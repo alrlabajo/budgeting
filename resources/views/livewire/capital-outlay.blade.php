@@ -41,6 +41,7 @@
                         @foreach ($budgets as $index => $budget)
                             <tr class="items-center">
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ \Carbon\Carbon::parse($budget['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($budget['created_at'])->addYear()->format('Y') }}</td>
+                                {{-- <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $budget['created_at'] }}</td> --}}
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $budget['account_code'] }}</td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $budget['item'] }}</td>
 
@@ -52,7 +53,14 @@
                                         <input type="text" wire:model="budgets.{{ $index }}.budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
                                     @endif
                                     </td>
-                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $budget['justification'] }}</td>
+
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
+                                    @if($editedBudgetIndex !== $index)
+                                        {{ $budget['justification'] }}
+                                    @else
+                                        <input type="text" wire:model="budgets.{{ $index }}.justification" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
+                                    @endif
+                                </td>
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
                                     <!-- Edit/Delete -->
                                     <div class="flex flex-col items-center gap-y-2 px-2">
@@ -70,7 +78,7 @@
                                                     @if($editedBudgetIndex !== $index)
                                                         <x-dropdown-link wire:click.prevent="editBudget({{ $index }})">Edit</x-dropdown-link>
 
-                                                        {{-- <x-dropdown-link wire:click="deleteCapitalOutlay({{ $budget}})">Delete</x-dropdown-link> --}}
+                                                        <x-dropdown-link wire:click.prevent="deleteCapitalOutlay({{ $index}})">Delete</x-dropdown-link>
                                                     @else
                                                         <x-dropdown-link wire:click.prevent="saveBudget({{ $index }})" wire:key="{{ $index }}">Save</x-dropdown-link>
                                                         {{-- <x-dropdown-link wire:click="deleteCapitalOutlay({{ $budget}})">Delete</x-dropdown-link> --}}
@@ -87,10 +95,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            {{-- <td colspan="3" class="px-6 py-4 whitespace-nowrap border border-slate-300 text-center text-sm font-semibold text-black">Total Capital Outlay</td>
+                            <td colspan="3" class="px-6 py-4 whitespace-nowrap border border-slate-300 text-center text-sm font-semibold text-black">Total Capital Outlay</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-y border-slate-300 text-center">₱ {{ $totalExpenses }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-y border-slate-300 text-center"></td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-r border-y border-slate-300 text-center"></td> --}}
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 border-r border-y border-slate-300 text-center"></td>
                         </tr>
                     </tfoot>
                 </table>
