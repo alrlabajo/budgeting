@@ -1,6 +1,6 @@
 <x-slot name="title">Project Procurement Management Plan</x-slot>
 <div class="p-2 sm:ml-64">
-    <div class="p-2">
+    <div class="px-2 py-5">
         <!-- Header -->
         <div class="flex w-full pb-5 justify-between">
             <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Project Procurement Management Plan
@@ -12,7 +12,7 @@
             @include('components.ppmp-export')
         </div>
 
-        <div class="w-full h-full px-4 py-4 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+        <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
             <table id="ppmp-table" class="min-w-full divide-y divide-gray-200 items-center overflow-y-auto">
                 <thead>
                     <tr>

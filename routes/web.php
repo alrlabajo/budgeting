@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerifyController;
 
+// Forms
 use App\Livewire\ActivityJustification;
 use App\Livewire\ActivityJustificationForm;
 use App\Livewire\Amendment;
@@ -17,6 +18,7 @@ use App\Livewire\Appropriationsform;
 use App\Livewire\BUR;
 use App\Livewire\BurForm;
 use App\Livewire\CapitalOutlayForm;
+use App\Livewire\Chart;
 use App\Livewire\EditCapitalOutlay;
 use App\Livewire\LoadCapitalOutlay;
 use App\Livewire\MaintenanceForm;
@@ -30,8 +32,10 @@ use App\Livewire\PersonnelScheduleForm;
 use App\Livewire\PPMP;
 use App\Livewire\PpmpForm;
 use App\Livewire\Settings;
+use App\Livewire\TrackFiles;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -83,19 +87,26 @@ Route::get('/activity-justification', ActivityJustification::class);
 Route::get('/personal-services', PersonalServices::class);
 Route::get('/personnel-schedule', PersonnelSchedule::class);
 Route::get('/MOOE', Mooe::class);
-Route::get('/capital-outlay', LoadCapitalOutlay::class);
+
 Route::get('/PPMP', PPMP::class);
 Route::get('/BUR', BUR::class);
 Route::get('/amendment', Amendment::class);
 
-
-Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
+Route::get('/capital-outlay', LoadCapitalOutlay::class);
+// Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
+// Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
 
 // Route::resource('/capital-outlay', LoadCapitalOutlay::class);
 // Route::put('/capital-outlay/{capital_outlay_id}/edit', [LoadCapitalOutlay::class, 'edit']);
 
+Route::get('/', Chart::class);
+
+// Route::get('/', function () {
+//     return view('dashboard');
+// })
 
 
+Route::get('/track-files', TrackFiles::class);
 
 
 //Form Routes
@@ -126,13 +137,14 @@ Route::get('/test-db', function () {
     }
 });
 
-Route::get('/', function () {
-    return view('dashboard');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
 Route::get('/sample-csv', function () {
     $headers = [

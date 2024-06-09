@@ -28,10 +28,15 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-white">
-        @include('layouts.navigation')
+        {{-- @include('layouts.navigation') --}}
+        {{-- @include('components.nav-bar') --}}
+        @include('components.nav-bar')
+        {{-- @include('layouts.navigation') --}}
+
+
 
         <!-- Page Content -->
-        <main class="py-6 mt-16">
+        <main class="py-4 mt-16">
             {{ $slot }}
         </main>
 

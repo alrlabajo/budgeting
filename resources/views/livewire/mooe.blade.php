@@ -1,22 +1,22 @@
 <x-slot name="title">Maintenance and Other Operating Expenses</x-slot>
-
-<div class="p-2 sm:ml-64">
-    <div class="p-2">
-        <!-- Header -->
-        <div class="flex w-full pb-5 justify-between">
-            <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Maintenance and Other Operating Expenses
-                <div class="flex flex-row items-center">
-                    <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call Forms ></label>
-                    <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Maintenance and Other Operating Expenses Form No. 3</label>
+    <div class="p-2 sm:ml-64">
+        <div class="px-2 py-5">
+            <!-- Header -->
+            <div class="flex w-full pb-5 justify-between">
+                <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">Maintenance and Other Operating Expenses
+                    <div class="flex flex-row items-center">
+                        <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call Forms ></label>
+                        <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Maintenance and Other Operating Expenses Form No. 3</label>
+                    </div>
                 </div>
+                @include('components.mooe-export')
             </div>
-            @include('components.mooe-export')
-        </div>
 
-        <div class="w-full h-full p-10 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
-            <select wire:model.live="college" id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                <option disabled selected>Select College/Office</option>
-                @foreach ($college_office as $college)
+            <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
+
+                <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option disabled selected>Select College/Office</option>
+                    @foreach ($college_office as $college)
                     <option value="{{ $college }}">{{ $college }}</option>
                 @endforeach
             </select>

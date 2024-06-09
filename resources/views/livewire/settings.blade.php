@@ -1,5 +1,5 @@
 <x-slot name="title">Settings</x-slot>
-    <div class="p-2 sm:ml-64">
+    <div class="sm:ml-64">
         <div class="p-2">
             <!-- User Image -->
             <div x-data="{ userImage: null }" class="relative z-10 w-[170px] h-[170px] ml-12 mt-10 bg-gray-300 rounded-full overflow-hidden">
@@ -52,7 +52,7 @@
             <!-- User Info --> <!-- NEED FUNCTIONALITY -->
             <div class="flex items-center w-[500px] h-[70px] ml-56 mt-[20px]">
                 <div>
-                    <h1 class="flex items-top justify-left text-[35px] font-extrabold ml-9">{{ Auth::user()->name }}</h1>
+                    {{-- <h1 class="flex items-top justify-left text-[35px] font-extrabold ml-9">{{ Auth::user()->name }}</h1> --}}
                     <h2 class="flex items-top justify-left text-[20px] ml-9">Budget Office Head</h2>
                 </div>
             </div>
