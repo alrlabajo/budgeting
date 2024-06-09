@@ -78,7 +78,7 @@
                                                     @if($editedBudgetIndex !== $index)
                                                         <x-dropdown-link wire:click.prevent="editBudget({{ $index }})">Edit</x-dropdown-link>
 
-                                                        <x-dropdown-link wire:click.prevent="deleteCapitalOutlay({{ $index}})">Delete</x-dropdown-link>
+                                                        <x-dropdown-link wire:click.prevent="deleteCapitalOutlay({{ $budget['capital_outlay_id'] }})">Delete</x-dropdown-link>
                                                     @else
                                                         <x-dropdown-link wire:click.prevent="saveBudget({{ $index }})" wire:key="{{ $index }}">Save</x-dropdown-link>
                                                         {{-- <x-dropdown-link wire:click="deleteCapitalOutlay({{ $budget}})">Delete</x-dropdown-link> --}}

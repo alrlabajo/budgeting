@@ -73,8 +73,7 @@ class LoadCapitalOutlay extends Component
             // ->whereYear('created_at', '=', $this->year);
         })->when($this->year !== 0, function ($query) {
             $query->whereYear('created_at', '=', $this->year);
-        })
-        ->get()->toArray();
+        })->get()->toArray();
 
 
         if ($this->college == '') {
