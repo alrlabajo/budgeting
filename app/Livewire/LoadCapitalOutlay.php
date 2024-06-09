@@ -69,8 +69,10 @@ class LoadCapitalOutlay extends Component
 
 
         $this->budgets = CapitalOutlay::when($this->college !== '', function ($query) {
-            $query->where('college_office', $this->college)
-            ->whereYear('created_at', '=', $this->year);
+            $query->where('college_office', $this->college);
+            // ->whereYear('created_at', '=', $this->year);
+        })->when($this->year !== 0, function ($query) {
+            $query->whereYear('created_at', '=', $this->year);
         })
         ->get()->toArray();
 
