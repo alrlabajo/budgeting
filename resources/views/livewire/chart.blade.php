@@ -65,7 +65,7 @@
                         <a href="/BUR-form" class="text-sm text-white btn text-center">Budget Utilization<br>Request</a>
                     </div>
                     <div class="flex items-center justify-center w-44 h-16 bg-blue-800 text-white rounded-md">
-                        <a href="/amendment-form" class="text-sm text-white btn text-center">Amendment Form</a>
+                        <a href="/amendment-form" class="text-sm text-white btn text-center">Amendment</a>
                     </div>
                 </div>
             </div>
