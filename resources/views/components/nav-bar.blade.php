@@ -178,16 +178,46 @@
                 </li>
                 <!-- Tracking -->
                 <li>
-                    <a href="/track-files" class="flex-w-50 px-4 py-2 mt-56 flex items-center rounded-md hover:bg-[#2C56A6] active:bg-[#4F74BB]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
-                            <path d="M14 2V8H20M13.25 16.25L15 18M14.5 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V7.5L14.5 2ZM14 14.5C14 15.8807 12.8807 17 11.5 17C10.1193 17 9 15.8807 9 14.5C9 13.1193 10.1193 12 11.5 12C12.8807 12 14 13.1193 14 14.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span class="flex items-bot ms-3 whitespace-nowrap text-white text-normal font-normal font-['Nunito Sans'] leading-7">Track</span>
-                    </a>
+                    <div class="self-stretch flex-col justify-start items-start flex">
+                        <button type="button" id="tracking-button" class="w-56 px-4 py-2 flex items-center rounded-md hover:bg-[#2C56A6] active:bg-[#4F74BB]" aria-controls="tracking-dropdown" data-collapse-toggle="tracking-dropdown">
+                            <div class="grow shrink basis-0 h-7 justify-start items-center gap-2.5 flex">
+                                <div class="w-7 h-7 relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
+                                        <path d="M4.87988 7.82561C4.87988 7.18732 5.13344 6.57518 5.58478 6.12384C6.03612 5.6725 6.64826 5.41895 7.28655 5.41895H9.69322C10.3315 5.41895 10.9436 5.6725 11.395 6.12384C11.8463 6.57518 12.0999 7.18732 12.0999 7.82561V10.2323C12.0999 10.8706 11.8463 11.4827 11.395 11.934C10.9436 12.3854 10.3315 12.6389 9.69322 12.6389H7.28655C6.64826 12.6389 6.03612 12.3854 5.58478 11.934C5.13344 11.4827 4.87988 10.8706 4.87988 10.2323V7.82561ZM16.9132 7.82561C16.9132 7.18732 17.1668 6.57518 17.6181 6.12384C18.0695 5.6725 18.6816 5.41895 19.3199 5.41895H21.7266C22.3648 5.41895 22.977 5.6725 23.4283 6.12384C23.8797 6.57518 24.1332 7.18732 24.1332 7.82561V10.2323C24.1332 10.8706 23.8797 11.4827 23.4283 11.934C22.977 12.3854 22.3648 12.6389 21.7266 12.6389H19.3199C18.6816 12.6389 18.0695 12.3854 17.6181 11.934C17.1668 11.4827 16.9132 10.8706 16.9132 10.2323V7.82561ZM4.87988 19.8589C4.87988 19.2207 5.13344 18.6085 5.58478 18.1572C6.03612 17.7058 6.64826 17.4523 7.28655 17.4523H9.69322C10.3315 17.4523 10.9436 17.7058 11.395 18.1572C11.8463 18.6085 12.0999 19.2207 12.0999 19.8589V22.2656C12.0999 22.9039 11.8463 23.516 11.395 23.9674C10.9436 24.4187 10.3315 24.6723 9.69322 24.6723H7.28655C6.64826 24.6723 6.03612 24.4187 5.58478 23.9674C5.13344 23.516 4.87988 22.9039 4.87988 22.2656V19.8589ZM16.9132 19.8589C16.9132 19.2207 17.1668 18.6085 17.6181 18.1572C18.0695 17.7058 18.6816 17.4523 19.3199 17.4523H21.7266C22.3648 17.4523 22.977 17.7058 23.4283 18.1572C23.8797 18.6085 24.1332 19.2207 24.1332 19.8589V22.2656C24.1332 22.9039 23.8797 23.516 23.4283 23.9674C22.977 24.4187 22.3648 24.6723 21.7266 24.6723H19.3199C18.6816 24.6723 18.0695 24.4187 17.6181 23.9674C17.1668 23.516 16.9132 22.9039 16.9132 22.2656V19.8589Z" fill="white" stroke="white" stroke-width="2.40667" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="text-white text-base font-normal font-['Nunito Sans'] leading-normal">Tracking</span>
+                            </div>
+                            <div class="w-3 h-2 relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8" fill="none">
+                                    <g clip-path="url(#clip0_4316_6370)">
+                                        <path d="M10.879 0.787995C11.3489 0.318064 12.1109 0.318064 12.5808 0.787995C13.0507 1.25793 13.0507 2.01983 12.5808 2.48977L7.76745 7.3031C7.29752 7.77303 6.53562 7.77303 6.06568 7.3031L1.25235 2.48977C0.78242 2.01983 0.78242 1.25793 1.25235 0.787995C1.72228 0.318064 2.48419 0.318064 2.95412 0.787995L6.91657 4.75044L10.879 0.787995Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_4316_6370">
+                                            <rect width="12.0333" height="7.22" fill="white" transform="translate(0.899902 0.435547)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </button>
+                        <ul id="tracking-dropdown" class="hidden py-2 space-y-1">
+                            <li>
+                                <a href="/budget-call-track" class="flex items-center p-2 text-white text-[13px] font-normal font-['Nunito Sans'] leading-relaxed transition duration-75 rounded-lg hover:bg-[#2C56A6] active:bg-[#4F74BB]">
+                                    <span class="px-11 w-full">Budget Call Forms</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/payment-request-track" class="flex items-center p-2 text-white text-[13px] font-normal font-['Nunito Sans'] leading-relaxed transition duration-75 rounded-lg hover:bg-[#2C56A6] active:bg-[#4F74BB]">
+                                    <span class="px-11 w-full">Payment Request</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <!-- Settings -->
                 <li>
-                    <a href="/settings" class="flex-w-50 px-4 py-2 flex items-center rounded-md hover:bg-[#2C56A6] active:bg-[#4F74BB]">
+                    <a href="/settings" class="flex-w-50 px-4 py-2 mt-44 flex items-center rounded-md hover:bg-[#2C56A6] active:bg-[#4F74BB]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path d="M13.0503 6.06856C13.5634 3.95501 16.5693 3.95501 17.0824 6.06856C17.4138 7.43389 18.9781 8.08182 20.1779 7.35076C22.0352 6.21907 24.1607 8.34454 23.029 10.2019C22.2979 11.4017 22.9458 12.9659 24.3112 13.2974C26.4247 13.8105 26.4247 16.8163 24.3112 17.3294C22.9458 17.6609 22.2979 19.2251 23.029 20.4249C24.1607 22.2823 22.0352 24.4077 20.1779 23.276C18.9781 22.545 17.4138 23.1929 17.0824 24.5582C16.5693 26.6718 13.5634 26.6718 13.0503 24.5582C12.7188 23.1929 11.1546 22.545 9.95479 23.276C8.09747 24.4077 5.972 22.2823 7.10369 20.4249C7.83475 19.2251 7.18682 17.6609 5.82149 17.3294C3.70794 16.8163 3.70794 13.8105 5.82149 13.2974C7.18682 12.9659 7.83475 11.4017 7.10369 10.2019C5.972 8.34454 8.09747 6.21907 9.95479 7.35076C11.1546 8.08182 12.7188 7.43389 13.0503 6.06856Z" stroke="white" stroke-width="2.40667" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M18.6763 15.3134C18.6763 17.3071 17.0601 18.9234 15.0663 18.9234C13.0726 18.9234 11.4563 17.3071 11.4563 15.3134C11.4563 13.3197 13.0726 11.7034 15.0663 11.7034C17.0601 11.7034 18.6763 13.3197 18.6763 15.3134Z" stroke="white" stroke-width="2.40667" stroke-linecap="round" stroke-linejoin="round" />

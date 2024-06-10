@@ -15,6 +15,7 @@ use App\Livewire\Amendment;
 use App\Livewire\AmendmentForm;
 use App\Livewire\Appropriations;
 use App\Livewire\Appropriationsform;
+use App\Livewire\Budgetcalltracking;
 use App\Livewire\BUR;
 use App\Livewire\BurForm;
 use App\Livewire\CapitalOutlayForm;
@@ -23,6 +24,7 @@ use App\Livewire\EditCapitalOutlay;
 use App\Livewire\LoadCapitalOutlay;
 use App\Livewire\MaintenanceForm;
 use App\Livewire\Mooe;
+use App\Livewire\Paymentrequesttracking;
 use App\Livewire\PersonalServices;
 use App\Livewire\PersonalServicesForm;
 
@@ -107,6 +109,8 @@ Route::get('/', Chart::class);
 
 
 Route::get('/track-files', TrackFiles::class);
+Route::get('/budget-call-track', Budgetcalltracking::class);
+Route::get('/payment-request-track', Paymentrequesttracking::class);
 
 
 //Form Routes
