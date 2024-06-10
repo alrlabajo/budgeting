@@ -3,19 +3,19 @@
     <div class="p-2">
         <!-- Message Header -->
         @if(session('message'))
-        <div id="alert-additional-content-1" class="p-4 mb-4 mt-3 text-gray-800 border border-gray-300 rounded-lg bg-gray-50" role="alert">
+        <div id="alert-additional-content-1" class="p-4 mb-4 mt-3 text-indigo-800 border border-indigo-300 rounded-lg bg-indigo-50" role="alert">
             <div class="flex items-center">
             <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
             </svg>
             <span class="sr-only">Info</span>
-            <h3 class="text-lg font-medium">{{ session('message') }}</h3>
+            <h3 class="text-lg font-medium text-indigo-800">{{ session('message') }}</h3>
             </div>
             <div class="mt-2 mb-4 text-sm">
-            Please proceed to Budget Call to view your submitted budget.
+            Please proceed to Budget Call > Capital Outlay to view your submitted budget.
             </div>
             <div class="flex">
-            <button type="button" class="text-gray-800 bg-transparent border border-gray-800 hover:bg-gray-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center " data-dismiss-target="#alert-additional-content-1" aria-label="Close">
+            <button type="button" class="text-indigo-800 bg-transparent border border-indigo-800 hover:bg-indigo-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center " data-dismiss-target="#alert-additional-content-1" aria-label="Close">
             Dismiss
             </button>
             </div>
@@ -85,7 +85,8 @@
                             @if($ComparativeDataBudget == 1)
                             <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                 <input type="text" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 " placeholder="-" readonly/>
-                            </td
+                            </td>
+
 
                             @else
                             <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">

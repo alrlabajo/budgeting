@@ -10,15 +10,13 @@ use Illuminate\Support\Facades\DB;
 class CapitalOutlayForm extends Component
 {
 
-    public $tempBudget = [];
-
+    public $existingRecord = false;
     public $ComparativeDataBudget = 0;
     public $year = 0;
 
 
     public $college_office = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA', 'Board of Regents', 'PLM Office of the President', 'Office of the Registrar', 'Admission', 'Office of the Executive Preisdent', 'Office of the Vice President for Academic Support Units', 'Office of University Legal Council', 'Office of the Vice President for Information and Communications', 'Office of the Vice President for Administration', 'Office of the Vice President for Finance', 'Cash Office/Treasury', 'Budget Office', 'Internal Audit Office', 'ICTO', 'Office of Guidance and Testing Services', 'Office of Student and Development Services', 'University Library', 'University Research Center', 'Center for University Extension Service', 'University Health Service', 'National Service Training Program', 'Human Resource Development Office', 'Procurement Office', 'Property and Supplies Office', 'Physical Facilities Management Office', 'University Security Office'];
     public $CollegeOffice = '';
-
     public $flag = 0;
 
 
@@ -73,6 +71,7 @@ class CapitalOutlayForm extends Component
                     'budget' => $item['budget'],
                     'justification' => $item['justification'],
                 ]);
+
             }
         }
 
@@ -91,17 +90,14 @@ class CapitalOutlayForm extends Component
     }
 
 
-
+    public $currentYear = 0;
 
     public function render()
     {
 
 
         try {
-            // if($this->college == "") {
-            //     dd($this->college);
-            // }
-            // $this->tempYear = $this->year;
+
             $this->last_budget = CapitalOutlay::whereRaw('YEAR(created_at) = YEAR(CURDATE()) - '.$this->year)
                 ->when($this->CollegeOffice !== '', function ($query) {
                     $query->where('college_office', $this->CollegeOffice);
@@ -113,19 +109,8 @@ class CapitalOutlayForm extends Component
 
             }
             else {
-
-                // dd($this->last_budget);
                 $this->ComparativeDataBudget = 0;
-
-
-                foreach ($this->last_budget as $index => $budget) {
-                    array_push($this->tempBudget, $budget->budget);
-
-
-
-
-                }
-
+                $this->flag = 1;
 
             }
         } catch (\Exception $e) {
@@ -157,9 +142,10 @@ class CapitalOutlayForm extends Component
             ->pluck('year')
             ->toArray();
 
-        $currentYear = date('Y');
-        if (in_array($currentYear, $this->college_years)) {
-            session()->flash('message', 'You have already submitted your Capital Outlay Form.');
+        $this->currentYear = date('Y');
+        // dd($this->college_years, $this->currentYear);
+        if (in_array($this->currentYear, $this->college_years)) {
+            session()->flash('message', 'You have already submitted some Capital Outlay Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
         }
 
 
@@ -169,8 +155,9 @@ class CapitalOutlayForm extends Component
             'college_years' => $this->college_years,
             'ComparativeDataBudget' => $this->ComparativeDataBudget,
             'CollegeOffice' => $this->CollegeOffice,
-            'tempBudget' => $this->tempBudget,
+            'existingRecord' => $this->existingRecord,
             'flag' => $this->flag,
+            'currentYear' => $this->currentYear,
 
         ]);
     }
