@@ -123,127 +123,28 @@
         <!-- Status of Appropriations -->
         <div class="flex flex-col max-w-xl max-h-xl rounded-lg shadow border border-gray border-opacity-20">
             <!-- Title -->
-            <div class="flex items-center ml-5 mt-5">
-                <img class="w-[30px] h-[30px] mr-1" src="css/images/icon1.png">
+            <div class="flex items-center gap-x-3 px-3 mt-5">
+                <img class="w-[30px] h-[30px]" src="css/images/icon1.png">
                 <h1 class="text-[20px] font-extrabold text-blue-800 mb-1">Status of Appropriations</h1>
             </div>
-            <h2 class="text-[15px] font-extrabold ml-[55px] text-cyan-800">Budget Call Documents</h2>
+            <h2 class="text-[15px] font-extrabold ml-14 text-cyan-800">Budget Call Documents</h2>
             <!-- Donut Chart -->
             <livewire:donut-chart />
         </div>
         <!-- Project Procurement Management Plan -->
         <div class="max-w-xl max-h-xl rounded-lg shadow border border-gray border-opacity-20">
-            <div class="flex items-center ml-5 mt-5">
-                <img class="w-[30px] h-[30px] mr-1" src="css/images/icon1.png">
+            <div class="flex items-center gap-x-3 px-3 mt-5">
+                <img class="w-[30px] h-[30px]" src="css/images/icon1.png">
                 <h1 class="text-[20px] font-extrabold text-blue-800 mb-1">Project Procurement Management Plan</h1>
             </div>
             <!-- NEED FUNCTIONALITY Column Chart -->
-            <h2 class="text-[15px] font-extrabold ml-[55px] text-cyan-800">Overall Budget</h2>
+            <h2 class="text-[15px] font-extrabold ml-14 text-cyan-800">Overall Budget</h2>
         </div>
         <!-- Calendar -->
-        <div x-data="calendarData()" x-init="init()" class="relative flex flex-col items-center max-w-full md:w-[290px] md:max-w-xl rounded-lg shadow border border-gray border-opacity-20 ">
-            <div class="flex items-center">
-                <button @click="prevMonth" class="absolute left-3 top-3 flex items-center justify-center w-5 h-10 rounded-lg shadow border border-gray border-opacity-20 text-black font-bold py-4 px-4">&lt;</button>
-                <h1 x-text="currentMonth" class="text-[25px] font-bold mb-3 mt-3 mx-5">February</h1>
-                <button @click="nextMonth" class="absolute right-3 top-3 flex items-center justify-center w-5 h-10 rounded-lg shadow border border-gray border-opacity-20 text-black font-bold py-4 px-4">&gt;</button>
-            </div>
-            <!-- Calendar Table -->
-            <div class="flex w-[290px] h-[240px] ml-3 mt-5">
-                <table class="calendar-table pt-1">
-                    <thead>
-                        <tr>
-                            <template x-for="day in daysOfWeek" :key="day">
-                                <th x-text="day" class="px-1.5 py-1"></th>
-                            </template>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <template x-for="(week, index) in weeks" :key="index">
-                            <tr>
-                                <template x-for="(day, dayIndex) in week" :key="dayIndex">
-                                    <td :class="{ 'bg-blue-700 rounded-full': day.highlighted }" class="px-2 py-0.5" style="text-align: center;" x-text="day.day"></td>
-                                </template>
-                            </tr>
-                        </template>
-                    </tbody>
-                </table>
-            </div>
+        <div class="relative flex flex-col items-center max-w-full md:w-[290px] md:max-w-xl rounded-lg shadow border border-gray border-opacity-20 ">
+            <livewire:calendar />
         </div>
     </div>
-
-    <!-- Scripts -->
-    <!-- Calendar -->
-    {{-- <script>
-        function calendarData() {
-            const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            let now = new Date();
-            let year = now.getFullYear();
-            let month = now.getMonth();
-            let day = now.getDate(); // Get the current day
-            let currentYear = now.getFullYear();
-            let currentMonth = now.getMonth() + 1; // Adding 1 because getMonth() returns zero-based month index
-
-            const updateCalendar = () => {
-                let firstDay = new Date(year, month, 1).getDay();
-                let daysInMonth = new Date(year, month + 1, 0).getDate();
-                let weeks = [
-                    []
-                ];
-                let currentWeek = 0;
-
-                for (let i = 0; i < firstDay; i++) {
-                    weeks[currentWeek].push('');
-                }
-
-                for (let i = 1; i <= daysInMonth; i++) {
-                    if (weeks[currentWeek].length === 7) {
-                        currentWeek++;
-                        weeks.push([]);
-                    }
-                    let highlighted = (i === day && month === currentMonth - 1 && year === currentYear);
-                    weeks[currentWeek].push({
-                        day: i,
-                        highlighted: highlighted
-                    });
-                }
-
-                return {
-                    daysOfWeek,
-                    weeks,
-                    currentMonth: (new Date(year, month)).toLocaleString('default', {
-                        month: 'long',
-                        year: 'numeric'
-                    }),
-                    currentDay: day, // Add current day to data
-                };
-            };
-
-            return {
-                ...updateCalendar(),
-                prevMonth() {
-                    month -= 1;
-                    if (month === -1) {
-                        year -= 1;
-                        month = 11;
-                    }
-                    Object.assign(this.$data, updateCalendar());
-                },
-                nextMonth() {
-                    month += 1;
-                    if (month === 12) {
-                        year += 1;
-                        month = 0;
-                    }
-                    Object.assign(this.$data, updateCalendar());
-                },
-                init() {
-                    setInterval(() => {
-                        Object.assign(this.$data, updateCalendar());
-                    }, 1000);
-                },
-            };
-        }
-    </script>
 
     <!-- User Menu -->
     <script>
@@ -252,5 +153,5 @@
             dropdown.classList.toggle("hidden");
             console.log("Dropdown toggled");
         }
-    </script> --}}
+    </script>
 </div>
