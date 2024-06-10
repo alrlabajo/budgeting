@@ -17,8 +17,8 @@ class CapitalOutlaySeeder extends Seeder
      public $college_office = "CEng";
 
      public $items = [
-        ['account_code' => '1-07-04-020', 'item' => 'School Buildings', 'budget' => '2022002', 'justification' => 'testing'],
-        ['account_code' => '1-07-05-020', 'item' => 'Office Equipment', 'budget' => '13300', 'justification' => 'testing'],
+        ['account_code' => '1-07-04-020', 'item' => 'School Buildings', 'budget' => '2022001', 'justification' => 'testing'],
+        ['account_code' => '1-07-05-020', 'item' => 'Office Equipment', 'budget' => '13301', 'justification' => 'testing'],
         ['account_code' => '1-07-05-030', 'item' => 'Information and Communication Technology Equipment', 'budget' => '1240000', 'justification' => 'testing'],
         ['account_code' => '1-07-05-070', 'item' => 'Communication Equipment', 'budget' => '1340000', 'justification' => 'testing'],
         ['account_code' => '1-07-05-090', 'item' => 'Disaster Response and Rescue Equipment', 'budget' => '1540000', 'justification' => 'testing'],
@@ -36,8 +36,6 @@ class CapitalOutlaySeeder extends Seeder
     // $faker = CapitalOutlay::create();
 
     $college_office = $this->college_office;
-
-    $numberOfRecords = 2;
 
     foreach ($this->items as $item) {
         CapitalOutlay::create([
