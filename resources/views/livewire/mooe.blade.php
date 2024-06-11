@@ -8,18 +8,19 @@
                         <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call Forms ></label>
                         <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Maintenance and Other Operating Expenses Form No. 3</label>
                     </div>
+
                 </div>
                 @include('components.mooe-export')
             </div>
 
             <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">
-
+{{--
                 <select id="college_office" name="college_office" class="font-['Inter'] block w-80 h-10 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                     <option disabled selected>Select College/Office</option>
                     @foreach ($college_office as $college)
                     <option value="{{ $college }}">{{ $college }}</option>
                     @endforeach
-                </select>
+                </select> --}}
 
                 <table id="mooe-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
@@ -35,12 +36,12 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($load_mooe as $mooe)
                         <tr class="items-center">
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->created_at}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->account_code}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->item}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->budget}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $mooe->justification}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
+                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ \Carbon\Carbon::parse($mooe['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($mooe['created_at'])->addYear()->format('Y') }}</td>
+                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['account_code'] }}</td>
+                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['item'] }}</td>
+                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['budget'] }}</td>
+                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['justification'] }}</td>
+
                         </tr>
                         @endforeach
                     </tbody>

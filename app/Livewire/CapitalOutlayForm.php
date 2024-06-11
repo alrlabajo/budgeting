@@ -57,7 +57,7 @@ class CapitalOutlayForm extends Component
 
             if ($existingRecord) {
                 // Return error message if record already exists
-
+                $this->flag = 1;
                 session()->flash('message', 'Record already exists for ' . $this->college_office . ' for school year ' . date('Y') . ' - ' . (date('Y') + 1) . '.');
                 return redirect()->to('/capital-outlay-form');
             }
@@ -110,7 +110,6 @@ class CapitalOutlayForm extends Component
             }
             else {
                 $this->ComparativeDataBudget = 0;
-                $this->flag = 1;
 
             }
         } catch (\Exception $e) {
@@ -119,6 +118,7 @@ class CapitalOutlayForm extends Component
             // Throw the exception
             throw $e;
         }
+
 
 
         $this->items = [
@@ -135,7 +135,6 @@ class CapitalOutlayForm extends Component
             ['account_code' => '1-07-07-010', 'item' => 'Furniture and Fixtures', 'budget' => '', 'justification' => ''],
             ['account_code' => '1-07-07-020', 'item' => 'Books', 'budget' => '', 'justification' => '']
         ];
-
         $this->college_years = CapitalOutlay::select(DB::raw('YEAR(created_at) as year'))
             ->distinct()
             ->orderBy('year', 'desc')
@@ -143,9 +142,21 @@ class CapitalOutlayForm extends Component
             ->toArray();
 
         $this->currentYear = date('Y');
-        // dd($this->college_years, $this->currentYear);
         if (in_array($this->currentYear, $this->college_years)) {
             session()->flash('message', 'You have already submitted some Capital Outlay Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
+        }
+
+        $existingRecord = CapitalOutlay::where('college_office', $this->CollegeOffice)
+            ->whereRaw('YEAR(created_at) = YEAR(CURDATE())')
+            ->first();
+
+        if ($existingRecord) {
+            $this->flag = 1;
+            // dd($this->flag);
+        } else {
+
+            $this->flag = 0;
+
         }
 
 

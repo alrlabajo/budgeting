@@ -5,11 +5,18 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\MOOE;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class MaintenanceForm extends Component
 {
-    public $CollegeOffices = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA', 'Board of Regents', 'PLM Office of the President', 'Office of the Registrar', 'Admission', 'Office of the Executive Preisdent', 'Office of the Vice President for Academic Support Units', 'Office of University Legal Council', 'Office of the Vice President for Information and Communications', 'Office of the Vice President for Administration', 'Office of the Vice President for Finance', 'Cash Office/Treasury', 'Budget Office', 'Internal Audit Office', 'ICTO', 'Office of Guidance and Testing Services', 'Office of Student and Development Services', 'University Library', 'University Research Center', 'Center for University Extension Service', 'University Health Service', 'National Service Training Program', 'Human Resource Development Office', 'Procurement Office', 'Property and Supplies Office', 'Physical Facilities Management Office', 'University Security Office'];
-    public $college_office = '';
+    public $college_office = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA', 'Board of Regents', 'PLM Office of the President', 'Office of the Registrar', 'Admission', 'Office of the Executive Preisdent', 'Office of the Vice President for Academic Support Units', 'Office of University Legal Council', 'Office of the Vice President for Information and Communications', 'Office of the Vice President for Administration', 'Office of the Vice President for Finance', 'Cash Office/Treasury', 'Budget Office', 'Internal Audit Office', 'ICTO', 'Office of Guidance and Testing Services', 'Office of Student and Development Services', 'University Library', 'University Research Center', 'Center for University Extension Service', 'University Health Service', 'National Service Training Program', 'Human Resource Development Office', 'Procurement Office', 'Property and Supplies Office', 'Physical Facilities Management Office', 'University Security Office'];
+    public $CollegeOffice = '';
+
+    public $existingRecord = false;
+    public $ComparativeDataBudget = 0;
+    public $flag = 0;
+
+    public $year = 0;
     public $items = [
         ['account_code' => '5-01-01-010', 'item' => 'Traveling Expenses - Local', 'budget' => '', 'justification' => ''],
         ['account_code' => '5-01-01-020', 'item' => 'Traveling Expenses - Foreign', 'budget' => '', 'justification' => ''],
@@ -55,18 +62,28 @@ class MaintenanceForm extends Component
         try {
             foreach ($this->items as $item) {
                 // dd("Inserting data into database");
-                Mooe::create([
-                    'college_office' => $this->college_office,
-                    'account_code' => $item['account_code'],
-                    'item' => $item['item'],
-                    'budget' => $item['budget'],
-                    'justification' => $item['justification'],
-                ]);
-            }
+                $existingRecord = CapitalOutlay::where('college_office', $this->college_office)
+                ->where('account_code', $item['account_code'])
+                ->where('item', $item['item'])
+                ->whereRaw('YEAR(created_at) = YEAR(CURDATE())')
+                ->first();
 
-            // Flash success message
-            session()->flash('message', 'Form submitted successfully.');
-            $this->reset();
+                if ($existingRecord) {
+                    // Return error message if record already exists
+
+                    session()->flash('message', 'Record already exists for ' . $this->college_office . ' for school year ' . date('Y') . ' - ' . (date('Y') + 1) . '.');
+                    return redirect()->to('/capital-outlay-form');
+                }
+                else {
+                        Mooe::create([
+                            'college_office' => $this->CollegeOffice,
+                            'account_code' => $item['account_code'],
+                            'item' => $item['item'],
+                            'budget' => $item['budget'],
+                            'justification' => $item['justification'],
+                        ]);
+                    }
+            }
         } catch (\Exception $e) {
             // Log error
             Log::error('Error submitting data', ['error' => $e->getMessage()]);
@@ -74,18 +91,35 @@ class MaintenanceForm extends Component
             throw $e;
         }
 
-        // catch (\Exception $e) {
-        //     // Log error
-        //     Log::error('Error submitting data', ['error' => $e->getMessage()]);
-        //     session()->flash('message', 'There was an error submitting the form.');
-        // }
+        // Flash success message
+        session()->flash('message', 'Form submitted successfully.');
+        $this->reset();
+
     }
 
     public function goBack() {
-        return redirect ()->to('/chart');
+        return redirect ()->to('/');
     }
     public function render()
     {
-        return view('livewire.maintenance-form');
+        $this->college_years = Mooe::select(DB::raw('YEAR(created_at) as year'))
+            ->distinct()
+            ->orderBy('year', 'desc')
+            ->pluck('year')
+            ->toArray();
+
+        $this->currentYear = date('Y');
+            // dd($this->college_years, $this->currentYear);
+            if (in_array($this->currentYear, $this->college_years)) {
+                $this->flag = 1;
+                session()->flash('message', 'You have already submitted some Capital Outlay Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
+            }
+
+        return view('livewire.maintenance-form', [
+            'college_years' => $this->college_years,
+            'ComparativeDataBudget' => $this->ComparativeDataBudget,
+            'CollegeOffice' => $this->CollegeOffice,
+            'existingRecord' => $this->existingRecord,
+        ]);
     }
 }

@@ -21,7 +21,13 @@ use App\Livewire\BurForm;
 use App\Livewire\CapitalOutlayForm;
 use App\Livewire\Chart;
 use App\Livewire\EditCapitalOutlay;
+
+
 use App\Livewire\LoadCapitalOutlay;
+use App\Livewire\LoadMOOE;
+
+
+
 use App\Livewire\MaintenanceForm;
 use App\Livewire\Mooe;
 use App\Livewire\Paymentrequesttracking;
@@ -88,13 +94,14 @@ Route::group(['middleware' => ['isAdmin']], function () {
 Route::get('/activity-justification', ActivityJustification::class);
 Route::get('/personal-services', PersonalServices::class);
 Route::get('/personnel-schedule', PersonnelSchedule::class);
-Route::get('/MOOE', Mooe::class);
+// Route::get('/MOOE', Mooe::class);
 
 Route::get('/PPMP', PPMP::class);
 Route::get('/BUR', BUR::class);
 Route::get('/amendment', Amendment::class);
 
 Route::get('/capital-outlay', LoadCapitalOutlay::class);
+Route::get('/MOOE', LoadMOOE::class);
 // Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
 // Route::get('/capital-outlay/{capital_outlay}/edit', EditCapitalOutlay::class);
 

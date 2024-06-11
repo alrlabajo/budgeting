@@ -9,9 +9,9 @@ class Mooe extends Model
 {
     use HasFactory;
 
-    protected $table = 'mooes';
+    // protected $table = 'mooes';
 
-    // protected $primaryKey = 'college_office';
+    protected $primaryKey = 'mooe_id';
 
     protected $fillable = [
         'college_office',

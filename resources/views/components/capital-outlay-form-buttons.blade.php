@@ -39,8 +39,6 @@
                 @foreach($college_years as $index => $year)
                     <option value="{{ $index+1 }}">Comparative Data: {{ $year }} - {{ $year+1 }}</option>
                 @endforeach
-
-
         }
         @endif
 

@@ -18,8 +18,10 @@
                         <div class="flex flex-col space-y-3">
 
                             <!-- Select College/Office -->
-                            <div class="w-80 rounded-lg">
-                                <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+                            <div class="w-90 rounded-lg">
+                                @include('components.capital-outlay-form-buttons')
+
+                                {{-- <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                                     <option value="">Select College/Office</option>
                                     @foreach ($CollegeOffices as $college)
                                     <option value="{{$college}}">{{$college}}</option>
@@ -29,9 +31,9 @@
                                 </select>
                                 @error('college_office')
                                 <span class="text-red-500">{{ $message }}</span>
-                                @enderror
+                                @enderror --}}
                             </div>
-                            <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year">
+                            {{-- <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year"> --}}
                         </div>
                         @include('components.import-button')
                     </div>
@@ -43,6 +45,7 @@
                             <tr>
                                 <th scope="col" class="px-3 py-3 whitespace-nowrap">Account Code</th>
                                 <th scope="col" class="pr-6 py-3 text-center">Item of Expenditures</th>
+                                <th scope="col" class="px-2 py-3">Previous S.Y. Approved Budget</th>
                                 <th scope="col" class="px-3 py-3">Proposed Budget</th>
                                 <th scope="col" class="px-3 py-3 text-center">Justification</th>
                             </tr>
@@ -62,7 +65,19 @@
                                 <td class="pl-2 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     {{ $item['item'] }}
                                 </td>
+
+
+                                @if($ComparativeDataBudget == 1 || $flag == 1)
+                                <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                    <input type="text" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 " placeholder="-" readonly/>
+                                </td>
+                                @endif
+
+
                                 <td class="px-4 py-2">
+
+
+
 
                                     {{-- input 1 for proposed budget  --}}
 

@@ -61,7 +61,7 @@
                             <th scope="col" class="px-2 py-3">Account Code</th>
                             <th scope="col" class="pr-5 py-3">Item of Expenditures</th>
                             {{-- <th scope="col" class="px-3 py-3">Previously Approved Budget</th> --}}
-                            <th scope="col" class="px-2 py-3">Last S.Y. Approved Budget</th>
+                            <th scope="col" class="px-2 py-3">Previous S.Y. Approved Budget</th>
                             <th scope="col" class="px-2 py-3">Proposed Budget</th>
                             <th scope="col" class="px-2 py-3 text-center">Justification</th>
                         </tr>
@@ -82,7 +82,7 @@
                                 {{ $item['item'] }}
                             </td>
 
-                            @if($ComparativeDataBudget == 1)
+                            @if($ComparativeDataBudget == 1 || $flag == 1 || $CollegeOffice == "")
                             <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                 <input type="text" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 " placeholder="-" readonly/>
                             </td>
