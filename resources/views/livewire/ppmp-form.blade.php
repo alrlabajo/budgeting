@@ -132,7 +132,7 @@
                     <div class="bg-white rounded-lg shadow border border-zinc-300 flex flex-col p-3 space-y-2 w-56">
                         <form class="justify-start items-start space-y-3 flex flex-col">
                             <label class="text-zinc-950 text-sm font-semibold font-['Inter'] leading-normal required">Account Code</label>
-                            <input type="text" name="account_code" wire:model="items.{{ $index }}.account_code" class="w-48 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="Description">
+                            <input type="text" name="account_code" wire:model="items.{{ $index }}.account_code" class="w-48 h-9 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex text-zinc-500 text-xs font-normal font-['Inter'] leading-tight" placeholder="X-XX-XX-XXX">
                             @error('items.' . $index . '.account_code')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror

@@ -1,3 +1,4 @@
+<x-slot name="title">Personal Services Forms</x-slot>
 <div class="p-2 sm:ml-64">
     <div class="p-2">
         <!-- Header -->

@@ -9,7 +9,7 @@ class BackButton extends Component
     public function render()
     {
         return view('components.back-button');
-        // return view('livewire.capital-outlay-form');
+        
     }
 
 }

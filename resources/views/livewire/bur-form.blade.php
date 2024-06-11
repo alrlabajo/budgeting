@@ -7,34 +7,28 @@
         <form wire:submit="submit">
             <div class="flex flex-row space-x-6 bg-white rounded-lg shadow border border-zinc-300 px-10 py-9">
                 <div class="flex flex-col space-y-4">
-                    <!-- Left Column -->
-                    <div class="flex flex-col w-2/3 pr-4 space-y-4">
-
-                        <!-- Select College/Office -->
-                        <div class="w-80 rounded-lg">
-                            <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                <option value="">Select College/Office</option>
-                                @foreach ($CollegeOffices as $college)
-                                <option value="{{$college}}">{{$college}}</option>
-                                @endforeach
-
-                                <!-- Other options -->
-                            </select>
-                            @error('college_office')
-                            <span class="text-red-500">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
 
                     @csrf
                     @foreach ($items as $index => $item)
-                    <!-- No. -->
-                    <div class="w-56 h-16 px-5 py-5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-center items-start gap-2.5 inline-flex">
+
+                    <div class="w-64 h-16 px-5 py-5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-center items-start gap-2.5 inline-flex">
                         <div class="space-y-2" action="#">
                             <div class="flex justify-center items-center flex-row">
-                                <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal mr-2">No.</label>
+                                <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal mr-2 whitespace-nowrap"> CFA No.</label>
                                 <div class="flex">
-                                    <input type="text" name="no" wire:model="items.{{ $index }}.no" class="w-40 h-8 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="0" />
+                                    <input type="text" name="cfa_no" wire:model="items.{{ $index }}.no" class="w-40 h-8 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="0" />
+                                    <span class="text-red-500"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- No. -->
+                    <div class="w-64 h-16 px-5 py-5 bg-white rounded-xl shadow border border-zinc-200 flex-col justify-center items-start gap-2.5 inline-flex">
+                        <div class="space-y-2" action="#">
+                            <div class="flex justify-center items-center flex-row">
+                                <label class="text-zinc-950 text-sm font-medium font-['Inter'] leading-normal mr-2 whitespace-nowrap">BUR No.</label>
+                                <div class="flex">
+                                    <input type="text" name="bur_no" wire:model="items.{{ $index }}.no" class="w-40 h-8 px-3 py-2 bg-white rounded-md shadow border border-zinc-200 justify-start items-center gap-2 inline-flex focus:ring-blue-500 focus:border-blue-500 text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="0" />
                                     @error('items.' . $index . '.no')
                                     <span class="text-red-500">{{ $message }}</span>
                                     @enderror
@@ -149,13 +143,13 @@
 
                     </div>
                     @endforeach
-                    <div class="py-12">
+                    <div class="py-2">
                         @include('components.back-button')
                     </div>
                 </div>
 
                 <!-- Right Column -->
-                <div class="flex flex-col w-2/4 place-content-center space-y-4 py-56 items-start">
+                <div class="flex flex-col w-2/4 place-content-center space-y-4 py-44 items-start">
 
                     <!-- Buttons -->
                     <div class="w-64 h-9 px-4 py-2 bg-white rounded-md shadow border border-zinc-200 justify-center items-center gap-x-2 flex text-zinc-950 text-sm font-medium font-['Inter'] leading-tight">
