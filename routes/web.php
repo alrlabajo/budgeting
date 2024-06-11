@@ -22,7 +22,7 @@ use App\Livewire\CapitalOutlayForm;
 use App\Livewire\Chart;
 use App\Livewire\EditCapitalOutlay;
 
-
+use App\Livewire\LoadPersonalServices;
 use App\Livewire\LoadCapitalOutlay;
 use App\Livewire\LoadMOOE;
 
@@ -92,7 +92,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
 // Route::group(['middleware' => 'auth'], function () {
 //Record Routes
 Route::get('/activity-justification', ActivityJustification::class);
-Route::get('/personal-services', PersonalServices::class);
+Route::get('/personal-services', LoadPersonalServices::class);
 Route::get('/personnel-schedule', PersonnelSchedule::class);
 // Route::get('/MOOE', Mooe::class);
 

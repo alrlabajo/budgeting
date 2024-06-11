@@ -141,9 +141,17 @@
                                 <td class="px-3 py-2">
 
                                     {{-- input 2 for justification budget  --}}
-                                    <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
+                                    @if ($flag == 1)
+                                        <input type="text" wire:model="items.{{ $index }}.justification"
+                                            class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-gray-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="-" disabled>
+                                    @else
+                                        <input type="text" wire:model="items.{{ $index }}.justification"
+                                            class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="Description">
+                                    @endif
                                     @error('items.' . $index . '.justification')
-                                    <span class="text-red-500">{{ $message }}</span>
+                                        <span class="text-red-500">{{ $message }}</span>
                                     @enderror
                                 </td>
                             </tr>

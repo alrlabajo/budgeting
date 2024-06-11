@@ -49,7 +49,7 @@ class LoadCapitalOutlay extends Component
         return redirect()->to('/');
     }
 
-
+    //4. delete-capital-outlay function
     public function deleteCapitalOutlay(CapitalOutlay $capital_outlay) {
         // return $capital_outlay;
         $capital_outlay->budget = 0;
@@ -58,7 +58,7 @@ class LoadCapitalOutlay extends Component
         return redirect()->to('/capital-outlay');
     }
 
-    //4. render function
+    //5. render function
     public function render()
     {
 

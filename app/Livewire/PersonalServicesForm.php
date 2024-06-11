@@ -13,6 +13,7 @@ class PersonalServicesForm extends Component
     public $existingRecord = false;
     public $ComparativeDataBudget = 0;
     public $year = 0;
+    public $last_budget = [];
 
     public $college_office = [
         'CASBE',
@@ -59,6 +60,8 @@ class PersonalServicesForm extends Component
     ];
     public $CollegeOffice = '';
     public $currentYear = 0;
+    public $flag = 0;
+
     public $items = [
         ['account_code' => '5-01-01-010', 'item' => 'Salaries & Wages - Regular', 'budget' => '', 'justification' => ''],
         ['account_code' => '5-01-01-020', 'item' => 'Salaries & Wages - Casual', 'budget' => '', 'justification' => ''],
@@ -107,7 +110,7 @@ class PersonalServicesForm extends Component
             foreach ($this->items as $item) {
                 // dd("Inserting data into database");
                 PersonalServices::create([
-                    'college_office' => $this->college_office,
+                    'college_office' => $this->CollegeOffice,
                     'account_code' => $item['account_code'],
                     'item' => $item['item'],
                     'budget' => $item['budget'],
@@ -118,18 +121,13 @@ class PersonalServicesForm extends Component
             // Flash success message
             session()->flash('message', 'Form submitted successfully.');
             $this->reset();
+            return redirect()->to('/personal-services');
         } catch (\Exception $e) {
             // Log error
             Log::error('Error submitting data', ['error' => $e->getMessage()]);
             // Throw the exception
             throw $e;
         }
-
-        // catch (\Exception $e) {
-        //     // Log error
-        //     Log::error('Error submitting data', ['error' => $e->getMessage()]);
-        //     session()->flash('message', 'There was an error submitting the form.');
-        // }
     }
 
     public function goBack()
@@ -138,6 +136,24 @@ class PersonalServicesForm extends Component
     }
     public function render()
     {
+        try {
+            $this->last_budget = PersonalServices::whereRaw('YEAR(created_at) = YEAR(CURDATE()) - ' . $this->year)
+                ->when($this->CollegeOffice !== '', function ($query) {
+                    $query->where('college_office', $this->CollegeOffice);
+                })
+                ->get();
+            // siya sasalo if empty si last_budget
+            if ($this->last_budget->isEmpty()) {
+                $this->ComparativeDataBudget = 1;
+            } else {
+                $this->ComparativeDataBudget = 0;
+            }
+        } catch (\Exception $e) {
+            // Log error
+            Log::error('Error fetching data', ['error' => $e->getMessage()]);
+            // Throw the exception
+            throw $e;
+        }
         $this->college_years = PersonalServices::select(DB::raw('YEAR(created_at) as year'))->distinct()->orderBy('year', 'desc')->pluck('year')->toArray();
 
         $this->currentYear = date('Y');
@@ -155,6 +171,11 @@ class PersonalServicesForm extends Component
         } else {
             $this->flag = 0;
         }
-        return view('livewire.personal-services-form');
+        return view('livewire.personal-services-form', [
+            'college_years' => $this->college_years,
+            'ComparativeDataBudget' => $this->ComparativeDataBudget,
+            'CollegeOffice' => $this->CollegeOffice,
+            'existingRecord' => $this->existingRecord,
+        ]);
     }
 }

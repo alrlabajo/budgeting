@@ -32,13 +32,56 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach ($load_mooe as $mooe)
+                        @foreach ($load_mooe as $index => $mooe)
                         <tr class="items-center">
-                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ \Carbon\Carbon::parse($mooe['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($mooe['created_at'])->addYear()->format('Y') }}</td>
-                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['account_code'] }}</td>
-                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['item'] }}</td>
-                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['budget'] }}</td>
-                            <td class="px-2 py-2 text-sm text-black border border-slate-300">{{ $mooe['justification'] }}</td>
+                            <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ \Carbon\Carbon::parse($mooe['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($mooe['created_at'])->addYear()->format('Y') }}</td>
+
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $mooe['account_code'] }}</td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $mooe['item'] }}</td>
+
+
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
+                                    @if($editedBudgetIndex !== $index)
+                                        {{ number_format($mooe['budget'],2) }}
+                                    @else
+                                        <input type="text" wire:model="load_mooe.{{ $index }}.budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
+                                    @endif
+                                    </td>
+
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
+                                    @if($editedBudgetIndex !== $index)
+                                        {{ $mooe['justification'] }}
+                                    @else
+                                        <input type="text" wire:model="load_mooe.{{ $index }}.justification" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 p-2.5" />
+                                    @endif
+                                </td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">
+                                    <!-- Edit/Delete -->
+                                    <div class="flex flex-col items-center gap-y-2 px-2">
+                                        <div class="flex flex-col items-center gap-y-2 px-2">
+                                            <x-dropdown>
+                                                <x-slot name="trigger">
+                                                    <button class="flex items-center justify-center w-8 h-8 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200">
+                                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+                                                            <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                                                        </svg>
+                                                    </button>
+                                                </x-slot>
+                                                <x-slot name="content">
+                                                    {{-- <x-dropdown-link wire:navigate href="/capital-outlay/{{$capital_outlay->capital_outlay_id}}/edit">Edit</x-dropdown-link> --}}
+                                                    @if($editedBudgetIndex !== $index)
+                                                        <x-dropdown-link wire:click.prevent="editBudget({{ $index }})">Edit</x-dropdown-link>
+
+                                                        <x-dropdown-link wire:click.prevent="deleteMooe({{ $mooe['mooe_id'] }})">Delete</x-dropdown-link>
+                                                    @else
+                                                        <x-dropdown-link wire:click.prevent="saveBudget({{ $index }})" wire:key="{{ $index }}">Save</x-dropdown-link>
+                                                        {{-- <x-dropdown-link wire:click="deleteCapitalOutlay({{ $budget}})">Delete</x-dropdown-link> --}}
+                                                    @endif
+                                                </x-slot>
+                                            </x-dropdown>
+                                        </div>
+                                    </div>
+                                </td>
                         </tr>
                         @endforeach
                     </tbody>

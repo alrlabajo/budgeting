@@ -1,3 +1,4 @@
+<x-slot name="title">Personal Services Document</x-slot>
 <div class="p-2 sm:ml-64">
     <div class="p-2">
         @if (session('message'))
@@ -16,7 +17,7 @@
                     Please proceed to Budget Call > Personal Services to view your submitted budget.
                 </div>
                 <div class="flex">
-                    <a href="/capital-outlay"
+                    <a href="/personal-services"
                         class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center">
                         <svg class="me-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" viewBox="0 0 20 14">
@@ -65,7 +66,7 @@
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
-                    @include('components.services-import')
+                    {{-- @include('components.services-import') --}}
                 </div>
 
                 @csrf
@@ -73,10 +74,12 @@
                     <!-- Header -->
                     <thead class=" text-zinc-950 text-base font-semibold font-['Inter'] leading-normal gap-y-12">
                         <tr>
-                            <th scope="col" class="px-3 py-3 whitespace-nowrap">Account Code</th>
-                            <th scope="col" class="pr-6 py-3 text-center">Item of Expenditures</th>
-                            <th scope="col" class="px-3 py-3 text-center">Proposed Budget</th>
-                            <th scope="col" class="px-3 py-3 text-center">Justification</th>
+                            <th scope="col" class="px-2 py-3">Account Code</th>
+                            <th scope="col" class="pr-5 py-3">Item of Expenditures</th>
+                            {{-- <th scope="col" class="px-3 py-3">Previously Approved Budget</th> --}}
+                            <th scope="col" class="px-2 py-3">Previous S.Y. Approved Budget</th>
+                            <th scope="col" class="px-2 py-3">Proposed Budget</th>
+                            <th scope="col" class="px-2 py-3 text-center">Justification</th>
                         </tr>
                     </thead>
                     <!-- Body -->
@@ -95,14 +98,49 @@
                                 <td class="pl-2 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     {{ $item['item'] }}
                                 </td>
-                                <td class="px-4 py-2">
+                                @if ($ComparativeDataBudget == 1 || $flag == 1)
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 "
+                                            placeholder="-" readonly />
+                                    </td>
+                                @elseif ($CollegeOffice == "")
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 "
+                                            placeholder="-" readonly />
+                                    </td>
+                                @else
+                                    {{-- @php
+                                        dd($CollegeOffice);
+                                    @endphp --}}
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
 
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-yellow-50 text-sm rounded-md shadow border border-yellow-500 text-yellow-900 "
+                                            placeholder="&#8369 {{ number_format($last_budget[$index]['budget'], 2) ?? '₱ 0.00' }}"
+                                            readonly />
+                                    </td>
+                                @endif
+                                <td class="px-2 py-2">
                                     {{-- input 1 for proposed budget  --}}
+                                    @if ($flag == 1)
+                                        <input type="number" step="0.01" name="budget"
+                                            wire:model="items.{{ $index }}.budget"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900"
+                                            placeholder="-" min="0" oninput="this.value = Math.abs(this.value)"
+                                            disabled>
+                                    @else
+                                        <input type="number" step="0.01" name="budget"
+                                            wire:model="items.{{ $index }}.budget"
+                                            class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="₱ 0.00" min="0" max="9999999999" maxlength="8"
+                                            oninput="this.value = Math.abs(this.value.slice(0, 10))">
+                                    @endif
 
-                                    <input type="number" step="0.01" name="budget"
-                                        wire:model="items.{{ $index }}.budget"
-                                        class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
-                                        placeholder="₱ 0.00">
                                     @error('items.' . $index . '.budget')
                                         <span class="text-red-500">{{ $message }}</span>
                                     @enderror
@@ -110,13 +148,18 @@
                                 <td class="px-6 py-2">
 
                                     {{-- input 2 for justification budget  --}}
-                                    <input type="text" wire:model="items.{{ $index }}.justification"
-                                        class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
-                                        placeholder="Description">
+                                    @if ($flag == 1)
+                                        <input type="text" wire:model="items.{{ $index }}.justification"
+                                            class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-gray-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="-" disabled>
+                                    @else
+                                        <input type="text" wire:model="items.{{ $index }}.justification"
+                                            class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="Description">
+                                    @endif
                                     @error('items.' . $index . '.justification')
                                         <span class="text-red-500">{{ $message }}</span>
                                     @enderror
-                                </td>
                             </tr>
                             {{-- @endforeach --}}
                         @endforeach
@@ -127,9 +170,11 @@
                 <!-- Bottom Buttons -->
                 <div class="flex justify-between px-3 py-1">
                     @include('components.back-button')
-                    <button wire:click.prevent="submit" name="submit-btn"
-                        class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
-                    </button>
+                    @if ($flag == 0)
+                        <button wire:click.prevent="submit" id="submit-btn"
+                            class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
+                        </button>
+                    @endif
                 </div>
 
             </div>

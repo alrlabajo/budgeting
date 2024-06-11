@@ -28,11 +28,11 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($load_personalservices as $personalservices)
                         <tr class="items-center">
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->created_at}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->account_code}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->item}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->budget}}</td>
-                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices->justification}}</td>
+                            <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ \Carbon\Carbon::parse($personalservices['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($personalservices['created_at'])->addYear()->format('Y') }}</td>
+                            <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $personalservices['account_code'] }}</td>
+                                <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ $personalservices['item'] }}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices['budget']}}</td>
+                            <td class="px-2 py-3 text-sm text-black border border-slate-300">{{ $personalservices['justification']}}</td>
                             <td class="px-2 py-3 text-sm text-black border border-slate-300"></td> <!--Edit/Delete-->
                         </tr>
                         @endforeach
