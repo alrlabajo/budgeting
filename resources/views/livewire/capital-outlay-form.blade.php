@@ -144,7 +144,7 @@
                                         <input type="number" step="0.01" name="budget"
                                             wire:model="items.{{ $index }}.budget"
                                             class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
-                                            placeholder="₱ 0.00" min="0" max="9999999999" maxlength="10"
+                                            placeholder="₱ 0.00" min="0" max="9999999999" maxlength="8"
                                             oninput="this.value = Math.abs(this.value.slice(0, 10))">
                                     @endif
 

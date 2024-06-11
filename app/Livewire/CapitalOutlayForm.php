@@ -79,6 +79,7 @@ class CapitalOutlayForm extends Component
             // Flash success message
             session()->flash('message', 'Form submitted successfully.');
             $this->reset();
+            sleep(3); // Delay the redirect for 3 seconds
             return redirect()->to('/capital-outlay');
 
         } catch (\Exception $e) {

@@ -9,7 +9,7 @@ class Mooe extends Model
 {
     use HasFactory;
 
-    // protected $table = 'mooes';
+    protected $table = 'mooes';
 
     protected $primaryKey = 'mooe_id';
 

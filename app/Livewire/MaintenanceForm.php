@@ -66,7 +66,7 @@ class MaintenanceForm extends Component
         try {
             foreach ($this->items as $item) {
                 // dd("Inserting data into database");
-                $existingRecord = CapitalOutlay::where('college_office', $this->college_office)
+                $existingRecord = Mooe::where('college_office', $this->college_office)
                 ->where('account_code', $item['account_code'])
                 ->where('item', $item['item'])
                 ->whereRaw('YEAR(created_at) = YEAR(CURDATE())')
@@ -76,7 +76,7 @@ class MaintenanceForm extends Component
                     // Return error message if record already exists
 
                     session()->flash('message', 'Record already exists for ' . $this->college_office . ' for school year ' . date('Y') . ' - ' . (date('Y') + 1) . '.');
-                    return redirect()->to('/capital-outlay-form');
+                    return redirect()->to('/MOOE-form');
                 }
                 else {
                         Mooe::create([
@@ -86,7 +86,12 @@ class MaintenanceForm extends Component
                             'budget' => $item['budget'],
                             'justification' => $item['justification'],
                         ]);
-                    }
+                }
+                // Flash success message
+                session()->flash('message', 'Form submitted successfully.');
+                $this->reset();
+                return redirect()->to('/MOOE');
+
             }
         } catch (\Exception $e) {
             // Log error
@@ -140,7 +145,7 @@ class MaintenanceForm extends Component
             // dd($this->college_years, $this->currentYear);
             if (in_array($this->currentYear, $this->college_years)) {
                 $this->flag = 1;
-                session()->flash('message', 'You have already submitted some Capital Outlay Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
+                session()->flash('message', 'You have already submitted some MOOE Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
             }
 
         return view('livewire.maintenance-form', [

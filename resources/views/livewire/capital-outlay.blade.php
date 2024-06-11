@@ -41,8 +41,6 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        {{-- <form wire:submit="saveBudget"> --}}
-                        {{-- @foreach ($capitalOutlay as $capital_outlay) --}}
                         @foreach ($budgets as $index => $budget)
                             <tr class="items-center">
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ \Carbon\Carbon::parse($budget['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($budget['created_at'])->addYear()->format('Y') }}</td>
