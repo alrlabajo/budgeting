@@ -84,7 +84,7 @@ class BurForm extends Component
 
     public function goBack()
     {
-        return redirect()->to('/dashboard');
+        return redirect()->to('/');
     }
 
     public function render()

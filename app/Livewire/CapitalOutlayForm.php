@@ -89,6 +89,11 @@ class CapitalOutlayForm extends Component
         }
     }
 
+    public function goBack()
+    {
+        return redirect()->to('/');
+    }
+
 
     public $currentYear = 0;
 

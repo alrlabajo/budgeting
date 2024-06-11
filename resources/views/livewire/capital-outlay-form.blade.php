@@ -101,7 +101,12 @@
 
                             <td class="px-2 py-2">
                                 {{-- input 1 for proposed budget  --}}
-                                <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00" min="0" oninput="this.value = Math.abs(this.value)">
+                                @if($flag == 1)
+                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900" placeholder="-" min="0" oninput="this.value = Math.abs(this.value)" disabled>
+                                @else
+                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00" min="0" oninput="this.value = Math.abs(this.value)" >
+                                @endif
+
                                 @error('items.' . $index . '.budget')
 
                                 <span class="text-red-500">{{ $message }}</span>
@@ -110,7 +115,11 @@
                             <td class="px-6 py-2">
 
                                 {{-- input 2 for justification budget  --}}
-                                <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
+                                @if($flag == 1)
+                                    <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-gray-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight" placeholder="-" disabled>
+                                @else
+                                    <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
+                                @endif
                                 @error('items.' . $index . '.justification')
                                 <span class="text-red-500">{{ $message }}</span>
                                 @enderror
@@ -124,7 +133,9 @@
                 <!-- Bottom Buttons -->
                 <div class="flex justify-between px-3 py-1">
                     @livewire('back-button')
-                    <button wire:click.prevent="submit" id="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
+                    @if($flag == 0)
+                        <button wire:click.prevent="submit" id="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
+                    @endif
                     </button>
                 </div>
             </div>

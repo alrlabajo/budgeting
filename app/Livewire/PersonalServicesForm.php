@@ -83,8 +83,9 @@ class PersonalServicesForm extends Component
         // }
     }
 
-    public function goBack() {
-        return redirect ()->to('/dashboard');
+    public function goBack()
+    {
+        return redirect()->to('/');
     }
     public function render()
     {

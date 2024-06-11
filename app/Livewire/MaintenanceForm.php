@@ -99,8 +99,9 @@ class MaintenanceForm extends Component
 
     }
 
-    public function goBack() {
-        return redirect ()->to('/');
+    public function goBack()
+    {
+        return redirect()->to('/');
     }
     public function render()
     {

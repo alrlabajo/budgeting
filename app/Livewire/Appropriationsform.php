@@ -117,7 +117,7 @@ class Appropriationsform extends Component
 
     public function goBack()
     {
-        return redirect()->to('/chart');
+        return redirect()->to('/');
     }
 
     public function render()
