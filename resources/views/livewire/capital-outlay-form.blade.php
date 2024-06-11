@@ -102,7 +102,14 @@
                                     {{ $item['item'] }}
                                 </td>
 
-                                @if ($ComparativeDataBudget == 1 || $flag == 1 || $CollegeOffice == '')
+                                @if ($ComparativeDataBudget == 1 || $flag == 1)
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 "
+                                            placeholder="-" readonly />
+                                    </td>
+                                @elseif ($CollegeOffice == "")
                                     <td scope="row"
                                         class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                         <input type="text"
@@ -110,6 +117,9 @@
                                             placeholder="-" readonly />
                                     </td>
                                 @else
+                                    {{-- @php
+                                        dd($CollegeOffice);
+                                    @endphp --}}
                                     <td scope="row"
                                         class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
 
@@ -134,8 +144,8 @@
                                         <input type="number" step="0.01" name="budget"
                                             wire:model="items.{{ $index }}.budget"
                                             class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
-                                            placeholder="₱ 0.00" min="0"
-                                            oninput="this.value = Math.abs(this.value)">
+                                            placeholder="₱ 0.00" min="0" max="9999999999" maxlength="10"
+                                            oninput="this.value = Math.abs(this.value.slice(0, 10))">
                                     @endif
 
                                     @error('items.' . $index . '.budget')
