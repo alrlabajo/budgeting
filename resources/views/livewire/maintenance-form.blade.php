@@ -60,6 +60,9 @@
                             <!-- Select College/Office -->
                             <div class="w-90 rounded-lg">
                                 @include('components.form-buttons')
+                                @error('CollegeOffice')
+                                <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             {{-- <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year"> --}}
                         </div>
