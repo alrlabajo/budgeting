@@ -2,7 +2,10 @@
 <div class="p-2 sm:ml-64">
     <div class="p-2">
         <!-- Header -->
-        <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div>
+        {{-- <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div> --}}
+        <div class="w-96 h-9 justify-between items-center inline-flex py-10">
+            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Budget Utilization Request</label>
+        </div>
         <!-- POST FORM START -->
         <form wire:submit="submit">
             <div class="flex flex-row space-x-6 bg-white rounded-lg shadow border border-zinc-300 px-10 py-9">

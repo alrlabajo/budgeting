@@ -27,7 +27,12 @@
         <option value="0">Reference Year</option>
         @php
             $currentYear = date('Y');
-            $checkYear = $currentYear - $college_years[0];
+            try {
+                $checkYear = $currentYear - $college_years[0];
+            } catch (\Throwable $th) {
+                $checkYear = $currentYear;
+            }
+
         @endphp
 
         @if($checkYear == 0) {

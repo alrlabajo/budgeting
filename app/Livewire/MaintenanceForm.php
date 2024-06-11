@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\MOOE;
+use App\Models\Mooe;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 
@@ -15,6 +15,8 @@ class MaintenanceForm extends Component
     public $existingRecord = false;
     public $ComparativeDataBudget = 0;
     public $flag = 0;
+
+    public $last_budget = [];
 
     public $year = 0;
     public $items = [
@@ -102,6 +104,29 @@ class MaintenanceForm extends Component
     }
     public function render()
     {
+        try {
+
+            $this->last_budget = Mooe::whereRaw('YEAR(created_at) = YEAR(CURDATE()) - '.$this->year)
+                ->when($this->CollegeOffice !== '', function ($query) {
+                    $query->where('college_office', $this->CollegeOffice);
+                })
+                ->get();
+            // siya sasalo if empty si last_budget
+            if( $this->last_budget->isEmpty()) {
+                $this->ComparativeDataBudget = 1;
+
+            }
+            else {
+                $this->ComparativeDataBudget = 0;
+
+            }
+        } catch (\Exception $e) {
+            // Log error
+            Log::error('Error fetching data', ['error' => $e->getMessage()]);
+            // Throw the exception
+            throw $e;
+        }
+
         $this->college_years = Mooe::select(DB::raw('YEAR(created_at) as year'))
             ->distinct()
             ->orderBy('year', 'desc')

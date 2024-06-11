@@ -40,7 +40,7 @@
 
                         <!-- Select College/Office -->
                         <div class="w-90 rounded-lg">
-                            @include('components.capital-outlay-form-buttons')
+                            @include('components.form-buttons')
 
                         </div>
 
