@@ -26,6 +26,11 @@
 
                 <table id="capital-outlay-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
+                        @if($college !== "")
+                            <tr>
+                                <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300" colspan="6">{{ $college }}</th>
+                            </tr>
+                        @endif
                         <tr>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class Year</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Account Code</th>

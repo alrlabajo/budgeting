@@ -1,5 +1,25 @@
 <x-slot name="title">Maintenance and Other Operating Expenses Form</x-slot>
     <div class="p-2 sm:ml-64">
+                <!-- Message Header -->
+                @if(session('message'))
+                <div id="alert-additional-content-1" class="p-4 mb-4 mt-3 text-indigo-800 border border-indigo-300 rounded-lg bg-indigo-50" role="alert">
+                    <div class="flex items-center">
+                    <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <h3 class="text-lg font-medium text-indigo-800">{{ session('message') }}</h3>
+                    </div>
+                    <div class="mt-2 mb-4 text-sm">
+                    Please proceed to Budget Call > MOOE to view your submitted budget.
+                    </div>
+                    <div class="flex">
+                    <button type="button" class="text-indigo-800 bg-transparent border border-indigo-800 hover:bg-indigo-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center " data-dismiss-target="#alert-additional-content-1" aria-label="Close">
+                    Dismiss
+                    </button>
+                    </div>
+                </div>
+                @endif
         <div class="p-2">
             <!-- Header -->
             <div class="w-96 h-9 justify-between items-center inline-flex py-10">
@@ -20,22 +40,10 @@
                             <!-- Select College/Office -->
                             <div class="w-90 rounded-lg">
                                 @include('components.form-buttons')
-
-                                {{-- <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                    <option value="">Select College/Office</option>
-                                    @foreach ($CollegeOffices as $college)
-                                    <option value="{{$college}}">{{$college}}</option>
-                                    @endforeach
-
-                                    <!-- Other options -->
-                                </select>
-                                @error('college_office')
-                                <span class="text-red-500">{{ $message }}</span>
-                                @enderror --}}
                             </div>
                             {{-- <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year"> --}}
                         </div>
-                        @include('components.import-button')
+                        {{-- @include('components.import-button') --}}
                     </div>
 
                     @csrf

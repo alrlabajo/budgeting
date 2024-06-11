@@ -2,28 +2,47 @@
 <div class="p-2 sm:ml-64">
     <div class="p-2">
         <!-- Message Header -->
-        @if(session('message'))
-        <div id="alert-additional-content-1" class="p-4 mb-4 mt-3 text-indigo-800 border border-indigo-300 rounded-lg bg-indigo-50" role="alert">
-            <div class="flex items-center">
-            <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
-            <h3 class="text-lg font-medium text-indigo-800">{{ session('message') }}</h3>
+        @if (session('message'))
+            <div id="alert-additional-content-1"
+                class="p-4 mb-4 mt-3 text-indigo-800 border border-indigo-300 rounded-lg bg-indigo-50" role="alert">
+                <div class="flex items-center">
+                    <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <h3 class="text-lg font-medium text-indigo-800">{{ session('message') }}</h3>
+                </div>
+                <div class="mt-2 mb-4 text-sm">
+                    Please proceed to Budget Call > Capital Outlay to view your submitted budget.
+                </div>
+                <div class="flex">
+                    <a href="/capital-outlay" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center">
+                        <svg class="me-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                            <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+                        </svg>
+                        Go to Capital Outlay
+                    </a>
+                    <button type="button"
+                        class="text-indigo-800 bg-transparent border border-indigo-800 hover:bg-indigo-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center "
+                        data-dismiss-target="#alert-additional-content-1" aria-label="Close">
+                        Dismiss
+                    </button>
+                </div>
             </div>
-            <div class="mt-2 mb-4 text-sm">
-            Please proceed to Budget Call > Capital Outlay to view your submitted budget.
-            </div>
-            <div class="flex">
-            <button type="button" class="text-indigo-800 bg-transparent border border-indigo-800 hover:bg-indigo-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center " data-dismiss-target="#alert-additional-content-1" aria-label="Close">
-            Dismiss
-            </button>
-            </div>
-        </div>
         @endif
         <!-- Header -->
         <div class="w-96 h-9 justify-between items-center inline-flex py-10">
-            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Capital Outlay Document</label>
+            <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">
+                Capital Outlay Document
+                <div class="flex flex-row items-center">
+                    <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call
+                        Forms ></label>
+                    <label class="text-black text-sm font-normal font-['Inter'] leading-loose">S.Y. {{ $currentYear }}
+                        - {{ $currentYear + 1 }}</label>
+                </div>
+            </div>
         </div>
 
 
@@ -46,7 +65,7 @@
 
                         {{-- <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year"> --}}
                     </div>
-                    {{-- @if($isAdmin)
+                    {{-- @if ($isAdmin)
                 @include('components.status-dropdown')
                 @else
                 @include('components.import-button')
@@ -69,63 +88,78 @@
                     <!-- Body -->
                     <tbody id="capital-outlay-tbody">
                         @foreach ($items as $index => $item)
-                        {{-- get the values as array --}}
-                        {{-- @foreach($user as $key => $value) --}}
-                        {{-- input fields --}}
-                        <tr class="gap-6">
+                            {{-- get the values as array --}}
+                            {{-- @foreach ($user as $key => $value) --}}
+                            {{-- input fields --}}
+                            <tr class="gap-6">
 
-                            <th scope="row" class="px-2 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-                                {{ $item['account_code'] }}
-                            </th>
+                                <th scope="row"
+                                    class="px-2 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                    {{ $item['account_code'] }}
+                                </th>
 
-                            <td class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-                                {{ $item['item'] }}
-                            </td>
+                                <td class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                    {{ $item['item'] }}
+                                </td>
 
-                            @if($ComparativeDataBudget == 1 || $flag == 1 || $CollegeOffice == "")
-                            <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-                                <input type="text" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 " placeholder="-" readonly/>
-                            </td>
-
-
-                            @else
-                            <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-
-                                <input type="text" class="w-36 h-8 px-3 py-2 bg-yellow-50 text-sm rounded-md shadow border border-yellow-500 text-yellow-900 " placeholder="&#8369 {{  number_format($last_budget[$index]['budget'],2) ?? '₱ 0.00'}}" readonly/>
-                            </td>
-
-
-                            @endif
-
-
-
-                            <td class="px-2 py-2">
-                                {{-- input 1 for proposed budget  --}}
-                                @if($flag == 1)
-                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900" placeholder="-" min="0" oninput="this.value = Math.abs(this.value)" disabled>
+                                @if ($ComparativeDataBudget == 1 || $flag == 1 || $CollegeOffice == '')
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 "
+                                            placeholder="-" readonly />
+                                    </td>
                                 @else
-                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00" min="0" oninput="this.value = Math.abs(this.value)" >
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-yellow-50 text-sm rounded-md shadow border border-yellow-500 text-yellow-900 "
+                                            placeholder="&#8369 {{ number_format($last_budget[$index]['budget'], 2) ?? '₱ 0.00' }}"
+                                            readonly />
+                                    </td>
                                 @endif
 
-                                @error('items.' . $index . '.budget')
 
-                                <span class="text-red-500">{{ $message }}</span>
-                                @enderror
-                            </td>
-                            <td class="px-6 py-2">
 
-                                {{-- input 2 for justification budget  --}}
-                                @if($flag == 1)
-                                    <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-gray-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight" placeholder="-" disabled>
-                                @else
-                                    <input type="text" wire:model="items.{{ $index }}.justification" class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="Description">
-                                @endif
-                                @error('items.' . $index . '.justification')
-                                <span class="text-red-500">{{ $message }}</span>
-                                @enderror
-                            </td>
-                        </tr>
-                        {{-- @endforeach --}}
+                                <td class="px-2 py-2">
+                                    {{-- input 1 for proposed budget  --}}
+                                    @if ($flag == 1)
+                                        <input type="number" step="0.01" name="budget"
+                                            wire:model="items.{{ $index }}.budget"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900"
+                                            placeholder="-" min="0" oninput="this.value = Math.abs(this.value)"
+                                            disabled>
+                                    @else
+                                        <input type="number" step="0.01" name="budget"
+                                            wire:model="items.{{ $index }}.budget"
+                                            class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="₱ 0.00" min="0"
+                                            oninput="this.value = Math.abs(this.value)">
+                                    @endif
+
+                                    @error('items.' . $index . '.budget')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </td>
+                                <td class="px-6 py-2">
+
+                                    {{-- input 2 for justification budget  --}}
+                                    @if ($flag == 1)
+                                        <input type="text" wire:model="items.{{ $index }}.justification"
+                                            class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-gray-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="-" disabled>
+                                    @else
+                                        <input type="text" wire:model="items.{{ $index }}.justification"
+                                            class="w-96 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                                            placeholder="Description">
+                                    @endif
+                                    @error('items.' . $index . '.justification')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </td>
+                            </tr>
+                            {{-- @endforeach --}}
                         @endforeach
                     </tbody>
                 </table>
@@ -133,8 +167,9 @@
                 <!-- Bottom Buttons -->
                 <div class="flex justify-between px-3 py-1">
                     @livewire('back-button')
-                    @if($flag == 0)
-                        <button wire:click.prevent="submit" id="submit-btn" class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
+                    @if ($flag == 0)
+                        <button wire:click.prevent="submit" id="submit-btn"
+                            class="w-30 h-10 px-4 py-2 bg-indigo-800 rounded-md shadow justify-center items-center text-white text-base font-medium font-['Inter'] leading-tight">Submit
                     @endif
                     </button>
                 </div>
@@ -145,9 +180,9 @@
 
         <!-- Success Message -->
         @if (session()->has('message'))
-        <th scope="row" class="px-6 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
-            {{ $item['budget'] }}
-        </th>
+            <th scope="row" class="px-6 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                {{ $item['budget'] }}
+            </th>
         @endif
 
     </div>
