@@ -11,7 +11,7 @@ class PersonalServices extends Model
 
     protected $table = 'personalservices';
 
-    // protected $primaryKey = 'college_office';
+    protected $primaryKey = 'personalservices_id';
 
     protected $fillable = [
         'college_office',
