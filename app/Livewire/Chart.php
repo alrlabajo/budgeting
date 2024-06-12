@@ -2,6 +2,11 @@
 
 namespace App\Livewire;
 
+
+
+use App\Models\CapitalOutlay;
+use App\Models\MOOE;
+
 use Livewire\Component;
 
 class Chart extends Component
