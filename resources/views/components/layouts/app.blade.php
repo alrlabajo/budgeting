@@ -16,7 +16,15 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
-    @vite(['resources/css/app.css','resources/js/app.js'])
+
+    @vite(['resources/css/app.css','resources/js/app.js'])'
+
+    {{-- <style>
+        .chart-container {
+            width: 100%;
+            height: 300px;
+        }
+    </style> --}}
 
     @livewireStyles
 

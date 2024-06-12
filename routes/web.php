@@ -20,9 +20,12 @@ use App\Livewire\BUR;
 use App\Livewire\BurForm;
 use App\Livewire\CapitalOutlayForm;
 use App\Livewire\Chart;
+
+use App\Livewire\ChartComponent;
+
 use App\Livewire\EditCapitalOutlay;
 
-use App\Livewire\LoadPersonalServices;
+
 use App\Livewire\LoadCapitalOutlay;
 use App\Livewire\LoadMOOE;
 
@@ -65,6 +68,9 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 })*/
 
+// Chart
+Route::get('/chart', ChartComponent::class);
+
 // ERP Route
 Route::get('/verify', [VerifyController::class, 'verify'])
     ->name('verify');
@@ -92,7 +98,7 @@ Route::group(['middleware' => ['isAdmin']], function () {
 // Route::group(['middleware' => 'auth'], function () {
 //Record Routes
 Route::get('/activity-justification', ActivityJustification::class);
-Route::get('/personal-services', LoadPersonalServices::class);
+Route::get('/personal-services', PersonalServices::class);
 Route::get('/personnel-schedule', PersonnelSchedule::class);
 // Route::get('/MOOE', Mooe::class);
 
