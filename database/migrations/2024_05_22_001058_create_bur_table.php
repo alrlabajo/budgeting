@@ -13,6 +13,7 @@ class CreateBurTable extends Migration
     {
         Schema::create('bur', function (Blueprint $table) {
             $table->integerincrements('bur_id');
+            $table->string('cfa_number');
             $table->integer('no');
             $table->string('payee');
             $table->string('office');

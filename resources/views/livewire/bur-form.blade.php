@@ -2,11 +2,32 @@
 <div class="p-2 sm:ml-64">
     <div class="p-2">
         <!-- Header -->
-        <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div>
+        {{-- <div class="text-black text-2xl font-medium font-['Inter'] leading-9 my-4">Budget Utilization Request</div> --}}
+        <div class="w-96 h-9 justify-between items-center inline-flex py-10">
+            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Budget Utilization Request</label>
+        </div>
         <!-- POST FORM START -->
         <form wire:submit="submit">
             <div class="flex flex-row space-x-6 bg-white rounded-lg shadow border border-zinc-300 px-10 py-9">
                 <div class="flex flex-col space-y-4">
+                    <!-- Left Column -->
+                    <div class="flex flex-col w-2/3 pr-4 space-y-4">
+
+                        <!-- Select College/Office -->
+                        <div class="w-80 rounded-lg">
+                            <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
+                                <option value="">Select College/Office</option>
+                                @foreach ($CollegeOffices as $college)
+                                <option value="{{$college}}">{{$college}}</option>
+                                @endforeach
+
+                                <!-- Other options -->
+                            </select>
+                            @error('college_office')
+                            <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
 
                     @csrf
                     @foreach ($items as $index => $item)

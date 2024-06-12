@@ -1,7 +1,11 @@
+<x-slot name="title">Amendment</x-slot>
 <div class="p-2 sm:ml-64">
     <div class="p-2">
         <!-- Header -->
-        <div class="text-black text-2xl font-medium font-['Inter'] leading-9 pb-5">Amendment</div>
+
+        <div class="w-96 h-9 justify-between items-center inline-flex py-10">
+            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Amendment</label>
+        </div>
 
         <!-- POST FORM START -->
         <form wire:submit="submit">
@@ -101,7 +105,7 @@
 
 
                 <!-- 2nd Input Fields/Container -->
-                <div class="text-black text-base font-medium font-['Inter'] leading-9">Items to be Substituted/Replaced</div>
+                <div class="text-black text-base font-medium font-['Inter'] leading-9">Project/Items to be Substituted/Replaced</div>
 
                 <!-- 2nd Container -->
                 <div class="w-full h-80 px-8 py-3 bg-white rounded-xl shadow border border-zinc-200 content-center justify-start space-y-5">

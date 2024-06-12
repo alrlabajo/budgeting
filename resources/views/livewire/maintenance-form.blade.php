@@ -19,7 +19,7 @@
 
                             <!-- Select College/Office -->
                             <div class="w-90 rounded-lg">
-                                @include('components.capital-outlay-form-buttons')
+                                @include('components.form-buttons')
 
                                 {{-- <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
                                     <option value="">Select College/Office</option>
@@ -70,6 +70,11 @@
                                 @if($ComparativeDataBudget == 1 || $flag == 1)
                                 <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     <input type="text" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 " placeholder="-" readonly/>
+                                </td>
+                                @else
+                                <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+
+                                    <input type="text" class="w-36 h-8 px-3 py-2 bg-yellow-50 text-sm rounded-md shadow border border-yellow-500 text-yellow-900 " placeholder="&#8369 {{  number_format($last_budget[$index]['budget'],2) ?? '₱ 0.00'}}" readonly/>
                                 </td>
                                 @endif
 
