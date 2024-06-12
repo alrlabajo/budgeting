@@ -16,7 +16,7 @@ class CreateMooesTable extends Migration
             $table->string('college_office');
             $table->string('account_code');
             $table->string('item');
-            $table->decimal('budget', 10, 2);
+            $table->decimal('budget', 12, 2);
             $table->string('justification');
             $table->timestamps();
         });

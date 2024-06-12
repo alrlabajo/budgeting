@@ -1,10 +1,50 @@
 <x-slot name="title">Maintenance and Other Operating Expenses Form</x-slot>
     <div class="p-2 sm:ml-64">
+                <!-- Message Header -->
+                @if (session('message'))
+                <div id="alert-additional-content-1"
+                    class="p-4 mb-4 mt-3 text-indigo-800 border border-indigo-300 rounded-lg bg-indigo-50" role="alert">
+                    <div class="flex items-center">
+                        <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                        </svg>
+                        <span class="sr-only">Info</span>
+                        <h3 class="text-lg font-medium text-indigo-800">{{ session('message') }}</h3>
+                    </div>
+                    <div class="mt-2 mb-4 text-sm">
+                        Please proceed to Budget Call > MOOE to view your submitted budget.
+                    </div>
+                    <div class="flex">
+                        <a href="/MOOE" class="text-white bg-indigo-800 hover:bg-indigo-900 focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 me-2 text-center inline-flex items-center">
+                            <svg class="me-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                                <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+                            </svg>
+                            Go to MOOE
+                        </a>
+                        <button type="button"
+                            class="text-indigo-800 bg-transparent border border-indigo-800 hover:bg-indigo-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-200 font-medium rounded-lg text-xs px-3 py-1.5 text-center "
+                            data-dismiss-target="#alert-additional-content-1" aria-label="Close">
+                            Dismiss
+                        </button>
+                    </div>
+                </div>
+            @endif
         <div class="p-2">
             <!-- Header -->
-            <div class="w-96 h-9 justify-between items-center inline-flex py-10">
-                <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Maintenance and Other Operating Expenses Document</label>
+            <!-- Header -->
+        <div class="w-110 h-9 justify-between items-center inline-flex py-10">
+            <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">
+                Maintenance and Other Operating Expenses Document
+                <div class="flex flex-row items-center">
+                    <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call
+                        Forms ></label>
+                    <label class="text-black text-sm font-normal font-['Inter'] leading-loose">S.Y. {{ $currentYear }}
+                        - {{ $currentYear + 1 }}</label>
+                </div>
             </div>
+        </div>
 
             <!-- POST FORM START -->
             <form wire::submit="submit">
@@ -20,22 +60,13 @@
                             <!-- Select College/Office -->
                             <div class="w-90 rounded-lg">
                                 @include('components.form-buttons')
-
-                                {{-- <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                    <option value="">Select College/Office</option>
-                                    @foreach ($CollegeOffices as $college)
-                                    <option value="{{$college}}">{{$college}}</option>
-                                    @endforeach
-
-                                    <!-- Other options -->
-                                </select>
-                                @error('college_office')
+                                @error('CollegeOffice')
                                 <span class="text-red-500">{{ $message }}</span>
-                                @enderror --}}
+                                @enderror
                             </div>
                             {{-- <input type="date" class="w-80 h-10 rounded-lg border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="School Year"> --}}
                         </div>
-                        @include('components.import-button')
+                        {{-- @include('components.import-button') --}}
                     </div>
 
                     @csrf
@@ -71,6 +102,14 @@
                                 <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
                                     <input type="text" class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 " placeholder="-" readonly/>
                                 </td>
+
+                                @elseif ($CollegeOffice == "")
+                                    <td scope="row"
+                                        class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
+                                        <input type="text"
+                                            class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900 "
+                                            placeholder="-" readonly />
+                                    </td>
                                 @else
                                 <td scope="row" class="pr-5 py-2 text-zinc-950 text-sm font-medium font-['Inter'] leading-snug">
 
@@ -80,16 +119,24 @@
 
 
                                 <td class="px-4 py-2">
-
-
-
-
                                     {{-- input 1 for proposed budget  --}}
+                                    @if ($flag == 1)
+                                    <input type="number" step="0.01" name="budget"
+                                        wire:model="items.{{ $index }}.budget"
+                                        class="w-36 h-8 px-3 py-2 bg-gray-50 text-sm rounded-md shadow border border-zinc-200 text-gray-900"
+                                        placeholder="-" min="0" oninput="this.value = Math.abs(this.value)"
+                                        disabled>
+                                @else
+                                    <input type="number" step="0.01" name="budget"
+                                        wire:model="items.{{ $index }}.budget"
+                                        class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight"
+                                        placeholder="₱ 0.00" min="0" max="9999999999" maxlength="10"
+                                        oninput="this.value = Math.abs(this.value.slice(0, 10))">
+                                @endif
 
-                                    <input type="number" step="0.01" name="budget" wire:model="items.{{ $index }}.budget" class="w-36 h-8 px-3 py-2 rounded-md shadow border border-zinc-200 items-center gap-2 inline-flex bg-transparent text-zinc-500 text-sm font-normal font-['Inter'] leading-tight" placeholder="₱ 0.00">
-                                    @error('items.' . $index . '.budget')
+                                @error('items.' . $index . '.budget')
                                     <span class="text-red-500">{{ $message }}</span>
-                                    @enderror
+                                @enderror
                                 </td>
                                 <td class="px-3 py-2">
 
@@ -117,12 +164,6 @@
 
             </form>
 
-            @foreach ($items as $index => $item)
-            <?php
-            echo $item['budget'];
-            echo $item['justification'];
-            ?>
-            @endforeach
 
 
 

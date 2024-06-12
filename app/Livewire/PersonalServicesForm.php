@@ -5,11 +5,60 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\PersonalServices;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class PersonalServicesForm extends Component
 {
-    public $CollegeOffices = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA', 'Board of Regents', 'PLM Office of the President', 'Office of the Registrar', 'Admission', 'Office of the Executive Preisdent', 'Office of the Vice President for Academic Support Units', 'Office of University Legal Council', 'Office of the Vice President for Information and Communications', 'Office of the Vice President for Administration', 'Office of the Vice President for Finance', 'Cash Office/Treasury', 'Budget Office', 'Internal Audit Office', 'ICTO', 'Office of Guidance and Testing Services', 'Office of Student and Development Services', 'University Library', 'University Research Center', 'Center for University Extension Service', 'University Health Service', 'National Service Training Program', 'Human Resource Development Office', 'Procurement Office', 'Property and Supplies Office', 'Physical Facilities Management Office', 'University Security Office'];
-    public $college_office = '';
+    //variables
+    public $existingRecord = false;
+    public $ComparativeDataBudget = 0;
+    public $year = 0;
+
+    public $college_office = [
+        'CASBE',
+        'CBA',
+        'CA',
+        'CTHM',
+        'CEng',
+        'CISTM',
+        'CHASS',
+        'CED',
+        'CN',
+        'CPT',
+        'CS',
+        'CL',
+        'GSL',
+        'CM',
+        'CPA',
+        'Board of Regents',
+        'PLM Office of the President',
+        'Office of the Registrar',
+        'Admission',
+        'Office of the Executive Preisdent',
+        'Office of the Vice President for Academic Support Units',
+        'Office of University Legal Council',
+        'Office of the Vice President for Information and Communications',
+        'Office of the Vice President for Administration',
+        'Office of the Vice President for Finance',
+        'Cash Office/Treasury',
+        'Budget Office',
+        'Internal Audit Office',
+        'ICTO',
+        'Office of Guidance and Testing Services',
+        'Office of Student and Development Services',
+        'University Library',
+        'University Research Center',
+        'Center for University Extension Service',
+        'University Health Service',
+        'National Service Training Program',
+        'Human Resource Development Office',
+        'Procurement Office',
+        'Property and Supplies Office',
+        'Physical Facilities Management Office',
+        'University Security Office',
+    ];
+    public $CollegeOffice = '';
+    public $currentYear = 0;
     public $items = [
         ['account_code' => '5-01-01-010', 'item' => 'Salaries & Wages - Regular', 'budget' => '', 'justification' => ''],
         ['account_code' => '5-01-01-020', 'item' => 'Salaries & Wages - Casual', 'budget' => '', 'justification' => ''],
@@ -30,7 +79,7 @@ class PersonalServicesForm extends Component
         ['account_code' => '5-01-03-030', 'item' => 'PHILHEALTH Contributions (2.5% of salaries & wages - regular and casual)', 'budget' => '', 'justification' => ''],
         ['account_code' => '5-01-03-040', 'item' => 'ECC Contributions (₱1,200.00/position and annum)', 'budget' => '', 'justification' => ''],
         ['account_code' => '5-01-04-030', 'item' => 'Terminal Leave Benefits (accum. leave credits of retired emp.)', 'budget' => '', 'justification' => ''],
-        ['account_code' => '5-01-04-990', 'item' => 'Other Personnel Benefits', 'budget' => '', 'justification' => '']
+        ['account_code' => '5-01-04-990', 'item' => 'Other Personnel Benefits', 'budget' => '', 'justification' => ''],
     ];
 
     protected $rules = [
@@ -83,11 +132,29 @@ class PersonalServicesForm extends Component
         // }
     }
 
-    public function goBack() {
-        return redirect ()->to('/dashboard');
+    public function goBack()
+    {
+        return redirect()->to('/');
     }
     public function render()
     {
+        $this->college_years = PersonalServices::select(DB::raw('YEAR(created_at) as year'))->distinct()->orderBy('year', 'desc')->pluck('year')->toArray();
+
+        $this->currentYear = date('Y');
+        if (in_array($this->currentYear, $this->college_years)) {
+            session()->flash('message', 'You have already submitted some Personal Services Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
+        }
+
+        $existingRecord = PersonalServices::where('college_office', $this->CollegeOffice)
+            ->whereRaw('YEAR(created_at) = YEAR(CURDATE())')
+            ->first();
+
+        if ($existingRecord) {
+            $this->flag = 1;
+            // dd($this->flag);
+        } else {
+            $this->flag = 0;
+        }
         return view('livewire.personal-services-form');
     }
 }

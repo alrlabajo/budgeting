@@ -12,6 +12,8 @@ class MaintenanceForm extends Component
     public $college_office = ['CASBE', 'CBA', 'CA', 'CTHM', 'CEng', 'CISTM', 'CHASS', 'CED', 'CN', 'CPT', 'CS', 'CL', 'GSL', 'CM', 'CPA', 'Board of Regents', 'PLM Office of the President', 'Office of the Registrar', 'Admission', 'Office of the Executive Preisdent', 'Office of the Vice President for Academic Support Units', 'Office of University Legal Council', 'Office of the Vice President for Information and Communications', 'Office of the Vice President for Administration', 'Office of the Vice President for Finance', 'Cash Office/Treasury', 'Budget Office', 'Internal Audit Office', 'ICTO', 'Office of Guidance and Testing Services', 'Office of Student and Development Services', 'University Library', 'University Research Center', 'Center for University Extension Service', 'University Health Service', 'National Service Training Program', 'Human Resource Development Office', 'Procurement Office', 'Property and Supplies Office', 'Physical Facilities Management Office', 'University Security Office'];
     public $CollegeOffice = '';
 
+    public $currentYear = 0;
+
     public $existingRecord = false;
     public $ComparativeDataBudget = 0;
     public $flag = 0;
@@ -64,7 +66,7 @@ class MaintenanceForm extends Component
         try {
             foreach ($this->items as $item) {
                 // dd("Inserting data into database");
-                $existingRecord = CapitalOutlay::where('college_office', $this->college_office)
+                $existingRecord = Mooe::where('college_office', $this->college_office)
                 ->where('account_code', $item['account_code'])
                 ->where('item', $item['item'])
                 ->whereRaw('YEAR(created_at) = YEAR(CURDATE())')
@@ -74,7 +76,7 @@ class MaintenanceForm extends Component
                     // Return error message if record already exists
 
                     session()->flash('message', 'Record already exists for ' . $this->college_office . ' for school year ' . date('Y') . ' - ' . (date('Y') + 1) . '.');
-                    return redirect()->to('/capital-outlay-form');
+                    return redirect()->to('/MOOE-form');
                 }
                 else {
                         Mooe::create([
@@ -84,7 +86,12 @@ class MaintenanceForm extends Component
                             'budget' => $item['budget'],
                             'justification' => $item['justification'],
                         ]);
-                    }
+                }
+                // Flash success message
+                session()->flash('message', 'Form submitted successfully.');
+                $this->reset();
+                return redirect()->to('/MOOE');
+
             }
         } catch (\Exception $e) {
             // Log error
@@ -99,8 +106,9 @@ class MaintenanceForm extends Component
 
     }
 
-    public function goBack() {
-        return redirect ()->to('/');
+    public function goBack()
+    {
+        return redirect()->to('/');
     }
     public function render()
     {
@@ -137,7 +145,7 @@ class MaintenanceForm extends Component
             // dd($this->college_years, $this->currentYear);
             if (in_array($this->currentYear, $this->college_years)) {
                 $this->flag = 1;
-                session()->flash('message', 'You have already submitted some Capital Outlay Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
+                session()->flash('message', 'You have already submitted some MOOE Forms for this school year ' . $this->currentYear . ' - ' . ($this->currentYear + 1) . '.');
             }
 
         return view('livewire.maintenance-form', [

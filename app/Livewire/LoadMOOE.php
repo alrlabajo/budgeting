@@ -14,8 +14,12 @@ class LoadMOOE extends Component
 
     use WithPagination;
 
+    public $editedBudgetIndex = null;
     public $load_mooe = [];
-    public $year = [];
+
+
+    public $college = '';
+    public $year = 0;
 
     #College office List#
 
@@ -27,6 +31,23 @@ class LoadMOOE extends Component
         return redirect()->to('/');
     }
 
+    public function editBudget($index)
+    {
+
+        $this->editedBudgetIndex = $index;
+    }
+
+    public function saveBudget($budgetIndex) {
+        $loadMooe = $this->load_mooe[$budgetIndex] ?? NULL;
+        if(!is_null($loadMooe)) {
+            $editedBudget = Mooe::find($loadMooe['mooe_id']);
+            if ($editedBudget) {
+                $editedBudget->update($loadMooe);
+            }
+        }
+        $this->editedBudgetIndex = null;
+    }
+
     // public $college_years;
     public function render()
     {
@@ -36,10 +57,26 @@ class LoadMOOE extends Component
                                     ->orderBy('year', 'desc')
                                     ->pluck('year')
                                     ->toArray();
-        // dd($this->college_years);
+
+        $this->load_mooe = Mooe::when($this->college !== '', function ($query) {
+            $query->where('college_office', $this->college);
+        })->when($this->year !== 0, function ($query) {
+            $query->whereYear('created_at', '=', $this->year);
+        })->get()->toArray();
+
+        if ($this->college == '') {
+            $total_expenses = Mooe::sum('budget');
+        }
+        else {
+            $total_expenses = Mooe::where('college_office', $this->college)->sum('budget');
+        }
+
+        $english_format_number = number_format($total_expenses, 2);
+
 
         return view('livewire.mooe', [
-            'college_office_list' => $this->college_office,
+            'totalExpenses' => $english_format_number,
+            'load_mooe' => $this->load_mooe,
             'college_years' => $this->college_years,
         ]);
     }

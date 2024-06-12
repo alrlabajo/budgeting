@@ -26,6 +26,11 @@
 
                 <table id="capital-outlay-table" class="min-w-full divide-y divide-gray-200 items-center">
                     <thead>
+                        @if($college !== "")
+                            <tr>
+                                <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300" colspan="6">{{ $college }}</th>
+                            </tr>
+                        @endif
                         <tr>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Class Year</th>
                             <th scope="col" class="px-2 py-3 text-black text-sm font-bold font-['Inter'] leading-tight border border-slate-300">Account Code</th>
@@ -36,8 +41,6 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        {{-- <form wire:submit="saveBudget"> --}}
-                        {{-- @foreach ($capitalOutlay as $capital_outlay) --}}
                         @foreach ($budgets as $index => $budget)
                             <tr class="items-center">
                                 <td class="px-2 py-1 text-sm text-black border border-slate-300 whitespace-wrap">{{ \Carbon\Carbon::parse($budget['created_at'])->format('Y') }} - {{ \Carbon\Carbon::parse($budget['created_at'])->addYear()->format('Y') }}</td>
