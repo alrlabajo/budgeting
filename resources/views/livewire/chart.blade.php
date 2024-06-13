@@ -1,20 +1,22 @@
 <div class="p-1 sm:ml-64">
     <x-slot name="title">PLM Budgeting Dashboard</x-slot>
-    <div class="flex-col grid grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-4 px-4 py-6">
+    <div class="flex-col grid grid-cols-3 md:grid-cols-3 p1:grid-cols-1  sm:grid-cols-1  gap-4 px-4 py-6">
         <!-- WELCOME! -->
-        <div class="relative max-w-xl max-h-xl rounded-lg shadow border border-gray border-opacity-50 bg-cover bg-center">
+        <div class="sm:relative max-w-xl max-h-xl rounded-lg shadow border border-gray border-opacity-50 bg-cover bg-center">
             <div class="absolute inset-0 rounded-lg"></div>
             <img class="w-[540px] h-[350px] opacity-40 mx-auto mt-auto" src="css/images/background.png">
             <div class="absolute inset-0 flex flex-col items-start ml-6 justify-top text-left left-2 mt-8">
-                <div class="flex items-center">
+                <div class="flex items-center sm:mt-0 p1:mt-28 p6:mt-0">
                     <img class="w-[50px] h-[50px]" src="css/images/image 5.png">
                     <img class="h-[40px] ml-2" src="css/images/image 4.png">
                 </div>
-                <h1 class="text-2xl font-extrabold ml-2 mt-3 mb-3 text-blue-800 z-10 relative">PLM Budget System</h1>
-                <h3 class="text-[55px] font-extrabold ml-2 mb-1 text-blue-800 z-10 relative">Welcome,</h3>
-                <h2 class="text-2xl font-bold ml-2 text-cyan-800 z-10 relative">Maribeth Solquio.</h2>
+                <h1 class="sm:text-2xl p1:text-lg font-extrabold ml-2 mt-3 p1:mt-4 mb-3 text-blue-800 z-10 relative">PLM Budget System</h1>
+                <h3 class="p1:text-[44px] sm:text-[55px] large_computer:text-[55px] font-extrabold ml-2 mb-1 text-blue-800 z-10 relative">Welcome,</h3>
+                <h2 class="sm:text-2xl p1:text-xl font-bold ml-2 text-cyan-800 z-10 relative">Maribeth Solquio.</h2>
             </div>
         </div>
+
+
         <div class="flex flex-col space-y-4">
             <!-- Budget Call Forms -->
             <div class="max-w-xl h-48 md:h-52 sm:h-64 rounded-lg shadow border border-gray border-opacity-20 justify-center ">
@@ -66,24 +68,24 @@
                 </div>
 
                 <div class="grid grid-cols-2 p-2 md:gap-x-1 md:grid-cols-2 sm:grid-cols-1 justify-items-center sm:py-2 md:gap-y-2 sm:gap-y-2 sm:gap-x-2">
-                    <div class="flex items-center justify-center w-44 h-16 bg-blue-800  text-white rounded-md">
+                    <div class="flex items-center justify-center p1:w-36 p1:h-16 sm:w-44 sm:h-16 small_computer:w-36 low-medium_computer:w-40 mid-medium_computer:w-44 high-medium_computer:w-48 large_computer:w-60 bg-blue-800  text-white rounded-md">
                         <a href="/BUR-form" class="text-sm text-white btn text-center">Budget Utilization<br>Request</a>
                     </div>
-                    <div class="flex items-center justify-center w-44 h-16 bg-blue-800 text-white rounded-md">
+                    <div class="flex items-center justify-center p1:w-36 p1:h-16 sm:w-44 sm:h-16 small_computer:w-36 low-medium_computer:w-40 mid-medium_computer:w-44 high-medium_computer:w-48 large_computer:w-60 bg-blue-800 text-white rounded-md">
                         <a href="/amendment-form" class="text-sm text-white btn text-center">Amendment</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Calendar -->
-        <div class="relative flex flex-col items-center max-w-full md:w-[290px] md:max-w-xl rounded-lg shadow border border-gray border-opacity-20 ">
+        <div class="relative flex flex-col items-center max-w-full md:w-[290px] md:max-w-xl large_computer:w-[290px] rounded-lg shadow border border-gray border-opacity-20 ">
             <livewire:calendar />
         </div>
     </div>
 
-    <div class="flex flex-row gap-x-4 px-4">
+    <div class="flex p1:flex-col sm:flex-row large_computer:flex-row  gap-x-4 px-4 ">
         <!-- Status of Appropriations -->
-        <div class="flex flex-col w-1/2 max-h-xl rounded-lg shadow border border-gray border-opacity-20">
+        <div class="flex flex-col p1:max-w-full sm:w-1/2 max-h-xl rounded-lg shadow border border-gray border-opacity-20">
             <!-- Title -->
             <div class="flex items-center gap-x-3 px-3 mt-5">
                 <img class="w-[30px] h-[30px]" src="css/images/icon1.png">
@@ -92,9 +94,9 @@
             <h2 class="text-[15px] font-extrabold ml-14 text-cyan-800">Budget Call Documents</h2>
             <div class="flex justify-end pr-5 mb-2">
                 <select class="border border-gray-300 rounded-md p-2">
-                    <option value="option1">Select Form</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
+                    <option value="option1">Personal Services</option>
+                    <option value="option2">MOOE</option>
+                    <option value="option3">Capital Outlay</option>
                 </select>
             </div>
             <!-- Donut Chart -->
@@ -132,7 +134,7 @@
 
         </div>
         <!-- Project Procurement Management Plan -->
-        <div class="w-[490px] max-h-xl rounded-lg shadow border border-gray border-opacity-20">
+        <div class="w-[490px] large_computer:w-[550px] p1:max-w-full sm:max-h-xl rounded-lg shadow border border-gray border-opacity-20">
             <div class="flex items-center gap-x-3 px-3 mt-5">
                 <img class="w-[30px] h-[30px]" src="css/images/icon1.png">
                 <h1 class="text-[20px] font-extrabold text-blue-800 mb-1">Project Procurement Management Plan</h1>

@@ -85,7 +85,6 @@ class LoadPersonalServices extends Component
 
 
 
-
         return view('livewire.personal-services',[
             'totalExpenses' => $english_format_number,
             'load_personalservices' => $this->load_personalservices,

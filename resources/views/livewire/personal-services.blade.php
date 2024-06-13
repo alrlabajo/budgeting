@@ -9,7 +9,7 @@
                         <label class="text-black text-sm font-normal font-['Inter'] leading-loose">Personal Services Form No. 2</label>
                     </div>
                 </div>
-                @include('components.personal-services-export')
+                @include('components.capital-outlay-export')
             </div>
 
             <div class="w-full h-full p-3 bg-white rounded-lg shadow border border-zinc-300 space-y-4">

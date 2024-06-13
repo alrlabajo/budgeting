@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('grade_step');
             $table->string('position');
             $table->string('name_incumbent');
-            $table->decimal('annual_salary', 10, 2);
-            $table->decimal('proposed_salary', 10, 2);
-            $table->decimal('increase', 10, 2);
-            $table->decimal('total', 10, 2);
-            $table->decimal('sub_total', 10, 2);
+            $table->decimal('annual_salary', 12, 2);
+            $table->decimal('proposed_salary', 12, 2);
+            $table->decimal('increase', 12, 2);
+            $table->decimal('total', 12, 2);
+            $table->decimal('sub_total', 12, 2);
             $table->timestamps();
         });
     }

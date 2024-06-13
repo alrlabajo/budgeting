@@ -11,9 +11,9 @@
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
                         </svg>
                     </button>
-                    <a href="/" class="flex ms-2 md:me-96 w-full">
-                        <img src="{{ asset('css/images/image 5.png') }}" class="w-20 h-20" alt="PLM Logo" />
-                        <span class="flex items-center w-80 text-indigo-800 text-2xl font-extrabold font-['Inter'] ml-3 leading-10">PLM Budget System</span>
+                    <a href="/" class="flex ms-2 md:me-96 sm:20 sm:20 p1:w-30 p1:h-20">
+                        <img src="{{ asset('css/images/image 5.png') }}" class="sm:w-20 sm:h-20 sm:mt-0 p1:w-14 p1:h-14 p1:mt-3" alt="PLM Logo" />
+                        <span class="flex items-center w-80 text-indigo-800 sm:text-2xl p1:text-lg font-extrabold font-['Inter'] ml-3 leading-10">PLM Budget System</span>
                     </a>
                 </div>
 
@@ -216,8 +216,9 @@
                     </div>
                 </li>
                 <!-- Settings -->
+                {{--sm:py-28 small_computer:py-52 low-medium_computer:py-56 mid-medium_computer:py-56  --}}
                 <li>
-                    <a href="/settings" class="flex-w-50 px-4 py-2 mt-44 flex items-center rounded-md hover:bg-[#2C56A6] active:bg-[#4F74BB]">
+                    <a href="/settings" class="flex-w-50 px-4 mt-4 flex items-center rounded-md hover:bg-[#2C56A6] active:bg-[#4F74BB]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                             <path d="M13.0503 6.06856C13.5634 3.95501 16.5693 3.95501 17.0824 6.06856C17.4138 7.43389 18.9781 8.08182 20.1779 7.35076C22.0352 6.21907 24.1607 8.34454 23.029 10.2019C22.2979 11.4017 22.9458 12.9659 24.3112 13.2974C26.4247 13.8105 26.4247 16.8163 24.3112 17.3294C22.9458 17.6609 22.2979 19.2251 23.029 20.4249C24.1607 22.2823 22.0352 24.4077 20.1779 23.276C18.9781 22.545 17.4138 23.1929 17.0824 24.5582C16.5693 26.6718 13.5634 26.6718 13.0503 24.5582C12.7188 23.1929 11.1546 22.545 9.95479 23.276C8.09747 24.4077 5.972 22.2823 7.10369 20.4249C7.83475 19.2251 7.18682 17.6609 5.82149 17.3294C3.70794 16.8163 3.70794 13.8105 5.82149 13.2974C7.18682 12.9659 7.83475 11.4017 7.10369 10.2019C5.972 8.34454 8.09747 6.21907 9.95479 7.35076C11.1546 8.08182 12.7188 7.43389 13.0503 6.06856Z" stroke="white" stroke-width="2.40667" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M18.6763 15.3134C18.6763 17.3071 17.0601 18.9234 15.0663 18.9234C13.0726 18.9234 11.4563 17.3071 11.4563 15.3134C11.4563 13.3197 13.0726 11.7034 15.0663 11.7034C17.0601 11.7034 18.6763 13.3197 18.6763 15.3134Z" stroke="white" stroke-width="2.40667" stroke-linecap="round" stroke-linejoin="round" />
@@ -230,3 +231,5 @@
     </aside>
 
 </div>
+
+

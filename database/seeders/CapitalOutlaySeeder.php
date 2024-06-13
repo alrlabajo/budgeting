@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Amendment;
+use App\Models\Bur;
+use App\Models\ActivityJustification;
+use App\Models\PersonnelSchedule;
 use App\Models\PersonalServices;
 use App\Models\CapitalOutlay;
 use App\Models\Mooe;
+use App\Models\PPMP;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
@@ -79,6 +84,97 @@ class CapitalOutlaySeeder extends Seeder
         ['account_code' => '5-01-01-180', 'item' => 'Rep. Maint. - Buildings & Other Structures', 'budget' => '', 'justification' => '']
     ];
 
+    public $ppmp_items = [
+        [
+            'program_title' => 'COLLEGE/OFFICE WEEK',
+            'project_title' => 'Selecting the best week for the college/office',
+            'type_contract' => 'Quarter',
+            'account_title' => '',
+            'item_name' => 'Item',
+            'unit_issue' => '1',
+            'unit_price' => '',
+            'quantity' => '120',
+            'account_code' => 'xx-xx-xxxxx',
+            'description' => '',
+            'procurement_method' => '',
+            'estimated_budget' => '',
+            'Jan' => '',
+            'Feb' => '',
+            'Mar' => '',
+            'Apr' => '',
+            'May' => '',
+            'Jun' => '',
+            'Jul' => '',
+            'Aug' => '',
+            'Sep' => '',
+            'Oct' => '',
+            'Nov' => '',
+            'Dec' => '',
+        ]
+    ];
+
+    public $personnel_items = [
+            'item_no' => '',
+            'grade_step' => '',
+            'position' => '',
+            'name_incumbent' => '',
+            'annual_salary' => '',
+            'proposed_salary' => '',
+            'increase' => '',
+            'total' => '',
+            'sub_total' => ''
+    ];
+
+    public $activity_items = [
+        [
+            'statement_major' => '',
+            'statement_specific' => '',
+            'activity_justification' => '',
+            'estimated_no_students' => '',
+            'total_cost' => '',
+            'cost_per_student' => '',
+            'method_accomplishing' => '',
+            'services_budget' => '',
+            'mooe_budget' => '',
+            'capital_outlay_budget' => '',
+            'total' => ''
+        ]
+    ];
+
+    public $bur_items = [
+        [
+            'no' => '',
+            'payee' => '',
+            'office' => '',
+            'address' => '',
+            'responsibility_center' => '',
+            'account_code' => '',
+            'particulars' => '',
+            'amount' => ''
+        ]
+    ];
+
+    public $amend_items = [
+        [
+            'No' => '',
+            'plan_no_revised' => '',
+            'date_revision' => '',
+            'planned_amount' => '',
+            'date_submission' => '',
+            'item_No' => '',
+            'description' => '',
+            'quantity' => '',
+            'unit' => '',
+            'unit_cost' => '',
+            'amount' => '',
+            'procurement_quantity' => '',
+            'procurement_amount' => '',
+            'procurement_justification' => ''
+        ]
+    ];
+
+
+
 
     public $NumberOfYears = 3;
 
@@ -90,7 +186,7 @@ class CapitalOutlaySeeder extends Seeder
             $this->college_office = $college_office;
 
 
-            for($this->i = 1; $this->i <= 3; $this->i++) {
+            for($this->i = 0; $this->i <= 3; $this->i++) {
                 foreach ($this->capital_items as $item) {
                     CapitalOutlay::create([
                     'college_office' => $college_office,
@@ -105,7 +201,7 @@ class CapitalOutlaySeeder extends Seeder
                 }
             }
 
-            for($this->i = 1; $this->i <= 3; $this->i++) {
+            for($this->i = 0; $this->i <= 3; $this->i++) {
                 foreach ($this->moooe_items as $item) {
                     Mooe::create([
                     'college_office' => $college_office,
@@ -120,7 +216,7 @@ class CapitalOutlaySeeder extends Seeder
                 }
             }
 
-            for($this->i = 1; $this->i <= 3; $this->i++) {
+            for($this->i = 0; $this->i <= 3; $this->i++) {
                 foreach ($this->ps_items as $item) {
                     PersonalServices::create([
                     'college_office' => $college_office,
@@ -133,6 +229,135 @@ class CapitalOutlaySeeder extends Seeder
                     'updated_at' => Carbon::now()->subYear($this->i)->subDays(),
                     ]);
                 }
+            }
+
+            for($this->i = 0; $this->i <= 3; $this->i++) {
+                foreach ($this->ppmp_items as $item) {
+                    PPMP::create([
+                    'college_office' => $college_office,
+                    'program_title'=>  $item['program_title'],
+                    'project_title'=>  $item['project_title'],
+                    'type_contract'=>  $item['type_contract'],
+                    'account_title'=>  'Title - '.$this->college_office,
+                    'item_name'=>  $item['item_name'],
+                    'unit_issue'=>  $item['unit_issue'],
+                    'unit_price'=>  mt_rand(1000000, 9999999),
+                    'quantity'=>  $item['quantity'],
+                    'account_code'=>  $item['account_code'],
+                    'description'=>  "test data - ".$this->college_office,
+                    'procurement_method'=>  "Cash / Cheque",
+                    'estimated_budget'=>  mt_rand(1000000, 9999999),
+                    'Jan'=>  (bool)random_int(0, 1),
+                    'Feb'=>  (bool)random_int(0, 1),
+                    'Mar'=>  (bool)random_int(0, 1),
+                    'Apr'=> (bool)random_int(0, 1),
+                    'May'=>  (bool)random_int(0, 1),
+                    'Jun'=>  (bool)random_int(0, 1),
+                    'Jul'=>  (bool)random_int(0, 1),
+                    'Aug'=>  (bool)random_int(0, 1),
+                    'Sep'=>  (bool)random_int(0, 1),
+                    'Oct'=>  (bool)random_int(0, 1),
+                    'Nov'=>  (bool)random_int(0, 1),
+                    'Dec'=>  (bool)random_int(0, 1),
+
+                    //change subYear number to 1 if current year, 2 if previous year
+                    'created_at' => Carbon::now()->subYear($this->i)->subDays(),
+                    'updated_at' => Carbon::now()->subYear($this->i)->subDays(),
+                    ]);
+                }
+
+                for($this->i = 0; $this->i <= 3; $this->i++) {
+                    foreach ($this->personnel_items as $item) {
+                        PersonnelSchedule::create([
+                        'college_office' => $college_office,
+                        'item_no' => mt_rand(1, 99),
+                        'grade_step' => '1',
+                        'position' => 'Officer - '.$this->college_office,
+                        'name_incumbent' => 'Name -'.$this->college_office,
+                        'annual_salary' => mt_rand(1000000, 9999999),
+                        'proposed_salary' => mt_rand(1000000, 9999999),
+                        'increase' => mt_rand(1000000, 9999999),
+                        'total' => mt_rand(1000000, 9999999),
+                        'sub_total' => mt_rand(1000000, 9999999),
+                        //change subYear number to 1 if current year, 2 if previous year
+                        'created_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        'updated_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        ]);
+                    }
+                }
+
+                for($this->i = 0; $this->i <= 3; $this->i++) {
+                    foreach ($this->activity_items as $item) {
+                        ActivityJustification::create([
+                        'college_office' => $college_office,
+                        'statement_major' => 'Statement Major - '.$this->college_office,
+                        'statement_specific' => 'Statement Specific - '.$this->college_office,
+                        'activity_justification' => 'Activity Justification - '.$this->college_office,
+                        'estimated_no_students' => mt_rand(1, 99),
+                        'total_cost' => mt_rand(1000000, 9999999),
+                        'cost_per_student' => mt_rand(1000000, 9999999),
+                        'method_accomplishing' => 'Method Accomplishing - '.$this->college_office,
+                        'services_budget' => mt_rand(1000000, 9999999),
+                        'mooe_budget' => mt_rand(1000000, 9999999),
+                        'capital_outlay_budget' => mt_rand(1000000, 9999999),
+                        'total' => mt_rand(1000000, 9999999),
+
+                        //change subYear number to 1 if current year, 2 if previous year
+                        'created_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        'updated_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        ]);
+                    }
+                }
+
+                for($this->i = 0; $this->i <= 3; $this->i++) {
+                    foreach ($this->bur_items as $item) {
+                        Bur::create([
+                        'college_office' => $college_office,
+                        'cfa_number' => 'CFA - '.$this->college_office,
+                        'no' => mt_rand(1, 99),
+                        'payee' => 'Payee - '.$this->college_office,
+                        'office' => 'Office - '.$this->college_office,
+                        'address' => 'Address - '.$this->college_office,
+                        'responsibility_center' => 'Responsibility Center - '.$this->college_office,
+                        'account_code' => 'Account Code - '.$this->college_office,
+                        'particulars' => 'Particulars - '.$this->college_office,
+                        'amount' => mt_rand(1000000, 9999999),
+
+                        //change subYear number to 1 if current year, 2 if previous year
+                        'created_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        'updated_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        ]);
+                    }
+                }
+
+                for($this->i = 0; $this->i <= 3; $this->i++) {
+                    foreach ($this->amend_items as $item) {
+                        Amendment::create([
+                        'college_office' => $college_office,
+                        'No' => mt_rand(1, 99),
+                        'plan_no_revised' => mt_rand(1, 99),
+                        'date_revision' => Carbon::now()->subYear($this->i)->subDays(),
+                        'planned_amount' => mt_rand(1000000, 9999999),
+                        'date_submission' => Carbon::now()->subYear($this->i)->subDays(),
+                        'item_No' => mt_rand(1, 99),
+                        'description' => 'Description - '.$this->college_office,
+                        'quantity' => mt_rand(1, 99),
+                        'unit' => 'Unit - '.$this->college_office,
+                        'unit_cost' => mt_rand(1000000, 9999999),
+                        'amount' => mt_rand(1000000, 9999999),
+                        'procurement_quantity' => mt_rand(1, 99),
+                        'procurement_amount' => mt_rand(1000000, 9999999),
+                        'procurement_justification' => 'Procurement Justification - '.$this->college_office,
+
+                        //change subYear number to 1 if current year, 2 if previous year
+                        'created_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        'updated_at' => Carbon::now()->subYear($this->i)->subDays(),
+                        ]);
+                    }
+                }
+
+
+
             }
         }
 

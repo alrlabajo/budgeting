@@ -43,7 +43,7 @@
             </script>
 
             <!-- Top Cover -->
-            <div class="relative w-[1472px] h-44 border-opacity-20 bg-cover bg-center mt-[-280px] " style="background-image: url('css/images/image 3.png'); z-index: 1;">
+            <div class="relative w-full h-44 border-opacity-20 bg-cover bg-center mt-[-280px] " style="background-image: url('css/images/image 3.png'); z-index: 1;">
                 <div class="absolute inset-0 rounded-lg"></div>
                 <div class="absolute inset-0 flex flex-col items-start justify-top text-left mt-8">
                 </div>

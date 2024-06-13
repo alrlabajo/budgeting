@@ -3,10 +3,18 @@
     <div class="p-2">
 
         <!-- Header -->
-        <div class="w-96 h-9 justify-between items-center inline-flex py-10">
-            <label class="w-96 h-8 absolute text-indigo-800 text-3xl font-extrabold font-['Inter'] leading-9 whitespace-nowrap">Project Procurement Management Plan Document</label>
+        <!-- Header -->
+        <div class="w-full h-9 justify-between items-center inline-flex py-10">
+            <div class="flex flex-col gap-y-2 text-indigo-800 text-[25px] font-extrabold font-['Inter'] leading-5">
+                Project Procurement Management Plan Document
+                <div class="flex flex-row items-center">
+                    <label class="text-yellow-700 text-sm font-normal font-['Inter'] leading-loose mr-1">Budget Call
+                        Forms ></label>
+                    <label class="text-black text-sm font-normal font-['Inter'] leading-loose">S.Y. {{ $currentYear }}
+                        - {{ $currentYear + 1 }}</label>
+                </div>
+            </div>
         </div>
-
         <!-- POST FORM START -->
         <form wire:submit="submit">
 
@@ -17,23 +25,9 @@
                 <div class="flex justify-between py-1">
 
                     <div class="flex flex-col space-y-3">
-
-                        <!-- Select College/Office -->
-                        <div class="w-80 rounded-lg">
-                            <select wire:model="college_office" id="college_office" name="college_office" class="block w-full h-10 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="text-indent: 10px;">
-                                <option value="">Select College/Office</option>
-                                @foreach ($CollegeOffices as $college)
-                                <option value="{{$college}}">{{$college}}</option>
-                                @endforeach
-
-                                <!-- Other options -->
-                            </select>
-                            @error('college_office')
-                            <span class="text-red-500">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        @include('components.form-button2')
                     </div>
-                    @include('components.import-button')
+                    {{-- @include('components.import-button') --}}
                 </div>
 
                 <!-- Input Fields -->
@@ -170,13 +164,10 @@
                     </div>
 
                 </div>
-
+                @endforeach
                 <div class="bg-white rounded-lg shadow border border-zinc-300 flex flex-col p-3 space-y-2 w-full">
                     @livewire('month-selector')
                 </div>
-
-
-                @endforeach
 
                 <div class="flex justify-between px-3 py-1">
                     @include('components.back-button')

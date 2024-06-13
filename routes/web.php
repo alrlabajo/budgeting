@@ -27,9 +27,10 @@ use App\Livewire\EditCapitalOutlay;
 
 
 use App\Livewire\LoadCapitalOutlay;
+use App\Livewire\LoadPersonalServices;
+use App\Livewire\LoadPersonnelSchedule;
+
 use App\Livewire\LoadMOOE;
-
-
 
 use App\Livewire\MaintenanceForm;
 use App\Livewire\Mooe;
@@ -40,7 +41,7 @@ use App\Livewire\PersonalServicesForm;
 
 use App\Livewire\PersonnelSchedule;
 use App\Livewire\PersonnelScheduleForm;
-use App\Livewire\PPMP;
+use App\Livewire\LoadPPMP;
 use App\Livewire\PpmpForm;
 use App\Livewire\Settings;
 use App\Livewire\TrackFiles;
@@ -67,6 +68,8 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 })*/
+
+
 
 // Chart
 Route::get('/chart', ChartComponent::class);
@@ -98,11 +101,11 @@ Route::group(['middleware' => ['isAdmin']], function () {
 // Route::group(['middleware' => 'auth'], function () {
 //Record Routes
 Route::get('/activity-justification', ActivityJustification::class);
-Route::get('/personal-services', PersonalServices::class);
-Route::get('/personnel-schedule', PersonnelSchedule::class);
+Route::get('/personal-services', LoadPersonalServices::class);
+Route::get('/personnel-schedule', LoadPersonnelSchedule::class);
 // Route::get('/MOOE', Mooe::class);
 
-Route::get('/PPMP', PPMP::class);
+Route::get('/PPMP', LoadPPMP::class);
 Route::get('/BUR', BUR::class);
 Route::get('/amendment', Amendment::class);
 

@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+/* if blank, it is set to all */
+/* if screen, it is set to screen */
+

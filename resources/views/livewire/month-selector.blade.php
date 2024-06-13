@@ -5,7 +5,7 @@
         <div class="grid grid-cols-4 gap-4">
             @foreach(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as $month)
                 <div>
-                    <input type="checkbox" id="{{ strtolower($month) }}" name="months[]" value="{{ $month }}" wire:model="selectedMonths">
+                    <input type="checkbox" id="{{ strtolower($month) }}" name="months[]" value="{{ $month }}" wire.model="setOfIds">
                     <label for="{{ strtolower($month) }}">{{ $month }}</label>
                 </div>
             @endforeach

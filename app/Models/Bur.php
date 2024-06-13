@@ -12,6 +12,7 @@ class Bur extends Model
     protected $table = 'bur';
 
     protected $fillable = [
+        'college_office',
         'cfa_number',
         'no',
         'payee',
